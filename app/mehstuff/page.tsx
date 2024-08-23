@@ -1,12 +1,10 @@
 "use client";
-import { title } from "@/components/primitives";
 import React, { useState, useEffect } from "react";
 import { cardConfig } from "@/config/CardConfig";
 import { motion } from "framer-motion";
 import { CardThing } from "@/components/cardthing";
-import GamesCarousel from "@/components/GamesCarousel";
 import { crimsonserif } from "@/config/fonts";
-import { headingsDM, paragraph } from "../page";
+import { headingsDM, paragraph } from "@/config/fonts";
 import clsx from "clsx";
 
 export default function StuffPage() {

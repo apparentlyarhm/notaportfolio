@@ -1,21 +1,11 @@
 "use client";
 import { useState } from "react";
 import React, { useEffect } from "react";
-import { Jost, DM_Sans } from "next/font/google";
 import clsx from "clsx";
 import { motion } from "framer-motion";
+import { headingsDM } from "@/config/fonts";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import { Ghosts } from "@/components/ghosts";
-
-export const headingsDM = DM_Sans({
-  weight: "1000",
-  preload: false,
-});
-
-export const paragraph = Jost({
-  weight: ["400", "600"],
-  preload: false,
-});
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
