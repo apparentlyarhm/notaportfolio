@@ -236,6 +236,7 @@ const DraggableSquare: React.FC = () => {
         {inputVisible && (
           <div className="absolute -top-6 -left-60 bg-white text-black p-2 rounded-md shadow-md">
             <input
+              autoFocus={false}
               className="p-1 z-10"
               type="text"
               value={inputValue}
