@@ -4,7 +4,6 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Button,
 } from "@nextui-org/react";
 import clsx from "clsx";
 import { Inter } from "next/font/google";
@@ -28,6 +27,7 @@ export const AboutModal: React.FC<AppProps> = ({
   onOpenChange,
   onClose,
 }) => {
+  const para1 = "";
   return (
     <div className="flex flex-col gap-2 overflow-y-auto">
       <Modal
@@ -61,7 +61,7 @@ export const AboutModal: React.FC<AppProps> = ({
                     modalText.className
                   )}
                 >
-                  Oh boy, time to get a little formal, isn't it? Well, okay.
+                  {"Oh boy, time to get a little formal, isn't it? Well, okay."}
                 </p>
                 <br></br>
                 <p
@@ -70,11 +70,9 @@ export const AboutModal: React.FC<AppProps> = ({
                     modalText.className
                   )}
                 >
-                  I was brought up and raised in Uttar Pradesh, India. Did my
-                  schooling there in DPS (for those unaware, a rather famous
-                  public school "chain" in the country) and for my Bachelor's,
-                  flew all the way over to Chennai at SRM, Kattankulathur, to
-                  pursue Computer Science & Engineering.{" "}
+                  {
+                    "I was brought up and raised in Uttar Pradesh, India. Did my schooling there in DPS (for those unaware, a rather famous public school 'chain' in the country) and for my Bachelor's, flew all the way over to Chennai at SRM, Kattankulathur, topursue Computer Science & Engineering."
+                  }
                 </p>
                 <br></br>
                 <p
@@ -83,12 +81,9 @@ export const AboutModal: React.FC<AppProps> = ({
                     modalText.className
                   )}
                 >
-                  Huge fan of Linus Tech Tips and Micheal Reeves I'd say. Beyond
-                  tech, I love playing games and making music. (Once I build my
-                  own studio its basically over for the music industry /s) I
-                  built this site so that you can get to know me not only
-                  professioanlly but as a person as well. Do not hesitate to
-                  reach out!
+                  {
+                    "Huge fan of Linus Tech Tips and Micheal Reeves I'd say. Beyond tech, I love playing games and making music. (Once I build my own studio its basically over for the music industry /s) I built this site so that you can get to know me not only professioanlly but as a person as well. Do not hesitate to reach out!"
+                  }
                 </p>
                 <br></br>
                 <br></br>
@@ -98,7 +93,7 @@ export const AboutModal: React.FC<AppProps> = ({
                     modalText.className
                   )}
                 >
-                  Shah Mohd. Arhum
+                  {"Shah Mohd. Arhum"}
                 </p>
                 <br />
                 <Image

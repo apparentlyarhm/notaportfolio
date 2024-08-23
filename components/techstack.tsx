@@ -9,7 +9,6 @@ import {
   useDisclosure,
   Input,
 } from "@nextui-org/react";
-import { Crosshair } from "react-feather";
 export interface props {}
 
 export const TechStack: React.FC<props> = (): JSX.Element => {

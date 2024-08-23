@@ -1,29 +1,20 @@
 "use client";
 import * as React from "react";
-import { Button, Timeline } from "flowbite-react";
+import { Timeline } from "flowbite-react";
 import { timelineConfig, jobtimelineConfig } from "@/config/time";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Divider,
-  Link,
-  Image,
-} from "@nextui-org/react";
-import { paragraph, codestuff, headingsDM, crimsonserif } from "@/config/fonts";
+import { Card, CardHeader, CardBody, Divider } from "@nextui-org/react";
+import { paragraph, headingsDM, crimsonserif } from "@/config/fonts";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { CustomFlowbiteTheme } from "flowbite-react";
-import { root } from "postcss";
 
 export interface props {
   timelineConfig: timelineConfig[];
   jobtimelineConfig: jobtimelineConfig[];
 }
 
-export const protimeline: React.FC<props> = ({
+export const Protimeline: React.FC<props> = ({
   timelineConfig,
   jobtimelineConfig,
 }): JSX.Element => {
@@ -85,14 +76,6 @@ export const protimeline: React.FC<props> = ({
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl px-6 sm:px-2 mx-auto">
       {/* Educational Journey Timeline */}
       <Timeline className="max-w-2xl" theme={iwillkillmyself}>
-        {/* <p
-          className={clsx(
-            "sm:p-10 sm:text-2xl p-8 text-lg tracking-tight text-left font-bold",
-            codestuff.className
-          )}
-        >
-          my educational journey:
-        </p> */}
         {timelineConfig.map((item, index) => (
           <Timeline.Item key={index}>
             <Timeline.Point icon={item.icon} />
@@ -140,14 +123,6 @@ export const protimeline: React.FC<props> = ({
 
       {/* Professional Journey Timeline */}
       <Timeline className="max-w-2xl">
-        {/* <p
-          className={clsx(
-            "sm:p-10 sm:text-2xl py-8 text-lg tracking-tight text-left ml-8 sm:ml-1 font-bold",
-            codestuff.className
-          )}
-        >
-          my professional journey:
-        </p> */}
         {jobtimelineConfig.map((item, index) => (
           <Timeline.Item key={index}>
             <Timeline.Point icon={item.icon} />

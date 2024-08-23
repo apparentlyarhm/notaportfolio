@@ -7,9 +7,8 @@ import { headingsDM, codestuff, crimsonserif } from "@/config/fonts";
 import { motion } from "framer-motion";
 import { card, Divider } from "@nextui-org/react";
 import clsx from "clsx";
-import { protimeline as ProTime } from "@/components/protimeline";
+import { Protimeline as ProTime } from "@/components/protimeline";
 import { jobtimelineConfig, timelineConfig } from "@/config/time";
-import DraggableSquare from "@/components/mascotthingidk";
 export default function ProfessionalInfoPage() {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -63,7 +62,7 @@ export default function ProfessionalInfoPage() {
           <div className="px-1 py-2">
             <div className="text-normal font-bold">Quick Disclaimer</div>
             <div className="text-small">
-              I will try my best to update all this regularly.
+              {"I will try my best to update all this regularly."}
             </div>
           </div>
         }
@@ -75,9 +74,9 @@ export default function ProfessionalInfoPage() {
           )}
           variants={containerVariants}
         >
-          "Time, Dr. Freeman? Is it really that time again? It seems as if you
-          only just arrived." The blue timeline is regarding my education and
-          the green one is professional.
+          {
+            "'Time, Dr. Freeman? Is it really that time again? It seems as if you only just arrived.' The blue timeline is regarding my education and the green one is professional."
+          }
         </motion.p>
       </Tooltip>
       <br />
@@ -111,9 +110,9 @@ export default function ProfessionalInfoPage() {
         variants={cardVariants}
         viewport={{ once: true, amount: 0.2 }}
       >
-        "Do I need to be liked? Absolutely not. I like to be liked. I enjoy
-        being liked. I have to be liked. But it’s not like this compulsive need
-        like my need to be praised."
+        {
+          "'Do I need to be liked? Absolutely not. I like to be liked. I enjoy being liked. I have to be liked. But it’s not like this compulsive need like my need to be praised.'"
+        }
       </motion.p>
       <br></br>
       <Divider />

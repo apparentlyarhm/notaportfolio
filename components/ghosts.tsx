@@ -15,7 +15,7 @@ const floatingAnimation = (delay: number) => ({
     duration: 6,
     ease: "easeInOut",
     repeat: Infinity,
-    repeatType: "loop",
+    repeatType: "loop" as const,
     delay, // Introduce a delay
   },
 });

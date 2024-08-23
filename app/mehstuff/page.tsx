@@ -53,8 +53,9 @@ export default function StuffPage() {
             headingsDM.className
           )}
         >
-          Apart from my usual stuff, I've found a passion for gaming and music
-          composition.
+          {
+            "Apart from my usual stuff, I've found a passion for gaming and music composition."
+          }
         </motion.h1>
         <br />
         <br />
@@ -68,10 +69,9 @@ export default function StuffPage() {
             crimsonserif.className
           )}
         >
-          Lets talk games first. Below are some of the games ive played. click
-          on them to get to know my thoughts on them. At times you might think
-          that these just seem like steam reviews and you'd be right- they kinda
-          are but with a bit more personal touch idk lol
+          {
+            "Lets talk games first. Below are some of the games ive played. click on them to get to know my thoughts on them. At times you might think that these just seem like steam reviews and you'd be right- they kinda are but with a bit more personal touch idk lol"
+          }
         </motion.h1>
         <br />
         <br />
@@ -95,11 +95,9 @@ export default function StuffPage() {
             crimsonserif.className
           )}
         >
-          Lets move on to music now. Ever since i discovered Martin Garrix as a
-          teen, i was obsessed with music and EDM in general. Soon afer I got my
-          hands on a *cough* legit copy of FL Studio and the rest was history.
-          The songs I've shared below are the ones ive spent the most time on
-          and think passes my 'threshold' of satisfaction.
+          {
+            "Lets move on to music now. Ever since i discovered Martin Garrix as a teen, i was obsessed with music and EDM in general. Soon afer I got my hands on a *cough* legit copy of FL Studio and the rest was history. The songs I've shared below are the ones ive spent the most time on and think passes my 'threshold' of satisfaction."
+          }
         </motion.h1>
         <br />
       </div>
