@@ -37,7 +37,6 @@ export const Navbar = () => {
     <>
       <NextUINavbar
         position="sticky"
-        shouldHideOnScroll
         maxWidth="xl"
         isBordered
         onMenuOpenChange={setIsMenuOpen}
