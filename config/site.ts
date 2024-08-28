@@ -13,7 +13,7 @@ export const siteConfig = {
       href: "/goodstuff",
     },
     {
-      label: "Music",
+      label: "Music & Stuff",
       href: "/mehstuff",
     },
     {

@@ -50,11 +50,13 @@ export const cardConfig: CardConfig[] = [
   {
     heading: "GTA 5",
     footerText: "~200 Hours",
-    gamedesc: "text",
+    gamedesc:
+      "Again, as the numbers say, no need for introductions. This game is popular as fuck and for a good reason; the environment, gameplay, graphics still holds up today. The story is well written, dialogues are good, and feel very engaging. The online counterpart, GTA Online is equally as good, perfect to goof around with friends and do heists which are so well thought out that it really feels like a movie. I was able to grab the game for free (thanks Epic) but even if its in the neighbourhood of 500-1K Rs, I would consider it a full 'paisa-wasool' or hindi for 'bang for the buck'.",
   },
   {
     heading: "Half Life 2",
     footerText: "just my favorite",
-    gamedesc: "text",
+    gamedesc:
+      "Amazing storytelling and as 3kliksphilip would call it- the best game ever!",
   },
 ];
