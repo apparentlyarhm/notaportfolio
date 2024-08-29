@@ -15,7 +15,7 @@ export const CardThing: React.FC<CardThingProps> = ({ cardConfig }) => {
       {cardConfig.map((accordion, index) => (
         <AccordionItem
           key={index}
-          className="mb-7 py-9 "
+          className="mb-7 py-9"
           aria-label={accordion.heading}
           // startContent={
           //   <Image

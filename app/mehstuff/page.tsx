@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { CardThing } from "@/components/cardthing";
 import { crimsonserif } from "@/config/fonts";
 import { headingsDM, paragraph } from "@/config/fonts";
+import { MusicAccordion } from "@/components/musicaccordion";
+import { MusicConfig } from "@/config/MusicConfig";
 import clsx from "clsx";
 
 export default function StuffPage() {
@@ -100,6 +102,17 @@ export default function StuffPage() {
           }
         </motion.h1>
         <br />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={cardVariants}
+        >
+          <MusicAccordion
+            musicConfig={MusicConfig}
+            small={isMobile ? true : false}
+          />
+        </motion.div>
       </div>
     </>
   );
