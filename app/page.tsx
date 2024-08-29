@@ -3,7 +3,7 @@ import { useState } from "react";
 import React, { useEffect } from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { Image, Button } from "@nextui-org/react";
+import { Image, Button, Snippet } from "@nextui-org/react";
 import { headingsDM, codestuff } from "@/config/fonts";
 import { Ghosts } from "@/components/ghosts";
 
@@ -43,8 +43,6 @@ export default function Home() {
           {"469: PAGE_UNDER_CONSTRUCTION"}
         </motion.h1>
         <br />
-        <br />
-        <br />
         <motion.div
           className="flex justify-center"
           initial="hidden"
@@ -56,51 +54,47 @@ export default function Home() {
             src="https://media1.tenor.com/m/GOabrbLMl4AAAAAd/plink-cat-plink.gif"
             className={clsx(
               "text-center dark:border-1 dark:border-yellow-300 border-2 border-blue-950",
-              isMobile ? "w-44 h-44" : "w-60 h-60"
+              isMobile ? "w-36 h-36" : "w-60 h-60"
             )}
             alt="cat"
             isBlurred
           />
         </motion.div>
+        <br></br>
         <motion.div
           id="text-wrapper"
           initial="hidden"
           animate="visible"
+          // className="rounded-xl px-3 py-2 pb-5 dark:bg-gray-900 bg-gray-300"
           variants={typewriterVariants}
           transition={{ delay: 0.5, duration: 0.5, ease: "easeInOut" }}
         >
-          <br></br>
-          <br></br>
           {/* <Ghosts /> */}
-          <motion.h1
+          <Snippet
+            hideCopyButton
+            variant="flat"
+            symbol=">>"
             className={clsx(
-              "text-md md:text-lg lg:text-xl font-black text-left tracking-tighter break-words sm:mb-10 dark:text-yellow-200 text-blue-950 ",
-              codestuff.className
+              "text-xs md:text-lg lg:text-lg font-black w-full sm:max-w-[800px] overflow-hidden text-left tracking-tighter break-words sm:mb-6 mb-4 dark:text-yellow-200 text-blue-950 px-5 py-2 "
             )}
-            transition={{
-              duration: 0.1,
-              ease: "easeInOut",
-              staggerChildren: 0.02,
-            }}
           >
-            {" user@system>~$ hi, i'm Arhum"} <br></br>
-            {
-              "user@system>~$ ive hired this cat to stare at you at all times so u better click the button below"
-            }
-            <br></br>
-            {
-              "user@system>~$ oh and btw i dont like calling this a 'portfolio' "
-            }
-          </motion.h1>
+            <span>{" hi, i'm Arhum"}</span>
+            <span>
+              {
+                "ive hired this cat to stare at you at all times so u better click the button below"
+              }
+            </span>
+            <span> {"oh and btw i dont like calling this a 'portfolio' "}</span>
+          </Snippet>
           <br />
           <Button
             as={"a"}
             variant="ghost"
-            size="lg"
+            size={isMobile ? "sm" : "lg"}
             className="p-5"
-            href="/goodstuff"
+            href="./goodstuff"
           >
-            Professional section
+            {"exec ./goodstuff"}
           </Button>
         </motion.div>
       </div>
