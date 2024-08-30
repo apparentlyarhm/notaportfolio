@@ -154,7 +154,7 @@ export default function ProfessionalInfoPage() {
         href="./mehstuff"
         endContent={<ArrowUpRight />}
         className={clsx(
-          "mt-12 p-10 rounded-2xl text-white text-2xl bg-emerald-600",
+          "mt-12 p-10 rounded-2xl text-white text-2xl bg-emerald-600 tracking-tighter",
           headingsDM.className
         )}
       >

@@ -123,7 +123,7 @@ export default function StuffPage() {
         href="./"
         endContent={<ArrowUpRight />}
         className={clsx(
-          "mt-12 p-10 rounded-2xl text-2xl text-white bg-cyan-600",
+          "mt-12 p-10 rounded-2xl text-2xl text-white bg-cyan-600 tracking-tighter",
           headingsDM.className
         )}
       >
