@@ -1,11 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
+import { ArrowUpRight } from "react-feather";
 import { Tooltip } from "flowbite-react";
 import { ProjectCard } from "@/components/projectcard";
 import { ProjectCardConfig } from "@/config/projectcardconfig"; // Import the config file
 import { headingsDM, codestuff, crimsonserif } from "@/config/fonts";
 import { motion } from "framer-motion";
-import { card, Divider } from "@nextui-org/react";
+import { card, Divider, Button } from "@nextui-org/react";
 import clsx from "clsx";
 import { Protimeline as ProTime } from "@/components/protimeline";
 import { jobtimelineConfig, timelineConfig } from "@/config/time";
@@ -147,6 +148,18 @@ export default function ProfessionalInfoPage() {
               />
             ))}
       </div>
+      <Button
+        as={"a"}
+        variant="shadow"
+        href="./mehstuff"
+        endContent={<ArrowUpRight />}
+        className={clsx(
+          "mt-12 p-10 rounded-2xl text-white text-2xl bg-emerald-600",
+          headingsDM.className
+        )}
+      >
+        {"Music and Stuff"}
+      </Button>
     </div>
   );
 }

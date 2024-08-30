@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { CardThing } from "@/components/cardthing";
 import { crimsonserif } from "@/config/fonts";
 import { headingsDM, paragraph } from "@/config/fonts";
+import { Button } from "@nextui-org/button";
+import { ArrowUpRight } from "react-feather";
 import { MusicAccordion } from "@/components/musicaccordion";
 import { MusicConfig } from "@/config/MusicConfig";
 import clsx from "clsx";
@@ -98,7 +100,7 @@ export default function StuffPage() {
           )}
         >
           {
-            "Lets move on to music now. Ever since i discovered Martin Garrix as a teen, i was obsessed with music and EDM in general. Soon afer I got my hands on a *cough* legit copy of FL Studio and the rest was history. The songs I've shared below are the ones ive spent the most time on and think passes my 'threshold' of satisfaction."
+            "Lets move on to music now. Ever since i discovered Martin Garrix as a teen, i was obsessed with music and EDM in general. Soon afer I got my hands on a *cough* legit copy of FL Studio and the rest was history. The songs I've shared below are the ones ive spent the most time on and think passes my 'threshold' of satisfaction. Oh and by the way, I design my own album arts"
           }
         </motion.h1>
         <br />
@@ -108,12 +110,25 @@ export default function StuffPage() {
           viewport={{ once: true, amount: 0.2 }}
           variants={cardVariants}
         >
+          <br />
           <MusicAccordion
             musicConfig={MusicConfig}
             small={isMobile ? true : false}
           />
         </motion.div>
       </div>
+      <Button
+        as={"a"}
+        variant="shadow"
+        href="./"
+        endContent={<ArrowUpRight />}
+        className={clsx(
+          "mt-12 p-10 rounded-2xl text-2xl text-white bg-cyan-600",
+          headingsDM.className
+        )}
+      >
+        {"Back to home"}
+      </Button>
     </>
   );
 }
