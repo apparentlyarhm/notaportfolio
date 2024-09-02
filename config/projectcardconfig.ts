@@ -13,6 +13,7 @@ export interface ProjectCardConfig {
   projectDesc: string[];
   projectLink: string;
   images: string[];
+  category: string;
 }
 
 export const ProjectCardConfig: ProjectCardConfig[] = [
@@ -23,6 +24,7 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
     ],
     projectLink: "https://github.com/mohdarhm/randomexamapp",
     images: [django.src, gcp.src, js.src, mysql.src, py.src],
+    category: "Personal",
   },
   {
     title:
@@ -32,6 +34,7 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
     ],
     projectLink: "",
     images: [gcp.src, linux.src],
+    category: "Personal",
   },
   {
     title:
@@ -42,6 +45,7 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
     ],
     projectLink: "https://github.com/mohdarhm/foodredis",
     images: [django.src, mysql.src, rjs.src, py.src],
+    category: "Personal",
   },
   {
     title: "Django based whitelist app for firewalls for Google Cloud Platform",
@@ -52,6 +56,7 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
     ],
     projectLink: "https://github.com/mohdarhm/validateapp",
     images: [django.src, njs.src, gcp.src, py.src],
+    category: "Personal",
   },
   {
     title: "This site lol :D",
@@ -60,5 +65,6 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
     ],
     projectLink: "",
     images: [ts.src, njs.src],
+    category: "Personal",
   },
 ];

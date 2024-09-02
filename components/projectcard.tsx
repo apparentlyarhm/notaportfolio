@@ -20,12 +20,14 @@ import {
   crimsonserif,
 } from "@/config/fonts";
 import clsx from "clsx";
+import { ExternalLink } from "react-feather";
 
 interface ProjectCardProps {
   title: string;
   projectDesc: string[];
   projectLink: string;
   images: string[];
+  category: string;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -33,16 +35,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   projectDesc,
   projectLink,
   images,
+  category,
 }) => {
   const isLinkEmpty = !projectLink || projectLink.trim() === "";
   return (
-    <Card className="max-w-[700px] drop-shadow-2xl ">
+    <Card className="max-w-[700px] rounded-3xl dark:bg-gray-900 bg-slate-200">
       <CardHeader className="flex flex-col md:flex-row gap-2">
         {/* Images section */}
         <div className="flex gap-3 sm:gap-2 p-2 sm:p-4">
           {images.map((img, index) => (
             <Image
-              isBlurred
               key={index}
               alt={`Image ${index + 1}`}
               height={35}
@@ -71,16 +73,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           ))}
         </ul>
       </CardBody>
-      <Divider />
-      <CardFooter className="p-6">
+      <CardFooter className={clsx("p-6", codestuff.className)}>
         <NextLink href={projectLink} passHref>
           <Button
-            size="sm"
-            color="primary"
+            size="lg"
             variant="solid"
             isDisabled={isLinkEmpty}
+            className="dark:bg-gray-800 bg-white"
+            endContent={<ExternalLink size={15} />}
           >
-            SRC
+            {"SRC"}
           </Button>
         </NextLink>
       </CardFooter>

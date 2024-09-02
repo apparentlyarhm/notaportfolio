@@ -130,6 +130,7 @@ export default function ProfessionalInfoPage() {
                 viewport={{ once: true, amount: 0.2 }}
               >
                 <ProjectCard
+                  category={config.category}
                   key={index}
                   title={config.title}
                   projectDesc={config.projectDesc}
@@ -140,6 +141,7 @@ export default function ProfessionalInfoPage() {
             ))
           : ProjectCardConfig.map((config, index) => (
               <ProjectCard
+                category={config.category}
                 key={index}
                 title={config.title}
                 projectDesc={config.projectDesc}
