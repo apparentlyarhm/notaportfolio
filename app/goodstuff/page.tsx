@@ -116,7 +116,6 @@ export default function ProfessionalInfoPage() {
         }
       </motion.p>
       <br></br>
-      <Divider />
       <br></br>
       <div className="max-w-full md:grid md:grid-cols-2 md:gap-10">
         {isMobile

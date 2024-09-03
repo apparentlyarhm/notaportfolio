@@ -39,7 +39,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   const isLinkEmpty = !projectLink || projectLink.trim() === "";
   return (
-    <Card className="max-w-[700px] rounded-3xl dark:bg-gray-900 bg-slate-200">
+    <Card
+      className="max-w-[700px] rounded-3xl dark:bg-gray-900 bg-slate-200 border-1 dark:border-white border-slate-800"
+      shadow="none"
+    >
       <CardHeader className="flex flex-col md:flex-row gap-2">
         {/* Images section */}
         <div className="flex gap-3 sm:gap-2 p-2 sm:p-4">
