@@ -69,7 +69,7 @@ export default function StuffPage() {
           variants={cardVariants}
           viewport={{ once: true, amount: 0.2 }}
           className={clsx(
-            "sm:text-2xl text-md tracking-tight text-justify px-6 text-gray-400",
+            "sm:text-2xl text-md tracking-tight text-justify px-6 dark:text-gray-400 text-gray-600",
             crimsonserif.className
           )}
         >
@@ -95,7 +95,7 @@ export default function StuffPage() {
           variants={cardVariants}
           viewport={{ once: true, amount: 0.2 }}
           className={clsx(
-            "sm:text-2xl text-md tracking-tight text-justify px-6 text-gray-400",
+            "sm:text-2xl text-md tracking-tight text-justify px-6 dark:text-gray-400 text-gray-600",
             crimsonserif.className
           )}
         >

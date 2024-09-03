@@ -15,7 +15,7 @@ export const CardThing: React.FC<CardThingProps> = ({ cardConfig }) => {
       {cardConfig.map((accordion, index) => (
         <AccordionItem
           key={index}
-          className="mb-7 py-9"
+          className="mb-7 py-9 rounded-3xl dark:bg-slate-900 border-2 dark:border-2 dark:border-slate-900 border-slate-100 bg-slate-100 shadow-none"
           aria-label={accordion.heading}
           // startContent={
           //   <Image
@@ -44,7 +44,7 @@ export const CardThing: React.FC<CardThingProps> = ({ cardConfig }) => {
         >
           <div
             className={clsx(
-              "mt-4 rounded-lg sm:p-2 mx-1 sm:mx-6 sm:text-2xl dark:text-gray-400 text-md p-1 tracking-tight text-justify",
+              "mt-4 rounded-lg sm:p-2 mx-1 sm:mx-6 sm:text-2xl dark:text-gray-400 text-gray-500 text-md p-1 tracking-tight text-justify",
               crimsonserif.className
             )}
           >

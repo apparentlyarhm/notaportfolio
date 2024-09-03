@@ -19,7 +19,7 @@ export const MusicAccordion: React.FC<props> = ({
       {musicConfig.map((entry, index) => (
         <AccordionItem
           key={index}
-          className="mb-7 py-9"
+          className="mb-7 py-9 rounded-3xl dark:bg-gray-900 shadow-none bg-slate-100"
           aria-label={entry.name}
           title={
             <div
