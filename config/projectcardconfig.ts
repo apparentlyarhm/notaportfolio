@@ -63,7 +63,7 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
     projectDesc: [
       "Honestly, nothing much to say here. I was able to find some spare time while working here in Chennai (Aug '24) so thought its the best time to get my hands dirty on proper TypeScript/Next combo and NextUI on top of that made the process fun.",
     ],
-    projectLink: "",
+    projectLink: "https://github.com/mohdarhm/notaportfolio",
     images: [ts.src, njs.src],
     category: "Personal",
   },

@@ -121,7 +121,8 @@ export default function ProfessionalInfoPage() {
         {isMobile
           ? ProjectCardConfig.map((config, index) => (
               <motion.div
-                className="py-4 px-3"
+                id="CARDDIV"
+                className="py-4 px-3 h-full"
                 key={index}
                 initial="hidden"
                 whileInView="visible"
@@ -139,14 +140,26 @@ export default function ProfessionalInfoPage() {
               </motion.div>
             ))
           : ProjectCardConfig.map((config, index) => (
-              <ProjectCard
-                category={config.category}
+              <motion.div
+                id="CARDDIV"
+                className="py-4 px-3"
                 key={index}
-                title={config.title}
-                projectDesc={config.projectDesc}
-                projectLink={config.projectLink}
-                images={config.images}
-              />
+                initial="hidden"
+                whileInView="visible"
+                variants={cardVariants}
+                whileHover={{ translateY: -7 }}
+                whileTap={{ scale: 0.96 }}
+                viewport={{ once: true, amount: 0.2 }}
+              >
+                <ProjectCard
+                  category={config.category}
+                  key={index}
+                  title={config.title}
+                  projectDesc={config.projectDesc}
+                  projectLink={config.projectLink}
+                  images={config.images}
+                />
+              </motion.div>
             ))}
       </div>
       <Button

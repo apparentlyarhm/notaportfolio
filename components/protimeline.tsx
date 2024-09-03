@@ -84,7 +84,7 @@ export const Protimeline: React.FC<props> = ({
               initial="hidden"
               whileInView="visible"
               variants={cardVariants}
-              viewport={{ amount: 0.2 }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               <Timeline.Content>
                 <Card
@@ -131,7 +131,7 @@ export const Protimeline: React.FC<props> = ({
               initial="hidden"
               whileInView="visible"
               variants={cardVariants}
-              viewport={{ amount: 0.2 }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               <Timeline.Content>
                 <Card
