@@ -1,3 +1,4 @@
+import exp from "constants";
 import {
   Fira_Code as FontMono,
   Inter as FontSans,
@@ -5,6 +6,7 @@ import {
   Jost,
   Source_Code_Pro,
   Crimson_Text,
+  Inter,
 } from "next/font/google";
 
 export const fontSans = FontSans({
@@ -36,5 +38,10 @@ export const codestuff = Source_Code_Pro({
 
 export const crimsonserif = Crimson_Text({
   weight: ["400", "600"],
+  preload: false,
+});
+
+export const inter = Inter({
+  weight: ["400", "500", "600", "700"],
   preload: false,
 });
