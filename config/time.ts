@@ -65,6 +65,6 @@ export const jobtimelineConfig: jobtimelineConfig[] = [
     icon: Briefcase,
     time: "Jul 2024- Chennai, TN",
     title: "Junior Software Engineer @ RandomWalk.AI",
-    body: "Currently doing Backend Development using Spring Boot, MySQL, AWS, Terraform",
+    body: "Currently doing Backend Development using Spring Boot with frameworks like Spring Web, Security, Hibernate, WebFlux, Jooby and managed AWS infra using Terraform",
   },
 ];

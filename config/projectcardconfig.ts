@@ -7,6 +7,7 @@ import rjs from "../assets/logos/rjs.svg";
 import py from "../assets/logos/py.svg";
 import js from "../assets/logos/js.svg";
 import ts from "../assets/logos/ts.svg";
+import tf from "../assets/logos/terraform.png";
 
 export interface ProjectCardConfig {
   title: string;
@@ -52,7 +53,7 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
     projectDesc: [
       "Made a simple website that takes in Users public IP and adds it to the GCP Firewall, effectively granting access to a resource- a game server in this case",
       " Achieved using Secret Manager APIs, Service Accounts and IAM permissions combined with custom APIs made in Django",
-      "Frontend developed with Next.JS, hosted on vercel.",
+      "Honestly, I host it whenever the gang needs it, earlier on vercel now in GH pages  ",
     ],
     projectLink: "https://github.com/apparentlyarhm/validateapp",
     images: [django.src, njs.src, gcp.src, py.src],
@@ -65,6 +66,19 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
     ],
     projectLink: "https://github.com/apparentlyarhm/notaportfolio",
     images: [ts.src, njs.src],
+    category: "Personal",
+  },
+
+  {
+    title: "Infra Code for Minecraft Server- GCP",
+    projectDesc: [
+      "This is mostly an extension to the Game Server project I made for GCP",
+      "This infra code aims to set up everything automatically, from VMs to firewall rules as well as hosting the Django app for the same, given a GCP account.",
+      "Also has scripts to download and configure Java, and all the stuff surrounding a typical minecraft server setup",
+      "I really have big plans for this project, as and when I find time :>",
+    ],
+    projectLink: "https://github.com/apparentlyarhm/minecraft-terraform",
+    images: [tf.src, linux.src],
     category: "Personal",
   },
 ];

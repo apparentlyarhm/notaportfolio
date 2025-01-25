@@ -1,7 +1,9 @@
 "use client";
-import { title } from "@/components/primitives";
-import DraggableSquare from "@/components/mascotthingidk";
-import PokemonThing from "@/components/pokemon";
+import { useEffect, useState } from "react";
+import { inter } from "@/config/fonts";
+import clsx from "clsx";
+import { motion } from "framer-motion";
+
 export default function BlogPage() {
-  return <div>{/* <PokemonThing /> */}</div>;
+  return <p>{"still not sure what to add here yet :/"}</p>;
 }
