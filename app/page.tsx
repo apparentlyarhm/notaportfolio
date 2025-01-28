@@ -40,7 +40,7 @@ export default function Home() {
             codestuff.className
           )}
         >
-          {"469: PAGE_UNDER_CONSTRUCTION"}
+          {"569: PAGE_UNDER_CONSTRUCTION"}
         </motion.h1>
         <br />
         <motion.div
