@@ -112,7 +112,7 @@ export default function ProfessionalInfoPage() {
         viewport={{ once: true, amount: 0.2 }}
       >
         {
-          "'Do I need to be liked? Absolutely not. I like to be liked. I enjoy being liked. I have to be liked. But it’s not like this compulsive need like my need to be praised.'"
+          "Goofy ahh stuff I've worked on in the past, the code is shit so don't bother. I made these in college."
         }
       </motion.p>
       <br></br>

@@ -36,16 +36,20 @@ export default function Home() {
       <div className="max-w-7xl w-full text-center px-4 py-8 md:px-10 md:py-16 lg:px-20 lg:py-24">
 
         <Ghosts />
-        <motion.div
-          id="text-wrapper"
-          initial="hidden"
-          animate="visible"
-          // className="rounded-xl px-3 py-2 pb-5 dark:bg-gray-900 bg-gray-300"
-          variants={typewriterVariants}
-          transition={{ delay: 0.5, duration: 0.5, ease: "easeInOut" }}
-        >
-          <p>WOW</p>
-        </motion.div>
+          <motion.h1
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              className={clsx(
+                  "text-2xl md:text-3xl lg:text-4xl font-black tracking-tighter break-words px-6  sm:mb-10",
+                  headingsDM.className
+              )}
+          >
+            {
+              "Hey! I'm Arhum."
+            }
+          </motion.h1>
+
         <Button
             as={"a"}
             variant="shadow"
