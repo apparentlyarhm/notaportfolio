@@ -1,8 +1,8 @@
-import { Accordion, AccordionItem, Avatar } from "@nextui-org/react";
+import { Accordion, AccordionItem, Avatar } from "@heroui/react";
 import { CardConfig } from "@/config/CardConfig";
-import { Image } from "@nextui-org/react";
+import { Image } from "@heroui/react";
 import { codestuff, headingsDM, paragraph, crimsonserif } from "@/config/fonts";
-import { Divider } from "@nextui-org/react";
+import { Divider } from "@heroui/react";
 import clsx from "clsx";
 
 interface CardThingProps {

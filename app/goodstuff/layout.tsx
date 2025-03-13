@@ -1,5 +1,5 @@
 "use client";
-import { Divider, Image } from "@nextui-org/react";
+import { Divider, Image } from "@heroui/react";
 import clsx from "clsx";
 import { codestuff } from "../../config/fonts";
 

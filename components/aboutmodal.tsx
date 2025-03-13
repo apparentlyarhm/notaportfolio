@@ -4,11 +4,11 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import clsx from "clsx";
 import { Inter } from "next/font/google";
 import arhm from "../assets/arhm.png";
-import { Image } from "@nextui-org/react";
+import { Image } from "@heroui/react";
 
 interface AppProps {
   isOpen: boolean;

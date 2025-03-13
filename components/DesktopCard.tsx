@@ -5,7 +5,7 @@ import {
   Image,
   CardBody,
   Button,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import { Cabin } from "next/font/google";
 import clsx from "clsx";
 

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Accordion, AccordionItem, Divider, Image } from "@nextui-org/react";
+import { Accordion, AccordionItem, Divider, Image } from "@heroui/react";
 import { codestuff, headingsDM, crimsonserif } from "@/config/fonts";
 import { motion } from "framer-motion";
 import clsx from "clsx";
