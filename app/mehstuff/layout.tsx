@@ -1,7 +1,7 @@
 "use client";
 import controller from "../../assets/logos/controller.svg";
 import dj from "../../assets/logos/dj.svg";
-import { Divider, Image } from "@nextui-org/react";
+import { Divider, Image } from "@heroui/react";
 
 export default function DocsLayout({
   children,

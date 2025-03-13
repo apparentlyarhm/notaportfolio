@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { CardThing } from "@/components/cardthing";
 import { crimsonserif } from "@/config/fonts";
 import { headingsDM, paragraph } from "@/config/fonts";
-import { Button } from "@nextui-org/button";
+import { Button } from "@heroui/button";
 import { ArrowUpRight } from "react-feather";
 import { MusicAccordion } from "@/components/musicaccordion";
 import { MusicConfig } from "@/config/MusicConfig";

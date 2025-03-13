@@ -3,7 +3,7 @@ import { useState } from "react";
 import React, { useEffect } from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { Image, Button, Snippet } from "@nextui-org/react";
+import { Image, Button, Snippet } from "@heroui/react";
 import { headingsDM, codestuff } from "@/config/fonts";
 import { Ghosts } from "@/components/ghosts";
 

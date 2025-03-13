@@ -8,7 +8,7 @@ import {
   Button,
   useDisclosure,
   Input,
-} from "@nextui-org/react";
+} from "@heroui/react";
 export interface props {}
 
 export const TechStack: React.FC<props> = (): JSX.Element => {

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ghostsList } from "@/config/homepageGhosts";
-import { Image } from "@nextui-org/react";
+import { Image } from "@heroui/react";
 import { motion } from "framer-motion";
 
 export interface Props {}

@@ -2,7 +2,7 @@
 import * as React from "react";
 import { Timeline } from "flowbite-react";
 import { timelineConfig, jobtimelineConfig } from "@/config/time";
-import { Card, CardHeader, CardBody, Divider } from "@nextui-org/react";
+import { Card, CardHeader, CardBody, Divider } from "@heroui/react";
 import { paragraph, headingsDM, crimsonserif } from "@/config/fonts";
 import clsx from "clsx";
 import { motion } from "framer-motion";

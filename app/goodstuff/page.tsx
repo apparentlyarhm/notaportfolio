@@ -6,7 +6,7 @@ import { ProjectCard } from "@/components/projectcard";
 import { ProjectCardConfig } from "@/config/projectcardconfig"; // Import the config file
 import { headingsDM, codestuff, crimsonserif } from "@/config/fonts";
 import { motion } from "framer-motion";
-import { card, Divider, Button } from "@nextui-org/react";
+import { card, Divider, Button } from "@heroui/react";
 import clsx from "clsx";
 import { Protimeline as ProTime } from "@/components/protimeline";
 import { jobtimelineConfig, timelineConfig } from "@/config/time";

@@ -9,7 +9,7 @@ import {
   Link as NextUILink,
   Image,
   Button,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import NextLink from "next/link"; // Import Next.js Link
 import {
   paragraph,
