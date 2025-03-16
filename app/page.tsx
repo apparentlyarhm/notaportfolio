@@ -46,7 +46,7 @@ export default function Home() {
               )}
           >
             {
-              "Hey! I'm Arhum."
+              "Hey! I'm Arhum. Welcome to my site!"
             }
           </motion.h1>
 
@@ -62,6 +62,21 @@ export default function Home() {
         >
           {"Next (get it?)"}
         </Button>
+
+        <motion.h1
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className={clsx(
+                "text-medium md:text-large lg:text-xl font-black tracking-tight break-words px-6 mt-10 sm:mb-10",
+                codestuff.className
+            )}
+        >
+          {
+            "bro i am not gonna lie i dont know what else to add here, so just click the button thanks"
+          }
+        </motion.h1>
+
       </div>
     </section>
   );
