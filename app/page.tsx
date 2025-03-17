@@ -6,7 +6,9 @@ import { motion } from "framer-motion";
 import { Button } from "@heroui/react";
 import {ArrowUpRight} from "react-feather";
 
+import {Ghosts} from "@/components/ghosts";
 import { headingsDM, codestuff } from "@/config/fonts";
+
 
 
 export default function Home() {
@@ -26,7 +28,7 @@ export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center h-[600px] sm:h-[900px]">
       <div className="max-w-7xl w-full text-center px-4 py-8 md:px-10 md:py-16 lg:px-20 lg:py-24">
-
+          <Ghosts />
           <motion.h1
               className={clsx(
                   "text-2xl md:text-3xl lg:text-4xl font-black tracking-tighter break-words px-6  sm:mb-10",
