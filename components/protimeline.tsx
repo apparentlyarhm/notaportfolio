@@ -60,7 +60,7 @@ export const Protimeline: React.FC<props> = ({
   };
 
   const educationColors = isDarkMode
-      ? "bg-gradient-to-r from-blue-800 to-blue-700"
+      ? "bg-gradient-to-r from-blue-900 to-indigo-800"
       : "bg-gradient-to-r from-blue-600 to-blue-500";
 
   const professionalColors = isDarkMode
