@@ -7,7 +7,7 @@ import clsx from "clsx";
 
 import { cardConfig } from "@/config/CardConfig";
 import { CardThing } from "@/components/cardthing";
-import {codestuff, crimsonserif} from "@/config/fonts";
+import {codestuff} from "@/config/fonts";
 import { headingsDM } from "@/config/fonts";
 import { MusicAccordion } from "@/components/musicaccordion";
 import { MusicConfig } from "@/config/MusicConfig";

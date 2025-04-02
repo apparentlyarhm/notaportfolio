@@ -18,7 +18,7 @@ if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
 
 $authCheck = gh auth status 2>&1
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "Error: GitHub CLI is not authenticated. Please run 'gh auth login' to authenticate." -ForegroundColor Red
+    Write-Host "Error: GitHub CLI is not authenticated. Please run 'gh auth login' to authenticate, or trigger the Workflow manually" -ForegroundColor Red
     exit 1
 
 }
