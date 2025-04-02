@@ -1,13 +1,14 @@
 "use client";
 import * as React from "react";
 import { Timeline } from "flowbite-react";
-import { timelineConfig, jobtimelineConfig } from "@/config/time";
 import { Card, CardHeader, CardBody, Divider } from "@heroui/react";
-import { paragraph, headingsDM, crimsonserif } from "@/config/fonts";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { CustomFlowbiteTheme } from "flowbite-react";
+
+import { paragraph, headingsDM, crimsonserif } from "@/config/fonts";
+import { timelineConfig, jobtimelineConfig } from "@/config/time";
 
 export interface props {
   timelineConfig: timelineConfig[];
@@ -59,18 +60,12 @@ export const Protimeline: React.FC<props> = ({
   };
 
   const educationColors = isDarkMode
-    ? "bg-gradient-to-r from-blue-800 to-blue-700"
-    : "bg-gradient-to-r from-blue-600 to-blue-500";
+      ? "bg-gradient-to-r from-blue-800 to-blue-700"
+      : "bg-gradient-to-r from-blue-600 to-blue-500";
 
   const professionalColors = isDarkMode
     ? "bg-gradient-to-r from-green-800 to-green-700"
     : "bg-gradient-to-r from-green-600 to-green-500";
-
-  const timelinePointColor = isDarkMode
-    ? "bg-blue-700 border-blue-900"
-    : "bg-blue-500 border-blue-700";
-
-  const timelineIconColor = isDarkMode ? "text-white" : "text-black";
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl px-6 sm:px-2 mx-auto">
@@ -82,9 +77,9 @@ export const Protimeline: React.FC<props> = ({
             <motion.div
               key={index}
               initial="hidden"
-              whileInView="visible"
               variants={cardVariants}
               viewport={{ once: true, amount: 0.2 }}
+              whileInView="visible"
             >
               <Timeline.Content>
                 <Card
@@ -129,9 +124,9 @@ export const Protimeline: React.FC<props> = ({
             <motion.div
               key={index}
               initial="hidden"
-              whileInView="visible"
               variants={cardVariants}
               viewport={{ once: true, amount: 0.2 }}
+              whileInView="visible"
             >
               <Timeline.Content>
                 <Card

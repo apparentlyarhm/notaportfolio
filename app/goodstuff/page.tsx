@@ -2,12 +2,13 @@
 import { useState, useEffect } from "react";
 import { ArrowUpRight } from "react-feather";
 import { Tooltip } from "flowbite-react";
+import { motion } from "framer-motion";
+import { Divider, Button } from "@heroui/react";
+import clsx from "clsx";
+
 import { ProjectCard } from "@/components/projectcard";
 import { ProjectCardConfig } from "@/config/projectcardconfig"; // Import the config file
-import { headingsDM, codestuff, crimsonserif } from "@/config/fonts";
-import { motion } from "framer-motion";
-import { card, Divider, Button } from "@heroui/react";
-import clsx from "clsx";
+import { headingsDM, codestuff } from "@/config/fonts";
 import { Protimeline as ProTime } from "@/components/protimeline";
 import { jobtimelineConfig, timelineConfig } from "@/config/time";
 export default function ProfessionalInfoPage() {
@@ -41,23 +42,24 @@ export default function ProfessionalInfoPage() {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth <= 767);
     };
+
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
+
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
   return (
     <div>
-      {/* <DraggableSquare /> */}
       <h1
         className={clsx(
-          "text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter break-words sm:mb-10",
+          "text-3xl md:text-4xl lg:text-5xl font-black tracking-tight break-words sm:mb-10",
           headingsDM.className
         )}
       >
         Timeline
       </h1>
-      <br></br>
+      <br />
       <Tooltip
         content={
           <div className="px-1 py-2">
@@ -70,13 +72,13 @@ export default function ProfessionalInfoPage() {
       >
         <motion.p
           className={clsx(
-            "tracking-tight text-lg sm:text-2xl text-gray-400 px-3 text-left",
-            crimsonserif.className
+            "tracking-tight text-md sm:text-xl text-gray-400 px-3 text-left",
+            codestuff.className
           )}
           variants={containerVariants}
         >
           {
-            "'Time, Dr. Freeman? Is it really that time again? It seems as if you only just arrived.' The blue timeline is regarding my education and the green one is professional."
+            "The blue timeline is regarding my education and the green one is professional."
           }
         </motion.p>
       </Tooltip>
@@ -84,93 +86,93 @@ export default function ProfessionalInfoPage() {
       <Divider />
       <br />
       <ProTime
-        timelineConfig={timelineConfig}
         jobtimelineConfig={jobtimelineConfig}
+        timelineConfig={timelineConfig}
       />
       <br />
       <motion.h1
         className={clsx(
-          "text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter break-words sm:mb-10",
+          "text-3xl md:text-4xl lg:text-5xl font-black tracking-tight break-words sm:mb-10",
           headingsDM.className
         )}
         initial="hidden"
-        whileInView="visible"
         variants={cardVariants}
         viewport={{ once: true, amount: 0.2 }}
+        whileInView="visible"
       >
         Projects
       </motion.h1>
       <br />
       <motion.p
         className={clsx(
-          "tracking-tight text-lg sm:text-2xl text-gray-400 text-left px-3",
-          crimsonserif.className
+          "tracking-tight text-md sm:text-xl text-gray-400 text-left px-3",
+          codestuff.className
         )}
         initial="hidden"
-        whileInView="visible"
         variants={cardVariants}
         viewport={{ once: true, amount: 0.2 }}
+        whileInView="visible"
       >
         {
-          "Goofy ahh stuff I've worked on in the past, the code is shit so don't bother. I made these in college."
+          "Goofy ahh stuff I've worked on. Some of them are still WIP, while others were not good enough so got abandoned."
         }
       </motion.p>
-      <br></br>
-      <br></br>
+      <br />
+      <br />
       <div className="max-w-full md:grid md:grid-cols-2 md:gap-10">
         {isMobile
           ? ProjectCardConfig.map((config, index) => (
               <motion.div
-                id="CARDDIV"
-                className="py-4 px-3 h-full"
                 key={index}
+                className="py-4 px-3 h-full"
+                id="CARDDIV"
                 initial="hidden"
-                whileInView="visible"
                 variants={cardVariants}
                 viewport={{ once: true, amount: 0.2 }}
+                whileInView="visible"
               >
                 <ProjectCard
-                  category={config.category}
                   key={index}
-                  title={config.title}
+                  category={config.category}
+                  images={config.images}
                   projectDesc={config.projectDesc}
                   projectLink={config.projectLink}
-                  images={config.images}
+                  title={config.title}
                 />
               </motion.div>
             ))
           : ProjectCardConfig.map((config, index) => (
               <motion.div
-                id="CARDDIV"
-                className="py-4 px-3"
                 key={index}
+                className="py-4 px-3"
+                id="CARDDIV"
                 initial="hidden"
-                whileInView="visible"
                 variants={cardVariants}
-                whileHover={{ translateY: -7 }}
-                whileTap={{ scale: 0.96 }}
                 viewport={{ once: true, amount: 0.2 }}
+                whileHover={{ translateY: -7 }}
+                whileInView="visible"
+                whileTap={{ scale: 0.96 }}
               >
                 <ProjectCard
-                  category={config.category}
                   key={index}
-                  title={config.title}
+                  category={config.category}
+                  images={config.images}
                   projectDesc={config.projectDesc}
                   projectLink={config.projectLink}
-                  images={config.images}
+                  title={config.title}
                 />
               </motion.div>
             ))}
       </div>
       <Button
         as={"a"}
-        variant="shadow"
-        href="./mehstuff"
-        endContent={<ArrowUpRight />}
         className={clsx(
           "mt-12 p-10 rounded-2xl text-white text-2xl bg-emerald-600 tracking-tighter",
           headingsDM.className
         )}
+        endContent={<ArrowUpRight />}
+        href="./mehstuff"
+        variant="shadow"
       >
         {"Music and Stuff"}
       </Button>

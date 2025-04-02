@@ -46,14 +46,14 @@ export default function Home() {
         <Button
             as={"a"}
             className={clsx(
-                "mt-12 sm:p-10 p-8 rounded-2xl sm:text-2xl text-medium text-white bg-blue-950 dark:bg-gray-800 tracking-tighter",
+                "mt-12 sm:p-10 p-8 rounded-2xl border-1 border-red-600 dark:border-red-900 sm:text-2xl text-medium dark:text-gray-200 bg-transparent text-black tracking-tighter",
                 headingsDM.className
             )}
             endContent={<ArrowUpRight />}
             href="./goodstuff"
-            variant="shadow"
+            variant="bordered"
         >
-          {"Next (get it?)"}
+          {"Next"}
         </Button>
 
         <motion.h1

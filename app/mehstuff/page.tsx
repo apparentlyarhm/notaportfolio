@@ -7,7 +7,7 @@ import clsx from "clsx";
 
 import { cardConfig } from "@/config/CardConfig";
 import { CardThing } from "@/components/cardthing";
-import { crimsonserif } from "@/config/fonts";
+import {codestuff, crimsonserif} from "@/config/fonts";
 import { headingsDM } from "@/config/fonts";
 import { MusicAccordion } from "@/components/musicaccordion";
 import { MusicConfig } from "@/config/MusicConfig";
@@ -64,8 +64,8 @@ export default function StuffPage() {
         <br />
         <motion.h1
           className={clsx(
-            "sm:text-2xl text-md text-justify px-6 dark:text-gray-400 text-gray-600",
-            crimsonserif.className
+            "sm:text-xl text-md text-justify px-6 dark:text-gray-400 text-gray-600",
+            codestuff.className
           )}
           initial="hidden"
           variants={cardVariants}
@@ -89,8 +89,8 @@ export default function StuffPage() {
         </motion.div>
         <motion.h1
           className={clsx(
-            "sm:text-2xl text-md tracking-tight text-justify px-6 dark:text-gray-400 text-gray-600",
-            crimsonserif.className
+            "sm:text-xl text-md tracking-tight text-justify px-6 dark:text-gray-400 text-gray-600",
+            codestuff.className
           )}
           initial="hidden"
           variants={cardVariants}
