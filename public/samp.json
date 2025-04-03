@@ -1,0 +1,281 @@
+{
+  "href": "https://api.spotify.com/v1/me/top/tracks?limit=3&time_range=short_term&locale=en-US,en;q%3D0.5",
+  "limit": 3,
+  "next": "https://api.spotify.com/v1/me/top/tracks?offset=3&limit=3&time_range=short_term&locale=en-US,en;q%3D0.5",
+  "offset": 0,
+  "previous": null,
+  "total": 410,
+  "items": [
+    {
+      "album": {
+        "album_type": "single",
+        "total_tracks": 1,
+        "available_markets": ["XK"],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/1bOANBDFMPylV75pmNK4l3"
+        },
+        "href": "https://api.spotify.com/v1/albums/1bOANBDFMPylV75pmNK4l3",
+        "id": "1bOANBDFMPylV75pmNK4l3",
+        "images": [
+          {
+            "url": "https://i.scdn.co/image/ab67616d0000b27388b7d5b6118538683d9082d0",
+            "height": 640,
+            "width": 640
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d00001e0288b7d5b6118538683d9082d0",
+            "height": 300,
+            "width": 300
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d0000485188b7d5b6118538683d9082d0",
+            "height": 64,
+            "width": 64
+          }
+        ],
+        "name": "Angels For Each Other",
+        "release_date": "2025-03-13",
+        "release_date_precision": "day",
+        "type": "album",
+        "uri": "spotify:album:1bOANBDFMPylV75pmNK4l3",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/60d24wfXkVzDSfLS6hyCjZ"
+            },
+            "href": "https://api.spotify.com/v1/artists/60d24wfXkVzDSfLS6hyCjZ",
+            "id": "60d24wfXkVzDSfLS6hyCjZ",
+            "name": "Martin Garrix",
+            "type": "artist",
+            "uri": "spotify:artist:60d24wfXkVzDSfLS6hyCjZ"
+          },
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/4YRxDV8wJFPHPTeXepOstw"
+            },
+            "href": "https://api.spotify.com/v1/artists/4YRxDV8wJFPHPTeXepOstw",
+            "id": "4YRxDV8wJFPHPTeXepOstw",
+            "name": "Arijit Singh",
+            "type": "artist",
+            "uri": "spotify:artist:4YRxDV8wJFPHPTeXepOstw"
+          }
+        ],
+        "is_playable": true
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/60d24wfXkVzDSfLS6hyCjZ"
+          },
+          "href": "https://api.spotify.com/v1/artists/60d24wfXkVzDSfLS6hyCjZ",
+          "id": "60d24wfXkVzDSfLS6hyCjZ",
+          "name": "Martin Garrix",
+          "type": "artist",
+          "uri": "spotify:artist:60d24wfXkVzDSfLS6hyCjZ"
+        },
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/4YRxDV8wJFPHPTeXepOstw"
+          },
+          "href": "https://api.spotify.com/v1/artists/4YRxDV8wJFPHPTeXepOstw",
+          "id": "4YRxDV8wJFPHPTeXepOstw",
+          "name": "Arijit Singh",
+          "type": "artist",
+          "uri": "spotify:artist:4YRxDV8wJFPHPTeXepOstw"
+        }
+      ],
+      "available_markets": ["ET", "XK"],
+      "disc_number": 1,
+      "duration_ms": 215076,
+      "explicit": false,
+      "external_ids": { "isrc": "NLM5S2502487" },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/7KPcippmg9MvPzb3dzNpQW"
+      },
+      "href": "https://api.spotify.com/v1/tracks/7KPcippmg9MvPzb3dzNpQW",
+      "id": "7KPcippmg9MvPzb3dzNpQW",
+      "is_playable": true,
+      "name": "Angels For Each Other",
+      "popularity": 74,
+      "preview_url": null,
+      "track_number": 1,
+      "type": "track",
+      "uri": "spotify:track:7KPcippmg9MvPzb3dzNpQW",
+      "is_local": false
+    },
+    {
+      "album": {
+        "album_type": "album",
+        "total_tracks": 22,
+        "available_markets": ["XK"],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/6iyZdOoujtOwiThdAUI8TM"
+        },
+        "href": "https://api.spotify.com/v1/albums/6iyZdOoujtOwiThdAUI8TM",
+        "id": "6iyZdOoujtOwiThdAUI8TM",
+        "images": [
+          {
+            "url": "https://i.scdn.co/image/ab67616d0000b2734aa8b835e86c68b78ee147d6",
+            "height": 640,
+            "width": 640
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d00001e024aa8b835e86c68b78ee147d6",
+            "height": 300,
+            "width": 300
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d000048514aa8b835e86c68b78ee147d6",
+            "height": 64,
+            "width": 64
+          }
+        ],
+        "name": "Hurry Up Tomorrow",
+        "release_date": "2025-01-30",
+        "release_date_precision": "day",
+        "type": "album",
+        "uri": "spotify:album:6iyZdOoujtOwiThdAUI8TM",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
+            },
+            "href": "https://api.spotify.com/v1/artists/1Xyo4u8uXC1ZmMpatF05PJ",
+            "id": "1Xyo4u8uXC1ZmMpatF05PJ",
+            "name": "The Weeknd",
+            "type": "artist",
+            "uri": "spotify:artist:1Xyo4u8uXC1ZmMpatF05PJ"
+          }
+        ],
+        "is_playable": true
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
+          },
+          "href": "https://api.spotify.com/v1/artists/1Xyo4u8uXC1ZmMpatF05PJ",
+          "id": "1Xyo4u8uXC1ZmMpatF05PJ",
+          "name": "The Weeknd",
+          "type": "artist",
+          "uri": "spotify:artist:1Xyo4u8uXC1ZmMpatF05PJ"
+        },
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/1gR0gsQYfi6joyO1dlp76N"
+          },
+          "href": "https://api.spotify.com/v1/artists/1gR0gsQYfi6joyO1dlp76N",
+          "id": "1gR0gsQYfi6joyO1dlp76N",
+          "name": "Justice",
+          "type": "artist",
+          "uri": "spotify:artist:1gR0gsQYfi6joyO1dlp76N"
+        }
+      ],
+      "available_markets": ["XK"],
+      "disc_number": 1,
+      "duration_ms": 308575,
+      "explicit": false,
+      "external_ids": { "isrc": "USUG12501128" },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/5ehXToeJ8Tgc4wMhY42Oul"
+      },
+      "href": "https://api.spotify.com/v1/tracks/5ehXToeJ8Tgc4wMhY42Oul",
+      "id": "5ehXToeJ8Tgc4wMhY42Oul",
+      "is_playable": true,
+      "name": "Wake Me Up (feat. Justice)",
+      "popularity": 63,
+      "preview_url": null,
+      "track_number": 1,
+      "type": "track",
+      "uri": "spotify:track:5ehXToeJ8Tgc4wMhY42Oul",
+      "is_local": false
+    },
+    {
+      "album": {
+        "album_type": "album",
+        "total_tracks": 10,
+        "available_markets": ["XK"],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/5V7WoYwRXtheRjhOjgUeR5"
+        },
+        "href": "https://api.spotify.com/v1/albums/5V7WoYwRXtheRjhOjgUeR5",
+        "id": "5V7WoYwRXtheRjhOjgUeR5",
+        "images": [
+          {
+            "url": "https://i.scdn.co/image/ab67616d0000b273864f08aa363057917e587f55",
+            "height": 640,
+            "width": 640
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d00001e02864f08aa363057917e587f55",
+            "height": 300,
+            "width": 300
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d00004851864f08aa363057917e587f55",
+            "height": 64,
+            "width": 64
+          }
+        ],
+        "name": "Telos",
+        "release_date": "2024-08-30",
+        "release_date_precision": "day",
+        "type": "album",
+        "uri": "spotify:album:5V7WoYwRXtheRjhOjgUeR5",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/2qxJFvFYMEDqd7ui6kSAcq"
+            },
+            "href": "https://api.spotify.com/v1/artists/2qxJFvFYMEDqd7ui6kSAcq",
+            "id": "2qxJFvFYMEDqd7ui6kSAcq",
+            "name": "Zedd",
+            "type": "artist",
+            "uri": "spotify:artist:2qxJFvFYMEDqd7ui6kSAcq"
+          }
+        ],
+        "is_playable": true
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/2qxJFvFYMEDqd7ui6kSAcq"
+          },
+          "href": "https://api.spotify.com/v1/artists/2qxJFvFYMEDqd7ui6kSAcq",
+          "id": "2qxJFvFYMEDqd7ui6kSAcq",
+          "name": "Zedd",
+          "type": "artist",
+          "uri": "spotify:artist:2qxJFvFYMEDqd7ui6kSAcq"
+        },
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/3nnQpaTvKb5jCQabZefACI"
+          },
+          "href": "https://api.spotify.com/v1/artists/3nnQpaTvKb5jCQabZefACI",
+          "id": "3nnQpaTvKb5jCQabZefACI",
+          "name": "Jeff Buckley",
+          "type": "artist",
+          "uri": "spotify:artist:3nnQpaTvKb5jCQabZefACI"
+        }
+      ],
+      "available_markets": ["ET", "XK"],
+      "disc_number": 1,
+      "duration_ms": 298061,
+      "explicit": false,
+      "external_ids": { "isrc": "USSM12404686" },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/4wsCp4k8t9y9e3RMzNPHPe"
+      },
+      "href": "https://api.spotify.com/v1/tracks/4wsCp4k8t9y9e3RMzNPHPe",
+      "id": "4wsCp4k8t9y9e3RMzNPHPe",
+      "is_playable": true,
+      "name": "Dream Brother",
+      "popularity": 43,
+      "preview_url": null,
+      "track_number": 7,
+      "type": "track",
+      "uri": "spotify:track:4wsCp4k8t9y9e3RMzNPHPe",
+      "is_local": false
+    }
+  ]
+}
