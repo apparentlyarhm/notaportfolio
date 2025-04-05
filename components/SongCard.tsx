@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  Card,
-  CardFooter,
-  CardBody,
-  Divider,
-  Image,
-} from "@heroui/react";
+import { Card, CardFooter, CardBody, Divider, Image } from "@heroui/react";
 import clsx from "clsx";
 import { codestuff } from "@/config/fonts";
 
@@ -25,11 +19,12 @@ export default function SongCard({
 }: SongCardProps) {
   return (
     <Card
-      className="relative overflow-hidden max-w-[90vw] sm:max-w-[70vw] md:max-w-[50vw] 
-                 min-h-[200px] sm:min-h-[300px] md:min-h-[350px] 
-                 rounded-3xl border-1 dark:border-gray-500 
-                 hover:border-gray-400 dark:hover:border-orange-400 
-                 bg-cover bg-center text-white"
+      className="
+                  relative overflow-hidden h-auto max-h-[450px] 
+                  rounded-3xl border-1 dark:border-gray-500 
+                hover:border-gray-400 dark:hover:border-orange-400 
+                  bg-cover bg-center text-white
+                "
       style={{ backgroundImage: `url('${imageUrl}')` }}
       shadow="none"
     >
@@ -38,7 +33,7 @@ export default function SongCard({
 
       <CardBody
         className={clsx(
-          "relative z-10 flex-col gap-6 p-4 sm:p-6 md:px-10 items-left sm:py-12 sm:text-justify font-normal text-small",
+          "relative z-10 flex-col gap-6 p-4 sm:p-6 md:px-10 items-left sm:py-12 font-normal text-small",
           codestuff.className
         )}
       >
@@ -52,11 +47,13 @@ export default function SongCard({
 
       <CardFooter
         className={clsx(
-          "relative z-10 p-4 sm:p-6 flex justify-between items-center",
+          "relative z-10 p-4 sm:p-6 flex justify-between items-center ",
           codestuff.className
         )}
       >
-        <p className="text-sm ml-4 sm:text-base md:text-lg">{albumName}</p>
+        <p className="text-sm ml-4 sm:text-base md:text-lg truncate max-w-[60%]">
+          {albumName}
+        </p>
         <Image
           alt="Album art"
           className="object-cover rounded-xl"

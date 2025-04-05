@@ -21,7 +21,7 @@ export default function BlogPage() {
   const [tracks, setTracks] = useState([]);
   const [limit, setLimit] = useState(3);
   const [timeRange, setTimeRange] = useState("short_term");
-  const [error, setError] = useState<string | null>(null); // <- added
+  const [error, setError] = useState<string | null>(null);
 
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -58,7 +58,7 @@ export default function BlogPage() {
   }, [timeRange, limit]);
 
   return (
-    <>
+    <div className="justify-center">
       <p
         className={clsx(
           "tracking-tighter text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl sm:mb-10 break-text",
@@ -80,17 +80,26 @@ export default function BlogPage() {
         }
       </motion.p>
       <br />
-      <br />
 
       {/* api config ui */}
-      <div className="flex items-end gap-4 ">
+      <div className="flex gap-4 justify-center">
         <Dropdown size="lg">
           <DropdownTrigger className="mt-10 mb-10 py-9 px-14 border-1">
-            <Button variant="light" className={clsx("", codestuff.className)}>
-              {`Time Range: ${timeRange}`}
-              <ArrowDown className="ml-4" />
+            <Button
+              variant="light"
+              className={clsx(
+                "max-w-[70vw] sm:max-w-none overflow-hidden",
+                codestuff.className
+              )}
+            >
+              <span className="whitespace-normal break-words text-center text-xs sm:text-md">
+                {`Time range: ${timeRange}`}
+              </span>
+
+              <ArrowDown className="ml-4 shrink-0" />
             </Button>
           </DropdownTrigger>
+
           <DropdownMenu
             aria-label="Time Range"
             selectedKeys={[timeRange]}
@@ -103,7 +112,7 @@ export default function BlogPage() {
         </Dropdown>
 
         <Dropdown size="lg">
-          <DropdownTrigger className="mt-10 mb-10 py-9 px-14 border-1">
+          <DropdownTrigger className="mt-10 mb-10 py-9 px-14 border-1 ">
             <Button variant="light" className={clsx("", codestuff.className)}>
               {`Count: ${limit}`}
               <ArrowDown className="ml-4" />
@@ -135,11 +144,11 @@ export default function BlogPage() {
           {error}
         </div>
       ) : (
-        <>
+        <div>
           <br />
 
           <TopTracksList tracks={tracks} />
-        </>
+        </div>
       )}
       <br />
       <br />
@@ -153,6 +162,6 @@ export default function BlogPage() {
       >
         {"more coming soon"}
       </p>
-    </>
+    </div>
   );
 }
