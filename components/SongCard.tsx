@@ -20,8 +20,8 @@ export default function SongCard({
   return (
     <Card
       className="
-                  relative overflow-hidden h-auto max-h-[450px] 
-                  rounded-3xl border-1 dark:border-gray-500 
+                  relative overflow-hidden h-auto max-h-[450px]
+                  rounded-[45px] border-1 dark:border-gray-500 
                 hover:border-gray-400 dark:hover:border-orange-400 
                   bg-cover bg-center text-white
                 "
@@ -29,7 +29,7 @@ export default function SongCard({
       shadow="none"
     >
       {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm z-0" />
+      <div className="absolute inset-0 dark:bg-black/80 bg-gray-100/70 backdrop-blur-sm z-0" />
 
       <CardBody
         className={clsx(
@@ -37,10 +37,12 @@ export default function SongCard({
           codestuff.className
         )}
       >
-        <p className="text-2xl sm:text-3xl md:text-4xl tracking-tighter lg:text-5xl font-bold text-white">
+        <p className="text-2xl sm:text-3xl md:text-4xl tracking-tighter lg:text-5xl font-bold dark:text-white text-gray-900">
           {songName}
         </p>
-        <p className="text-sm sm:text-base text-white">{artists.join(", ")}</p>
+        <p className="text-sm sm:text-base dark:text-white text-gray-900">
+          {artists.join(", ")}
+        </p>
       </CardBody>
 
       <Divider className="relative z-10" />
@@ -51,7 +53,7 @@ export default function SongCard({
           codestuff.className
         )}
       >
-        <p className="text-sm ml-4 sm:text-base md:text-lg truncate max-w-[60%]">
+        <p className="text-sm ml-4 sm:text-base md:text-lg truncate max-w-[60%] dark:text-white text-gray-900">
           {albumName}
         </p>
         <Image
