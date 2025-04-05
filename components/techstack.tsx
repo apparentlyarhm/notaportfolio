@@ -16,7 +16,7 @@ export const TechStack: React.FC<props> = (): JSX.Element => {
 
   return (
     <>
-      <Button onPress={onOpen} color="primary">
+      <Button color="primary" onPress={onOpen}>
         Open Modal
       </Button>
       <Modal

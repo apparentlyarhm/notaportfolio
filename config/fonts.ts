@@ -1,10 +1,8 @@
-import exp from "constants";
 import {
   Fira_Code as FontMono,
   Inter as FontSans,
   DM_Sans,
   Jost,
-  Source_Code_Pro,
   Crimson_Text,
   Inter, JetBrains_Mono,
 } from "next/font/google";

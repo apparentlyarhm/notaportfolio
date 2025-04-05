@@ -13,11 +13,13 @@ import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
 import { useDisclosure } from "@heroui/react";
+import { Lato } from "next/font/google";
+
+import { AboutModal } from "./aboutmodal";
+
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { TwitterIcon, GithubIcon, LinkedInIcon } from "@/components/icons";
-import { AboutModal } from "./aboutmodal";
-import { Lato } from "next/font/google";
 
 export const navbarList = Lato({
   weight: ["400", "700"],
@@ -36,11 +38,12 @@ export const Navbar = () => {
   return (
     <>
       <NextUINavbar
-        position="sticky"
-        maxWidth="xl"
         isBordered
-        onMenuOpenChange={setIsMenuOpen}
+        isBlurred={false}
         isMenuOpen={isMenuOpen}
+        maxWidth="xl"
+        position="sticky"
+        onMenuOpenChange={setIsMenuOpen}
       >
         {/* Navbar content for desktop */}
         <NavbarContent
@@ -51,14 +54,13 @@ export const Navbar = () => {
             <NextLink
               className="flex justify-start items-center gap-1"
               href="/"
-            ></NextLink>
+             />
           </NavbarBrand>
           <ul className="hidden lg:flex gap-4 justify-start ml-2">
             {siteConfig.navItems.map((item) =>
               item.label === "Who?" ? (
                 <NavbarItem key={item.href}>
                   <NextLink
-                    onClick={handleWhoClick}
                     className={clsx(
                       linkStyles({ color: "foreground" }),
                       "data-[active=true]:text-primary data-[active=true]:font-medium font-bold",
@@ -66,6 +68,7 @@ export const Navbar = () => {
                     )}
                     color="foreground"
                     href={item.href}
+                    onClick={handleWhoClick}
                   >
                     {item.label}
                   </NextLink>
@@ -139,7 +142,6 @@ export const Navbar = () => {
             item.label === "Who?" ? (
               <NavbarItem key={item.href}>
                 <NextLink
-                  onClick={handleWhoClick}
                   className={clsx(
                     linkStyles({ color: "foreground" }),
                     "data-[active=true]:text-primary data-[active=true]:font-medium text-xl py-3 font-bold",
@@ -147,6 +149,7 @@ export const Navbar = () => {
                   )}
                   color="foreground"
                   href={item.href}
+                  onClick={handleWhoClick}
                 >
                   {item.label}
                 </NextLink>
@@ -154,7 +157,6 @@ export const Navbar = () => {
             ) : (
               <NavbarItem key={item.href}>
                 <NextLink
-                  onClick={() => setIsMenuOpen(false)}
                   className={clsx(
                     linkStyles({ color: "foreground" }),
                     "data-[active=true]:text-primary data-[active=true]:font-medium text-xl py-3 font-bold",
@@ -162,6 +164,7 @@ export const Navbar = () => {
                   )}
                   color="foreground"
                   href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
                 </NextLink>
@@ -174,8 +177,8 @@ export const Navbar = () => {
       {/* Modal Component */}
       <AboutModal
         isOpen={isOpen}
-        onOpenChange={onOpenChange}
         onClose={onClose}
+        onOpenChange={onOpenChange}
       />
     </>
   );

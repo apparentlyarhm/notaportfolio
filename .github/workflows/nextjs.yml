@@ -1,4 +1,3 @@
-
 name: Deploy Next.js site to Pages
 
 on:
@@ -19,11 +18,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "npm"
+
       - name: Enforce NPM :D
         run: |
           if [ -f "yarn.lock" ] || [ -f "pnpm-lock.yaml" ]; then
@@ -32,10 +33,20 @@ jobs:
           else
             echo "✅ go ahead"
           fi
+      - name: Validate environment variables
+        run: |
+          if [ -z "$NEXT_PUBLIC_BASE_URL" ]; then
+            echo "❌ NEXT_PUBLIC_BASE_URL is not set or empty. Set it in repository secrets."
+            exit 1
+          else
+            echo "✅ NEXT_PUBLIC_BASE_URL found: $NEXT_PUBLIC_BASE_URL"
+          fi
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
           static_site_generator: next
+
       - name: Restore cache
         uses: actions/cache@v4
         with:
@@ -45,10 +56,13 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+
       - name: Install dependencies
         run: npm i # Keeping it simple g
+
       - name: Build with Next.js
         run: npm run build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

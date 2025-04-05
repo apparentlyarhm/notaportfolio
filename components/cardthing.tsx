@@ -1,9 +1,10 @@
-import { Accordion, AccordionItem, Avatar } from "@heroui/react";
-import { CardConfig } from "@/config/CardConfig";
-import { Image } from "@heroui/react";
-import { codestuff, headingsDM, paragraph, crimsonserif } from "@/config/fonts";
-import { Divider } from "@heroui/react";
+import { Accordion, AccordionItem } from "@heroui/react";
 import clsx from "clsx";
+import { Divider } from "@heroui/react";
+
+import { CardConfig } from "@/config/CardConfig";
+import { codestuff, headingsDM, inter } from "@/config/fonts";
+
 
 interface CardThingProps {
   cardConfig: CardConfig[];
@@ -11,7 +12,7 @@ interface CardThingProps {
 
 export const CardThing: React.FC<CardThingProps> = ({ cardConfig }) => {
   return (
-    <Accordion selectionMode="multiple" variant="splitted" className="sm:p-10">
+    <Accordion className="sm:p-10" selectionMode="multiple" variant="splitted">
       {cardConfig.map((accordion, index) => (
         <AccordionItem
           key={index}
@@ -44,8 +45,8 @@ export const CardThing: React.FC<CardThingProps> = ({ cardConfig }) => {
         >
           <div
             className={clsx(
-              "mt-4 rounded-lg sm:p-2 mx-1 sm:mx-6 sm:text-2xl dark:text-gray-400 text-gray-500 text-md p-1 tracking-tight text-justify",
-              crimsonserif.className
+              "mt-4 rounded-lg sm:p-2 mx-1 text-small sm:mx-6 sm:text-xl dark:text-gray-400 text-gray-500 text-md p-1 tracking-tight text-justify",
+              inter.className
             )}
           >
             <Divider className="mb-10 opacity-50" />
