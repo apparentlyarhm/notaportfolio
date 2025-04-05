@@ -7,11 +7,10 @@ import clsx from "clsx";
 
 import { cardConfig } from "@/config/CardConfig";
 import { CardThing } from "@/components/cardthing";
-import {codestuff} from "@/config/fonts";
+import { codestuff } from "@/config/fonts";
 import { headingsDM } from "@/config/fonts";
 import { MusicAccordion } from "@/components/musicaccordion";
 import { MusicConfig } from "@/config/MusicConfig";
-
 
 export default function StuffPage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -109,10 +108,7 @@ export default function StuffPage() {
           whileInView="visible"
         >
           <br />
-          <MusicAccordion
-            musicConfig={MusicConfig}
-            small={isMobile}
-          />
+          <MusicAccordion musicConfig={MusicConfig} small={isMobile} />
         </motion.div>
       </div>
       <Button
@@ -122,10 +118,10 @@ export default function StuffPage() {
           headingsDM.className
         )}
         endContent={<ArrowUpRight />}
-        href="./"
+        href="./favourites"
         variant="shadow"
       >
-        {"Back to home"}
+        {"Favourites"}
       </Button>
     </>
   );

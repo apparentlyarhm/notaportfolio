@@ -63,9 +63,9 @@ const TopTracksList: React.FC<TopTracksListProps> = ({ tracks }) => {
             className="w-full"
           >
             <SongCard
-              songName={track.name}
+              songName={track.name.toLowerCase()}
               artists={track.artists.map((artist) => artist.name.toLowerCase())}
-              albumName={track.album.name.toLowerCase()}
+              albumName={track.album.name}
               imageUrl={imageUrl}
             />
           </motion.div>

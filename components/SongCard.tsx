@@ -2,7 +2,7 @@
 
 import { Card, CardFooter, CardBody, Divider, Image } from "@heroui/react";
 import clsx from "clsx";
-import { codestuff } from "@/config/fonts";
+import { codestuff, headingsDM } from "@/config/fonts";
 
 interface SongCardProps {
   songName: string;
@@ -33,14 +33,19 @@ export default function SongCard({
 
       <CardBody
         className={clsx(
-          "relative z-10 flex-col gap-6 p-4 sm:p-6 md:px-10 items-left sm:py-12 font-normal text-small",
+          "relative z-10 flex-col gap-6 p-4 sm:p-6 md:px-10 items-left sm:py-12 font-normal text-sm",
           codestuff.className
         )}
       >
-        <p className="text-2xl sm:text-3xl md:text-4xl tracking-tighter lg:text-5xl font-bold dark:text-white text-gray-900">
+        <p
+          className={clsx(
+            "text-lg sm:text-3xl md:text-4xl tracking-tighter lg:text-5xl font-bold dark:text-white text-gray-900",
+            headingsDM.className
+          )}
+        >
           {songName}
         </p>
-        <p className="text-sm sm:text-base dark:text-white text-gray-900">
+        <p className="text-xs sm:text-lg dark:text-white text-gray-900">
           {artists.join(", ")}
         </p>
       </CardBody>
@@ -53,8 +58,8 @@ export default function SongCard({
           codestuff.className
         )}
       >
-        <p className="text-sm sm:text-base md:text-lg truncate max-w-[60%] dark:text-white text-gray-900">
-          {albumName}
+        <p className="text-xs sm:text-lg md:text-xl truncate max-w-[60%] dark:text-white text-gray-900">
+          {`"${albumName}"`}
         </p>
         <Image
           alt="Album art"

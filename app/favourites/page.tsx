@@ -9,7 +9,7 @@ import {
   Button,
 } from "@heroui/react";
 import { headingsDM, codestuff } from "@/config/fonts";
-import { ArrowDown } from "react-feather";
+import { ArrowDown, ArrowUpRight } from "react-feather";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
@@ -61,7 +61,7 @@ export default function BlogPage() {
     <div className="justify-center">
       <p
         className={clsx(
-          "tracking-tighter text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl sm:mb-10 break-text",
+          "text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter break-words px-6  sm:mb-10",
           headingsDM.className
         )}
       >
@@ -70,7 +70,7 @@ export default function BlogPage() {
 
       <motion.p
         className={clsx(
-          "tracking-tight text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 px-3 text-left",
+          "text-md sm:text-xl md:text-lg lg:text-xl dark:text-gray-400 text-gray-600 px-3 text-left",
           codestuff.className
         )}
       >
@@ -162,6 +162,19 @@ export default function BlogPage() {
       >
         {"more coming soon"}
       </p>
+
+      <Button
+        as={"a"}
+        className={clsx(
+          "mt-12 p-10 rounded-2xl text-2xl text-white bg-cyan-600 tracking-tighter",
+          headingsDM.className
+        )}
+        endContent={<ArrowUpRight />}
+        href="./"
+        variant="shadow"
+      >
+        {"Back to home"}
+      </Button>
     </div>
   );
 }
