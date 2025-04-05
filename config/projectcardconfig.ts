@@ -8,7 +8,9 @@ import py from "../assets/logos/py.svg";
 import js from "../assets/logos/js.svg";
 import ts from "../assets/logos/ts.svg";
 import tf from "../assets/logos/terraform.png";
-import sprng from "../assets/logos/sprng.svg"
+import sprng from "../assets/logos/sprng.svg";
+import ejs from "../assets/logos/ejs.svg";
+import ps from "../assets/logos/ps.svg";
 
 export interface ProjectCardConfig {
   title: string;
@@ -20,13 +22,26 @@ export interface ProjectCardConfig {
 
 export const ProjectCardConfig: ProjectCardConfig[] = [
   {
-    title: "Spring based whitelisting tool for firewalls on Google Cloud Platform",
+    title:
+      "Spring based whitelisting tool for firewalls on Google Cloud Platform",
     projectDesc: [
       "Developed a website to add user IPs to GCP Firewall, granting access to a game server",
       "Built with Spring Boot APIs, Next.js frontend, and CI/CD on Cloud Run via Powershell via Artifact registry",
     ],
-    projectLink: "https://apparentlyarhm.github.io/minecraft-vm-management-console/",
+    projectLink:
+      "https://apparentlyarhm.github.io/minecraft-vm-management-console/",
     images: [sprng.src, njs.src, gcp.src],
+    category: "Personal",
+  },
+  {
+    title: "Spoti-proxy",
+    projectDesc: [
+      "Simple express JS app that  fetches my Spoti-stats, while abstracting out the token refresh process, also has rate limiting",
+      "Containerised application deployed on Cloud run, CD using Github Actions",
+      "You will see the APIs in action on the `favourites` section of this page.",
+    ],
+    projectLink: "https://github.com/apparentlyarhm/spotify-proxy/",
+    images: [ejs.src, ps.src],
     category: "Personal",
   },
   {
@@ -60,23 +75,12 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
   },
   {
     title:
-        " Game Server using GCE with automatic backups and URL based Startup using Cloud Functions",
+      " Game Server using GCE with automatic backups and URL based Startup using Cloud Functions",
     projectDesc: [
       " Used tools like Compute Engine, CRON, TMUX to host and maintain a game server with regular backups.",
     ],
     projectLink: "",
     images: [gcp.src, linux.src],
-    category: "Personal",
-  },
-  {
-    title:
-        "Gobbl- A 'Surplus' Food Redistribution System: SRMIST MINOR PROJECT",
-    projectDesc: [
-      "A system that predicts best possible restaurant choices at a given location based on Quantity, Distance and Rating",
-      "A biased, synthetic dataset was used for training, as well as a Web App developed using React.Js and Django",
-    ],
-    projectLink: "https://github.com/apparentlyarhm/foodredis",
-    images: [django.src, mysql.src, rjs.src, py.src],
     category: "Personal",
   },
 ];

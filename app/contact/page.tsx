@@ -2,7 +2,6 @@
 
 import {
   Spinner,
-  Input,
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
@@ -15,21 +14,23 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import TopTracksList from "@/components/TopTracksList";
-import { count } from "console";
 
 export default function BlogPage() {
+  // API related states
   const [apiLoading, setApiLoading] = useState(true);
   const [tracks, setTracks] = useState([]);
-  const [limit, setLimit] = useState(3); // max Spotify API allows
-  const [timeRange, setTimeRange] = useState("short_term"); // default
+  const [limit, setLimit] = useState(3);
+  const [timeRange, setTimeRange] = useState("short_term");
+  const [error, setError] = useState<string | null>(null); // <- added
 
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
   useEffect(() => {
     setApiLoading(true);
+    setError(null);
 
     const params = new URLSearchParams({
-      type: "tracks", // or 'artists'
+      type: "tracks", // or 'artists' -- there is no support for artists yet
       time_range: timeRange, // 'short_term' | 'medium_term' | 'long_term'
       limit: String(limit),
       offset: "0",
@@ -49,6 +50,9 @@ export default function BlogPage() {
       })
       .catch((err) => {
         console.error("[Frontend] Error fetching top tracks:", err);
+        setError(
+          "Something went wrong. If you are Arhum, check the GCP logs or browser console whatever"
+        );
         setApiLoading(false);
       });
   }, [timeRange, limit]);
@@ -120,6 +124,15 @@ export default function BlogPage() {
       {apiLoading ? (
         <div className="flex justify-center items-center min-h-[200px]">
           <Spinner variant="wave" size="lg" />
+        </div>
+      ) : error ? (
+        <div
+          className={clsx(
+            "text-center text-red-500 text-base sm:text-md md:text-lg",
+            codestuff.className
+          )}
+        >
+          {error}
         </div>
       ) : (
         <>
