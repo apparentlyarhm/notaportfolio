@@ -17,8 +17,8 @@ export const siteConfig = {
       href: "/mehstuff",
     },
     {
-      label: "Contact",
-      href: "contact",
+      label: "Favourites",
+      href: "favourites",
     },
     {
       label: "Who?",

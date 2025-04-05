@@ -94,7 +94,7 @@ export default function BlogPage() {
           <DropdownMenu
             aria-label="Time Range"
             selectedKeys={[timeRange]}
-            onAction={(key) => setTimeRange(key)}
+            onAction={(key) => setTimeRange(String(key))}
           >
             <DropdownItem key="short_term">{"Last 4 Weeks"}</DropdownItem>
             <DropdownItem key="medium_term">{"Last 6 Months"}</DropdownItem>
