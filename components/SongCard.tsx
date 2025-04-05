@@ -21,7 +21,7 @@ export default function SongCard({
     <Card
       className="
                   relative overflow-hidden h-auto max-h-[450px]
-                  rounded-[45px] border-1 dark:border-gray-500 
+                  rounded-2xl sm:rounded-[30px] border-1 dark:border-gray-500 
                 hover:border-gray-400 dark:hover:border-orange-400 
                   bg-cover bg-center text-white
                 "
@@ -53,7 +53,7 @@ export default function SongCard({
           codestuff.className
         )}
       >
-        <p className="text-sm ml-4 sm:text-base md:text-lg truncate max-w-[60%] dark:text-white text-gray-900">
+        <p className="text-sm sm:text-base md:text-lg truncate max-w-[60%] dark:text-white text-gray-900">
           {albumName}
         </p>
         <Image
