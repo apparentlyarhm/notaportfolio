@@ -43,10 +43,11 @@ export default function RootLayout({
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
           <div className="relative flex flex-col h-screen ">
             <Navbar />
-
             <main className="container mx-auto max-w-full flex-grow ">
               {children}
             </main>
+            // TODO: investigate re-rendering in the footer component-- i think
+            it should not re-render.
             <Footer />
           </div>
         </Providers>

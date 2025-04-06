@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Divider } from "@heroui/react";
 import clsx from "clsx";
 import { codestuff } from "@/config/fonts";
 
@@ -17,13 +16,27 @@ export default function Footer() {
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
   useEffect(() => {
-    console.log("Footer mounted");
-
     const loadData = async () => {
+      const cachedData = sessionStorage.getItem("spotifyData");
+      const cachedTimestamp = sessionStorage.getItem("spotifyDataTimestamp");
+
+      if (cachedData && cachedTimestamp) {
+        const timestamp = parseInt(cachedTimestamp);
+        if (Date.now() - timestamp < 60000) {
+          console.log("using cache for now playing..");
+          setData(JSON.parse(cachedData));
+          return;
+        }
+      }
+
       try {
+        console.log("cache miss -> fetching again");
         const res = await fetch(`${BASE_URL}/now`);
         const json = await res.json();
         setData(json);
+
+        sessionStorage.setItem("spotifyData", JSON.stringify(json));
+        sessionStorage.setItem("spotifyDataTimestamp", Date.now().toString());
       } catch (err) {
         console.error("Failed to load JSON:", err);
       }
@@ -32,10 +45,9 @@ export default function Footer() {
     loadData();
   }, []);
 
-  if (!data?.item) return null;
+  if (!data?.item) return null; // We will silently not show anything if the api fails or no listening activity is detected.
 
   const track = data.item;
-  const artists = track.artists?.map((a: any) => a.name).join(", ");
   const artistLinks = track.artists?.map((artist: any, i: number) => (
     <span key={artist.id}>
       <a
@@ -54,11 +66,11 @@ export default function Footer() {
   return (
     <footer
       className={clsx(
-        "text-center border-t border-gray-200 sm:py-6 py-3 px-4",
+        "text-center border-t border-gray-200 sm:py-6 py-3 px-4 bg-cyan-50 ",
         codestuff.className
       )}
     >
-      <div className="flex items-center justify-center gap-4 overflow-x-auto">
+      <div className="flex items-center justify-center gap-4 overflow-x-auto ">
         {albumImage && (
           <img
             src={albumImage}
