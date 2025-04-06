@@ -160,7 +160,7 @@ export default function BlogPage() {
           codestuff.className
         )}
       >
-        {"more coming soon"}
+        {"more coming soon (dont ask me when)"}
       </p>
 
       <Button

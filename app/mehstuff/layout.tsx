@@ -32,12 +32,6 @@ export default function DocsLayout({
           {children}
         </div>
       </section>
-      <section className="text-center py-2">
-        <Divider className="my-10 w-full" />
-        <p className="text-small text-gray-500 pb-2">
-          &copy; i would say all rights reseverd but i cant, right? &trade;
-        </p>
-      </section>
     </>
   );
 }

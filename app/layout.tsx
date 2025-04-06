@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
+import Footer from "@/components/Footer";
 import clsx from "clsx";
 import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: "/favicon.ico",
+    icon: "/fav2.ico",
   },
 };
 
@@ -46,8 +47,7 @@ export default function RootLayout({
             <main className="container mx-auto max-w-full flex-grow ">
               {children}
             </main>
-
-            <footer className="w-full flex items-center justify-center py-3"></footer>
+            <Footer />
           </div>
         </Providers>
       </body>

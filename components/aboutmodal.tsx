@@ -71,7 +71,7 @@ export const AboutModal: React.FC<AppProps> = ({
                   )}
                 >
                   {
-                    "I was brought up and raised in Uttar Pradesh, India. Did my schooling there in DPS (for those unaware, a rather famous public school 'chain' in the country) and for my Bachelor's, flew all the way over to Chennai at SRM, Kattankulathur, topursue Computer Science & Engineering."
+                    "I was brought up and raised in Uttar Pradesh, India. Did my schooling there in DPS (for those unaware, a rather famous public school 'chain' in the NCR region) and for my Bachelor's, flew all the way over to Chennai at SRM, Kattankulathur, to pursue Computer Science & Engineering. Currently working at a startup in Chennai."
                   }
                 </p>
                 <br></br>
