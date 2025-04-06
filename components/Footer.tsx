@@ -14,13 +14,14 @@ export default function Footer() {
   }
 
   const [data, setData] = useState<any>(null);
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
   useEffect(() => {
     console.log("Footer mounted");
 
     const loadData = async () => {
       try {
-        const res = await fetch("/samp.json");
+        const res = await fetch(`${BASE_URL}/now`);
         const json = await res.json();
         setData(json);
       } catch (err) {

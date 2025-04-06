@@ -44,7 +44,6 @@ export default function BlogPage() {
         return res.json();
       })
       .then((data) => {
-        console.log("[Frontend] Fetched top tracks:", data);
         setTracks(data.items);
         setApiLoading(false);
       })
