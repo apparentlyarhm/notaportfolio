@@ -66,11 +66,11 @@ export default function Footer() {
   return (
     <footer
       className={clsx(
-        "text-center border-t border-gray-200 sm:py-6 py-3 px-4 bg-cyan-50 ",
+        "text-center justify-center border-t border-gray-300 dark:border-gray-900 sm:py-6 py-3 px-4",
         codestuff.className
       )}
     >
-      <div className="flex items-center justify-center gap-4 overflow-x-auto ">
+      <div className="flex items-center justify-center sm:justify-start gap-4 overflow-x-auto p-5 rounded-2xl bg-transparent border-1 dark:border-gray-500 hover:border-gray-400 dark:hover:border-orange-400 max-w-[500px]">
         {albumImage && (
           <img
             src={albumImage}
