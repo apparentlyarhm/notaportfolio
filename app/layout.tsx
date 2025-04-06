@@ -25,6 +25,7 @@ export const viewport: Viewport = {
   ],
 };
 
+// TODO: investigate re-rendering in the footer component-- i think it should not re-render.
 export default function RootLayout({
   children,
 }: {
@@ -46,8 +47,6 @@ export default function RootLayout({
             <main className="container mx-auto max-w-full flex-grow ">
               {children}
             </main>
-            // TODO: investigate re-rendering in the footer component-- i think
-            it should not re-render.
             <Footer />
           </div>
         </Providers>
