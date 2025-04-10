@@ -21,17 +21,27 @@ const floatingAnimation = (delay: number) => ({
 });
 
 export const Ghosts: React.FC<Props> = (): JSX.Element => {
-  // Determine screen size
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const [isMobile, setIsMobile] = React.useState(false);
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
 
-  const ghostImages = Array.from({ length: 20 }, (_, index) => ({
-    id: index,
-    size: generateRandomSize(isMobile ? 20 : 40, 10), // Smaller size on mobile
-    src: ghostsList[index % ghostsList.length].src,
-    alt: ghostsList[index % ghostsList.length].alt,
-    delay: Math.random() * 10,
-  }));
+    checkMobile(); // Initial check
+    window.addEventListener("resize", checkMobile);
 
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const ghostImages = React.useMemo(() => {
+    return Array.from({ length: 20 }, (_, index) => ({
+      id: index,
+      size: generateRandomSize(isMobile ? 20 : 40, 10),
+      src: ghostsList[index % ghostsList.length].src,
+      alt: ghostsList[index % ghostsList.length].alt,
+      delay: Math.random() * 10,
+    }));
+  }, [isMobile]);
   return (
     <>
       {ghostImages.map((ghost) => (
