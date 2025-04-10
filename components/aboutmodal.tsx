@@ -97,11 +97,10 @@ export const AboutModal: React.FC<AppProps> = ({
                 </p>
                 <br />
                 <Image
-                  isBlurred
                   isZoomed
                   src={arhm.src}
                   alt="Coffee w sis"
-                  className="h-36 w-32 sm:w-40 sm:h-44 sm:border border-white border-b-16 rounded-3xl"
+                  className="h-36 w-32 sm:w-40 sm:h-44 sm:border dark:border-white border-gray-700 border-b-16 rounded-3xl"
                 />
               </div>
             </ModalBody>

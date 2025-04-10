@@ -4,7 +4,8 @@ import {
   DM_Sans,
   Jost,
   Crimson_Text,
-  Inter, JetBrains_Mono,
+  Inter,
+  JetBrains_Mono,
 } from "next/font/google";
 
 export const fontSans = FontSans({
@@ -30,7 +31,7 @@ export const paragraph = Jost({
 });
 
 export const codestuff = JetBrains_Mono({
-  weight: ["400", "600"],
+  weight: ["400", "600", "800"],
   preload: false,
 });
 

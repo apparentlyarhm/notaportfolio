@@ -39,8 +39,8 @@ export const Ghosts: React.FC<Props> = (): JSX.Element => {
           key={ghost.id}
           className="absolute"
           style={{
-            top: `${Math.random() * 100}vh`,
-            left: `${Math.random() * 100}vw`,
+            top: `${Math.random() * (100 - (ghost.size / window.innerHeight) * 100)}vh`,
+            left: `${Math.random() * (100 - (ghost.size / window.innerWidth) * 100)}vw`,
             zIndex: 1000,
           }}
           animate={floatingAnimation(ghost.delay)}
