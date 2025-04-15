@@ -6,6 +6,7 @@ import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
+import fav from "../public/fav2.ico"
 
 export const metadata: Metadata = {
   title: {
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: "/fav2.ico",
+    icon: fav.src,
   },
 };
 

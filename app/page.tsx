@@ -9,6 +9,7 @@ import { ArrowUpRight } from "react-feather";
 import { Ghosts } from "@/components/ghosts";
 import { headingsDM, codestuff, fontMono } from "@/config/fonts";
 import { Image } from "@heroui/react";
+import a from "../assets/cat-kitty.gif" 
 
 export default function Home() {
   const [, setIsMobile] = useState(false);
@@ -87,7 +88,7 @@ export default function Home() {
         </motion.h1>
 
         <div className="flex justify-center mt-8">
-          <Image src="/cat-kitty.gif" isBlurred />
+          <Image src={a.src} isBlurred />
         </div>
 
         <Button
