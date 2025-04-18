@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center">
       <div className="max-w-7xl w-full text-center px-4 py-8 md:px-10 md:py-16 lg:px-20 lg:py-24">
-        <Ghosts />
+        {/* <Ghosts /> */}
         <motion.h1
           className={clsx(
             "text-2xl md:text-3xl lg:text-4xl text-left font-semibold tracking-tight break-words px-6 sm:mb-10",
@@ -53,7 +53,7 @@ export default function Home() {
           whileInView="visible"
         >
           {
-            "an engineer; learner, discoverer, and builder. (copilot wrote this bro)"
+            "please give me ideas what do i write here omg omg"
           }
         </motion.h1>
 
