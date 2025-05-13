@@ -99,7 +99,7 @@ export const AboutModal: React.FC<AppProps> = ({
                 <Image
                   isZoomed
                   src={arhm.src}
-                  alt="Coffee w sis"
+                  alt="Me after haircut"
                   className="h-36 w-32 sm:w-40 sm:h-44 sm:border dark:border-white border-gray-700 border-b-16 rounded-3xl"
                 />
               </div>

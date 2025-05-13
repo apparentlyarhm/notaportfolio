@@ -21,16 +21,16 @@ export const MusicAccordion: React.FC<props> = ({
         <AccordionItem
           key={index}
           aria-label={entry.name}
-          className="mb-7 py-9 rounded-3xl dark:bg-gray-900 shadow-none bg-slate-100"
+          className="mb-7 py-9 px-10 rounded-full dark:bg-gray-900 shadow-none bg-green-100"
           subtitle={
-            <div className={clsx("sm:pl-7 sm:text-xl", codestuff.className)}>
+            <div className={clsx("sm:pl-7 sm:text-xl text-green-900 opacity-50", codestuff.className)}>
               {entry.time.toUpperCase()}
             </div>
           }
           title={
             <div
               className={clsx(
-                "sm:pl-7 sm:text-4xl sm:mb-2 tracking-tighter",
+                "sm:pl-7 sm:text-4xl sm:mb-2 text-green-800 tracking-tighter",
                 headingsDM.className
               )}
             >
@@ -41,7 +41,7 @@ export const MusicAccordion: React.FC<props> = ({
           <div
             className={clsx(
               "mt-4 rounded-lg sm:p-2 mx-1 sm:mx-6 text-small sm:text-xl dark:text-gray-400 text-md p-1 tracking-tight text-justify",
-              inter.className
+              codestuff.className
             )}
           >
             <Divider className="mb-10 opacity-50" />

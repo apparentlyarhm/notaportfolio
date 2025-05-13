@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { CustomFlowbiteTheme } from "flowbite-react";
 
-import { paragraph, headingsDM, crimsonserif } from "@/config/fonts";
+import { paragraph, headingsDM, codestuff, fontMono } from "@/config/fonts";
 import { timelineConfig, jobtimelineConfig } from "@/config/time";
 
 export interface props {
@@ -84,8 +84,8 @@ export const Protimeline: React.FC<props> = ({
               <Timeline.Content>
                 <Card
                   className={clsx(
-                    "max-w-[400px] text-white drop-shadow-xl",
-                    educationColors
+                    "max-w-[400px] text-black py-2 bg-transparent shadow-none border-1 border-gray-200 hover:bg-gray-900 hover:text-white ",
+                    
                   )}
                 >
                   <CardHeader className="flex gap-3">
@@ -103,9 +103,9 @@ export const Protimeline: React.FC<props> = ({
                       </p>
                     </div>
                   </CardHeader>
-                  <Divider className="bg-white opacity-50" />
-                  <CardBody className="mx-2 my-1 sm:text-md px-1 break-words">
-                    <p className={clsx("p-1", crimsonserif.className)}>
+                  <Divider className="bg-gray-300 opacity-50" />
+                  <CardBody className="mx-2 my-1 sm:text-sm text-xs px-1 break-words">
+                    <p className={clsx("p-1 px-3", fontMono.className)}>
                       {item.body}
                     </p>
                   </CardBody>
@@ -131,8 +131,8 @@ export const Protimeline: React.FC<props> = ({
               <Timeline.Content>
                 <Card
                   className={clsx(
-                    "max-w-[400px] text-white drop-shadow-xl",
-                    professionalColors
+                    "max-w-[400px] text-black py-2 shadow-none border-1 border-gray-200 bg-transparent hover:bg-gray-900 hover:text-white ",
+                    
                   )}
                 >
                   <CardHeader className="flex gap-3">
@@ -150,9 +150,9 @@ export const Protimeline: React.FC<props> = ({
                       </p>
                     </div>
                   </CardHeader>
-                  <Divider className="bg-white opacity-50" />
-                  <CardBody className="mx-2 my-1 sm:text-md px-1">
-                    <p className={clsx("p-1", crimsonserif.className)}>
+                  <Divider className="bg-gray-300 opacity-50" />
+                  <CardBody className="mx-2 my-1 sm:text-sm text-xs px-1">
+                    <p className={clsx("p-1 px-3", fontMono.className)}>
                       {item.body}
                     </p>
                   </CardBody>

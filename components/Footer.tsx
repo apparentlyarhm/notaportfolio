@@ -66,11 +66,12 @@ export default function Footer() {
   return (
     <footer
       className={clsx(
-        "text-center justify-center border-t border-gray-300 dark:border-gray-900 sm:py-6 py-3 px-4",
+        "text-center justify-center border-t rounded-t-3xl border-gray-300 dark:border-gray-900 sm:py-6 py-3 px-4",
         codestuff.className
       )}
     >
-      <div className="flex items-center justify-center sm:justify-start gap-4 overflow-x-auto p-5 rounded-2xl bg-transparent border-1 dark:border-gray-500 hover:border-gray-400 dark:hover:border-orange-400 max-w-[500px]">
+      <div className="justify-start rounded-2xl  border-1 dark:border-gray-500 hover:border-gray-400 dark:hover:border-orange-400 max-w-[500px]">
+        <div className="flex items-center justify-center sm:justify-start gap-4 overflow-x-auto p-5">
         {albumImage && (
           <img
             src={albumImage}
@@ -98,6 +99,7 @@ export default function Footer() {
           <div className="text-[10px] sm:text-xs text-gray-500">
             {formatTime(data.progress_ms)} / {formatTime(track.duration_ms)}
           </div>
+        </div>
         </div>
       </div>
     </footer>

@@ -26,7 +26,7 @@ export const timelineConfig: timelineConfig[] = [
     icon: Codesandbox,
     time: "~13.8B years ago",
     title: "Big Bang",
-    body: "Super sad event, booooooo!",
+    body: "what",
   },
   {
     icon: Clock,
@@ -37,13 +37,13 @@ export const timelineConfig: timelineConfig[] = [
   {
     icon: BookOpen,
     time: "March 2018- Vidyut Nagar, Dadri",
-    title: "Secondary School, DPS",
+    title: "Secondary School, DPS (10th Grade)",
     body: "Nothing much to say, had a score of 94% in AISSE 2018",
   },
   {
     icon: BookOpen,
     time: "March 2020- Vidyut Nagar, Dadri",
-    title: "Senior Secondary School, DPS",
+    title: "Senior Secondary School, DPS (12th Grade)",
     body: "aggregate of 91% in AISSCE 2020",
   },
   {
@@ -65,6 +65,6 @@ export const jobtimelineConfig: jobtimelineConfig[] = [
     icon: Briefcase,
     time: "Jul 2024- Chennai, TN",
     title: "Junior Software Engineer @ RandomWalk.AI",
-    body: "Currently doing Backend Development using Spring Boot with frameworks like Spring Web, Security, Hibernate, WebFlux, Jooby and managed AWS infra using Terraform",
+    body: "Mostly involeved in backend development, working with AWS, Spring Boot, Batch Jobs, and Terraform and DB stuff.",
   },
 ];

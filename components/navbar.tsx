@@ -44,6 +44,7 @@ export const Navbar = () => {
         maxWidth="xl"
         position="sticky"
         onMenuOpenChange={setIsMenuOpen}
+        className="dark:bg-white bg-slate-900 rounded-b-3xl"
       >
         {/* Navbar content for desktop */}
         <NavbarContent
@@ -63,7 +64,7 @@ export const Navbar = () => {
                   <NextLink
                     className={clsx(
                       linkStyles({ color: "foreground" }),
-                      "data-[active=true]:text-primary data-[active=true]:font-medium font-bold",
+                      "data-[active=true]:text-primary dark:text-black text-white data-[active=true]:font-medium font-bold",
                       navbarList.className
                     )}
                     color="foreground"
@@ -78,7 +79,7 @@ export const Navbar = () => {
                   <NextLink
                     className={clsx(
                       linkStyles({ color: "foreground" }),
-                      "data-[active=true]:text-primary data-[active=true]:font-medium font-bold",
+                      "data-[active=true]:text-primary dark:text-black text-white data-[active=true]:font-medium font-bold",
                       navbarList.className
                     )}
                     color="foreground"
@@ -102,39 +103,39 @@ export const Navbar = () => {
               aria-label="Twitter"
               href={siteConfig.links.twitter}
             >
-              <TwitterIcon className="text-default-500" />
+              <TwitterIcon className="dark:text-slate-500 text-gray-300" />
             </Link>
             <Link
               isExternal
               aria-label="LinkedIn"
               href={siteConfig.links.linkedin}
             >
-              <LinkedInIcon className="text-default-500" />
+              <LinkedInIcon className="dark:text-slate-500 text-gray-300" />
             </Link>
             <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-              <GithubIcon className="text-default-500" />
+              <GithubIcon className="dark:text-slate-500 text-gray-300" />
             </Link>
-            <ThemeSwitch />
+            {/* <ThemeSwitch /> */}
           </NavbarItem>
         </NavbarContent>
 
         {/* Navbar toggle and menu for mobile */}
         <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
           <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
-            <TwitterIcon className="text-default-500" />
+            <TwitterIcon className="dark:text-slate-500 text-gray-300" />
           </Link>
           <Link
             isExternal
             aria-label="LinkedIn"
             href={siteConfig.links.linkedin}
           >
-            <LinkedInIcon className="text-default-500" />
+            <LinkedInIcon className="dark:text-slate-500 text-gray-300" />
           </Link>
           <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-            <GithubIcon className="text-default-500" />
+            <GithubIcon className="dark:text-slate-500 text-gray-300" />
           </Link>
-          <ThemeSwitch />
-          <NavbarMenuToggle aria-label="Toggle menu" />
+          {/* <ThemeSwitch /> */}
+          <NavbarMenuToggle aria-label="Toggle menu" className="text-gray-300" />
         </NavbarContent>
 
         <NavbarMenu>

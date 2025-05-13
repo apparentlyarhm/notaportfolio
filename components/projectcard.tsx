@@ -33,7 +33,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   projectDesc,
   projectLink,
   images,
-                                                        }) => {
+ }) => {
   const isLinkEmpty = !projectLink || projectLink.trim() === "";
 
   return (

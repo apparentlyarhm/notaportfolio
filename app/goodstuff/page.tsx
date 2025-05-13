@@ -167,7 +167,7 @@ export default function ProfessionalInfoPage() {
       <Button
         as={"a"}
         className={clsx(
-          "mt-12 p-10 rounded-2xl text-white text-2xl bg-emerald-600 tracking-tighter",
+          "mt-12 p-10 rounded-full text-white text-2xl bg-gray-900   tracking-tighter",
           headingsDM.className
         )}
         endContent={<ArrowUpRight />}

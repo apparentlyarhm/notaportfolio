@@ -114,7 +114,7 @@ export default function StuffPage() {
       <Button
         as={"a"}
         className={clsx(
-          "mt-12 p-10 rounded-2xl text-2xl text-white bg-cyan-600 tracking-tighter",
+          "mt-12 p-10 rounded-full text-2xl text-white bg-gray-900 tracking-tighter",
           headingsDM.className
         )}
         endContent={<ArrowUpRight />}
