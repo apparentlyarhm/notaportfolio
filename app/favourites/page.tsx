@@ -8,11 +8,12 @@ import {
   DropdownItem,
   Button,
 } from "@heroui/react";
-import { headingsDM, codestuff } from "@/config/fonts";
 import { ArrowDown, ArrowUpRight } from "react-feather";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
+
+import { headingsDM, codestuff } from "@/config/fonts";
 import TopTracksList from "@/components/TopTracksList";
 
 export default function BlogPage() {
@@ -41,14 +42,15 @@ export default function BlogPage() {
         if (!res.ok) {
           throw new Error("Failed to fetch top tracks");
         }
+
         return res.json();
       })
       .then((data) => {
         setTracks(data.items);
         setApiLoading(false);
       })
-      .catch((err) => {
-        console.error("[Frontend] Error fetching top tracks:", err);
+      .catch(() => {
+        
         setError(
           "Something went wrong. If you are Arhum, check the GCP logs or browser console whatever"
         );
@@ -85,11 +87,11 @@ export default function BlogPage() {
         <Dropdown size="lg">
           <DropdownTrigger className="mt-10 mb-10 py-9 px-14 border-1">
             <Button
-              variant="light"
               className={clsx(
                 "max-w-[70vw] sm:max-w-none overflow-hidden",
                 codestuff.className
               )}
+              variant="light"
             >
               <span className="whitespace-normal break-words text-center text-xs sm:text-md">
                 {`Time range: ${timeRange}`}
@@ -112,7 +114,7 @@ export default function BlogPage() {
 
         <Dropdown size="lg">
           <DropdownTrigger className="mt-10 mb-10 py-9 px-14 border-1 ">
-            <Button variant="light" className={clsx("", codestuff.className)}>
+            <Button className={clsx("", codestuff.className)} variant="light">
               {`Count: ${limit}`}
               <ArrowDown className="ml-4" />
             </Button>
@@ -131,7 +133,7 @@ export default function BlogPage() {
 
       {apiLoading ? (
         <div className="flex justify-center items-center min-h-[200px]">
-          <Spinner variant="wave" size="lg" />
+          <Spinner size="lg" variant="wave" />
         </div>
       ) : error ? (
         <div

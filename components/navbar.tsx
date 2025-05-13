@@ -18,7 +18,6 @@ import { Lato } from "next/font/google";
 import { AboutModal } from "./aboutmodal";
 
 import { siteConfig } from "@/config/site";
-import { ThemeSwitch } from "@/components/theme-switch";
 import { TwitterIcon, GithubIcon, LinkedInIcon } from "@/components/icons";
 
 export const navbarList = Lato({
@@ -39,12 +38,12 @@ export const Navbar = () => {
     <>
       <NextUINavbar
         isBordered
+        className="dark:bg-white bg-slate-900 rounded-b-3xl"
         isBlurred={false}
         isMenuOpen={isMenuOpen}
         maxWidth="xl"
         position="sticky"
         onMenuOpenChange={setIsMenuOpen}
-        className="dark:bg-white bg-slate-900 rounded-b-3xl"
       >
         {/* Navbar content for desktop */}
         <NavbarContent

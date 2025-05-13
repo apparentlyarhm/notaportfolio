@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { CustomFlowbiteTheme } from "flowbite-react";
 
-import { paragraph, headingsDM, codestuff, fontMono } from "@/config/fonts";
+import { paragraph, headingsDM, fontMono } from "@/config/fonts";
 import { timelineConfig, jobtimelineConfig } from "@/config/time";
 
 export interface props {
@@ -58,14 +58,6 @@ export const Protimeline: React.FC<props> = ({
       },
     },
   };
-
-  const educationColors = isDarkMode
-      ? "bg-gradient-to-r from-blue-900 to-indigo-800"
-      : "bg-gradient-to-r from-blue-600 to-blue-500";
-
-  const professionalColors = isDarkMode
-    ? "bg-gradient-to-r from-green-800 to-green-700"
-    : "bg-gradient-to-r from-green-600 to-green-500";
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl px-6 sm:px-2 mx-auto">

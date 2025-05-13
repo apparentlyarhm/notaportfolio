@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import clsx from "clsx";
+
 import { codestuff } from "@/config/fonts";
 
 export default function Footer() {
@@ -9,6 +10,7 @@ export default function Footer() {
     const totalSeconds = Math.floor(ms / 1000);
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
+
     return `${minutes}:${seconds.toString().padStart(2, "0")}`;
   }
 
@@ -22,23 +24,26 @@ export default function Footer() {
 
       if (cachedData && cachedTimestamp) {
         const timestamp = parseInt(cachedTimestamp);
+
         if (Date.now() - timestamp < 60000) {
-          console.log("using cache for now playing..");
+          
           setData(JSON.parse(cachedData));
+
           return;
         }
       }
 
       try {
-        console.log("cache miss -> fetching again");
+        
         const res = await fetch(`${BASE_URL}/now`);
         const json = await res.json();
+
         setData(json);
 
         sessionStorage.setItem("spotifyData", JSON.stringify(json));
         sessionStorage.setItem("spotifyDataTimestamp", Date.now().toString());
       } catch (err) {
-        console.error("Failed to load JSON:", err);
+        
       }
     };
 
@@ -51,10 +56,10 @@ export default function Footer() {
   const artistLinks = track.artists?.map((artist: any, i: number) => (
     <span key={artist.id}>
       <a
-        href={artist.external_urls.spotify}
-        target="_blank"
-        rel="noopener noreferrer"
         className="text-blue-500 hover:underline"
+        href={artist.external_urls.spotify}
+        rel="noopener noreferrer"
+        target="_blank"
       >
         {artist.name}
       </a>
@@ -74,19 +79,19 @@ export default function Footer() {
         <div className="flex items-center justify-center sm:justify-start gap-4 overflow-x-auto p-5">
         {albumImage && (
           <img
-            src={albumImage}
             alt="Album"
             className="h-10 w-10 rounded shadow shrink-0"
+            src={albumImage}
           />
         )}
         <div className="text-left min-w-0">
           <p className="text-xs sm:text-sm text-gray-700 truncate max-w-xs sm:max-w-sm md:max-w-md">
             {data.is_playing ? "🔊" : "⏸️"}&nbsp;
             <a
-              href={track.external_urls.spotify}
-              target="_blank"
-              rel="noopener noreferrer"
               className="font-medium text-blue-500 hover:underline"
+              href={track.external_urls.spotify}
+              rel="noopener noreferrer"
+              target="_blank"
               title={track.name}
             >
               {track.name}

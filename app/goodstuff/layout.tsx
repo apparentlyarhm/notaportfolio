@@ -1,7 +1,8 @@
 "use client";
-import { Divider, Image } from "@heroui/react";
 import clsx from "clsx";
-import { codestuff } from "../../config/fonts";
+import React from "react";
+
+import { codestuff } from "@/config/fonts";
 
 export default function BlogLayout({
   children,

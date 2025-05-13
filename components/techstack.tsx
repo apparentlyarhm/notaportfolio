@@ -22,9 +22,8 @@ export const TechStack: React.FC<props> = (): JSX.Element => {
       <Modal
         backdrop="blur"
         isOpen={isOpen}
-        onOpenChange={onOpenChange}
         placement="top-center"
-        // className="bg-transparent"
+        onOpenChange={onOpenChange}
       >
         <ModalContent>
           {(onClose) => (

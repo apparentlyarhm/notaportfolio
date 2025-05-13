@@ -1,7 +1,8 @@
 import * as React from "react";
-import { ghostsList } from "@/config/homepageGhosts";
 import { Image } from "@heroui/react";
 import { motion } from "framer-motion";
+
+import { ghostsList } from "@/config/homepageGhosts";
 
 const generateRandomSize = (baseSize: number, variation: number) => {
   return baseSize + Math.floor(Math.random() * variation * 2) - variation;
@@ -30,6 +31,7 @@ export const Ghosts: React.FC = () => {
 
     handleResize(); // initial run
     window.addEventListener("resize", handleResize);
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -40,6 +42,7 @@ export const Ghosts: React.FC = () => {
 
     return Array.from({ length: 20 }, (_, index) => {
       const size = generateRandomSize(isMobile ? 20 : 40, 10);
+
       return {
         id: index,
         size,
@@ -57,20 +60,20 @@ export const Ghosts: React.FC = () => {
       {ghostImages.map((ghost) => (
         <motion.div
           key={ghost.id}
+          animate={floatingAnimation(ghost.delay)}
           className="absolute"
           style={{
             top: ghost.top,
             left: ghost.left,
             zIndex: 1000,
           }}
-          animate={floatingAnimation(ghost.delay)}
         >
           <Image
+            alt={ghost.alt}
             draggable={false}
+            height={ghost.size}
             isBlurred={true}
             src={ghost.src}
-            alt={ghost.alt}
-            height={ghost.size}
             width={ghost.size}
           />
         </motion.div>

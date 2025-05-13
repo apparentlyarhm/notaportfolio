@@ -1,6 +1,7 @@
 import React from "react";
-import SongCard from "../components/SongCard";
 import { motion } from "framer-motion";
+
+import SongCard from "../components/SongCard";
 
 interface SpotifyTrack {
   name: string;
@@ -43,10 +44,10 @@ const TopTracksList: React.FC<TopTracksListProps> = ({ tracks }) => {
   return (
     <motion.div
       className="flex flex-col justify-center gap-14 max-w-[95vw] sm:max-w-[88vw] md:max-w-[75vw] lg:max-w-[65vw] mx-auto"
-      variants={containerVariants}
       initial="hidden"
-      whileInView="visible"
+      variants={containerVariants}
       viewport={{ once: true, amount: 0.2 }}
+      whileInView="visible"
     >
       {tracks.map((track, index) => {
         const imageUrl =
@@ -57,16 +58,16 @@ const TopTracksList: React.FC<TopTracksListProps> = ({ tracks }) => {
         return (
           <motion.div
             key={index}
+            className="w-full"
+            transition={{ duration: 0.2 }}
             variants={cardVariants}
             whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-            className="w-full"
           >
             <SongCard
-              songName={track.name.toLowerCase()}
-              artists={track.artists.map((artist) => artist.name.toLowerCase())}
               albumName={track.album.name}
+              artists={track.artists.map((artist) => artist.name.toLowerCase())}
               imageUrl={imageUrl}
+              songName={track.name.toLowerCase()}
             />
           </motion.div>
         );

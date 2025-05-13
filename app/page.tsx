@@ -5,12 +5,12 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import { Button } from "@heroui/react";
 import { ArrowUpRight } from "react-feather";
+import { Image } from "@heroui/react";
+
 import bg from "../assets/bg.png"
 
-import { Ghosts } from "@/components/ghosts";
-import { headingsDM, codestuff, fontMono } from "@/config/fonts";
-import { Image } from "@heroui/react";
-import a from "../assets/cat-kitty.gif"
+import { headingsDM, fontMono } from "@/config/fonts";
+
 
 export default function Home() {
   const [, setIsMobile] = useState(false);
@@ -67,19 +67,19 @@ export default function Home() {
             >
               {"software @ "}
               <a
-                href="https://randomwalk.ai"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="text-blue-500 underline"
+                href="https://randomwalk.ai"
+                rel="noopener noreferrer"
+                target="_blank"
               >
                 {"randomwalk.ai"}
               </a>
               {" and building "}
               <a
-                href="https://chateleon.com"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="text-blue-500 underline"
+                href="https://chateleon.com"
+                rel="noopener noreferrer"
+                target="_blank"
               >
                 {"chateleon"}
               </a>
@@ -87,9 +87,9 @@ export default function Home() {
             </motion.h1>
             <div className="flex justify-center mt-6">
             <Image
-              src={bg.src}
               alt="A cute cat gif"
               className="rounded-full object-fill w-full max-w-[800px] h-auto sm:w-[800px] sm:h-[600px]"
+              src={bg.src}
             />
             </div>
         <Button

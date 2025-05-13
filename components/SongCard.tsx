@@ -2,6 +2,7 @@
 
 import { Card, CardFooter, CardBody, Divider, Image } from "@heroui/react";
 import clsx from "clsx";
+
 import { codestuff, headingsDM } from "@/config/fonts";
 
 interface SongCardProps {
@@ -25,8 +26,8 @@ export default function SongCard({
                 hover:border-gray-400 dark:hover:border-orange-400 
                   bg-cover bg-center text-white
                 "
-      style={{ backgroundImage: `url('${imageUrl}')` }}
       shadow="none"
+      style={{ backgroundImage: `url('${imageUrl}')` }}
     >
       {/* Overlay for readability */}
       <div className="absolute inset-0 dark:bg-black/80 bg-gray-100/70 backdrop-blur-sm z-0" />
@@ -65,8 +66,8 @@ export default function SongCard({
           alt="Album art"
           className="object-cover rounded-xl"
           height={80}
-          width={80}
           src={imageUrl}
+          width={80}
         />
       </CardFooter>
     </Card>

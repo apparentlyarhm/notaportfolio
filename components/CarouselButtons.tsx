@@ -24,7 +24,7 @@ export const CarouselButton: React.FC<CarouselButtonProps> = ({
       {...restProps}
     >
       <svg className="embla__button__svg" viewBox="0 0 532 532">
-        <path fill="currentColor" d={svgPath} />
+        <path d={svgPath} fill="currentColor" />
       </svg>
       {children}
     </button>

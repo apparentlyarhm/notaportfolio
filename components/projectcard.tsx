@@ -15,8 +15,7 @@ import { ExternalLink } from "react-feather";
 
 import {
   paragraph,
-  codestuff,
-    fontMono
+  codestuff
   
 } from "@/config/fonts";
 

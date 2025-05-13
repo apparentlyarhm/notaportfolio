@@ -1,12 +1,18 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import Footer from "@/components/Footer";
 import clsx from "clsx";
+import React from "react";
+
+import fav from "../public/fav2.ico"
+
 import { Providers } from "./providers";
+
+import Footer from "@/components/Footer";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
-import fav from "../public/fav2.ico"
+
+
 
 export const metadata: Metadata = {
   title: {
@@ -34,7 +40,7 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="en">
-      <head />
+      <head ><title>{"What"}</title></head>
 
       <body
         className={clsx(

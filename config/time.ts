@@ -1,5 +1,4 @@
 import {
-  Airplay,
   Codesandbox,
   Icon,
   Clock,

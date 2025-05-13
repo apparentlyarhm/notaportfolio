@@ -1,7 +1,9 @@
 "use client";
+import { Image } from "@heroui/react";
+import React from "react";
+
 import controller from "../../assets/logos/controller.svg";
 import dj from "../../assets/logos/dj.svg";
-import { Divider, Image } from "@heroui/react";
 
 export default function DocsLayout({
   children,
@@ -14,16 +16,16 @@ export default function DocsLayout({
         {" "}
         <Image
           isBlurred
-          src={controller.src}
           alt="Controller"
           className="sm:w-80 sm:h-80 w-28 h-28 text-gray-500 dark:text-gray-300 fill-red-500"
+          src={controller.src}
           style={{ fill: "#ffffff" }}
         />
         <Image
           isBlurred
-          src={dj.src}
           alt="DJ"
           className="sm:w-80 sm:h-80 w-28 h-28 text-gray-500 dark:text-gray-300 fill-red-500"
+          src={dj.src}
           style={{ fill: "#ffffff" }}
         />
       </div>

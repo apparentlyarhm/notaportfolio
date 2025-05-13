@@ -3,11 +3,10 @@ import {
   CardHeader,
   CardFooter,
   Image,
-  CardBody,
-  Button,
 } from "@heroui/react";
 import { Cabin } from "next/font/google";
 import clsx from "clsx";
+import React from "react";
 
 export const cardText = Cabin({
   weight: ["500", "400", "600"],
@@ -30,7 +29,7 @@ export const DesktopCard: React.FC<CardThingProps> = ({
         isFooterBlurred
         className="w-full h-[300px] col-span-12 sm:col-span-7"
       >
-        <CardHeader className="absolute z-10 top-1 flex-col items-start"></CardHeader>
+        <CardHeader className="absolute z-10 top-1 flex-col items-start" />
         <Image
           removeWrapper
           alt="Relaxing app background"
@@ -39,7 +38,7 @@ export const DesktopCard: React.FC<CardThingProps> = ({
         />
         <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-default-600 dark:border-default-100 h-5/6 scale-110 -translate-x-40 -translate-y-40 origin-bottom-left rotate-45">
           <div className="flex flex-grow gap-2 items-center">
-            <div className="flex flex-col"></div>
+            <div className="flex flex-col" />
           </div>
         </CardFooter>
         <div className="absolute bottom-4 left-4 z-20">

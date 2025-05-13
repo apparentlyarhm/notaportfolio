@@ -3,7 +3,6 @@ import gcp from "../assets/logos/gcp.svg";
 import linux from "../assets/logos/linuxcolor.svg";
 import mysql from "../assets/logos/mysqlcolor.svg";
 import njs from "../assets/logos/njs.svg";
-import rjs from "../assets/logos/rjs.svg";
 import py from "../assets/logos/py.svg";
 import js from "../assets/logos/js.svg";
 import ts from "../assets/logos/ts.svg";
