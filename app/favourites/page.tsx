@@ -77,7 +77,7 @@ export default function BlogPage() {
       >
         <br />
         {
-          "TBH I couldn't think of anything else apart from songs/artists at this moment lol and spotify conveniently provides APIs for that. I will keep time_range as short as it might get changed frequently based on what I like at the moment. Lets start with songs:"
+          "TBH I couldn't think of anything else apart from songs/artists at this moment lol and spotify conveniently provides APIs for that. I will keep time_range as short as it might get changed frequently based on what I like at the moment. Also, theres this cool animation thing that i configured only for desktop. You can play around with the time range and count to change the data. I am planning to add artists next."
         }
       </motion.p>
       <br />
@@ -154,15 +154,6 @@ export default function BlogPage() {
       <br />
       <br />
       <br />
-
-      <p
-        className={clsx(
-          " text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl sm:mb-10 break-text",
-          codestuff.className
-        )}
-      >
-        {"more coming soon (dont ask me when)"}
-      </p>
 
       <Button
         as={"a"}
