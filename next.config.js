@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  reactStrictMode: false
 };
 
 module.exports = {
@@ -9,5 +7,3 @@ module.exports = {
     styledComponents: true,
   },
 };
-
-module.exports = nextConfig
