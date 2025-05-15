@@ -87,7 +87,7 @@ export default function Home() {
             </motion.h1>
             <div className="flex justify-center mt-6">
             <Image
-              alt="A cute cat gif"
+              alt="i must find woman"
               className="rounded-full object-fill w-full max-w-[800px] h-auto sm:w-[800px] sm:h-[600px]"
               src={bg.src}
             />
