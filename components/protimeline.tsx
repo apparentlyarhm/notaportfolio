@@ -76,28 +76,28 @@ export const Protimeline: React.FC<props> = ({
               <Timeline.Content>
                 <Card
                   className={clsx(
-                    "max-w-[400px] text-black py-2 bg-transparent shadow-none border-1 border-gray-200 hover:bg-gray-900 hover:text-white ",
+                    "max-w-[450px] rounded-3xl py-5 px-1 shadow-none bg-purple-300/30 text-purple-900 hover:border-white hover:bg-purple-950 hover:text-purple-300",
                     
                   )}
                 >
                   <CardHeader className="flex gap-3">
-                    <div className="flex flex-col p-3 text-left">
+                    <div className="flex flex-col p-3 text-left pb-7">
                       <p
                         className={clsx(
-                          "text-lg tracking-tight",
+                          "text-xl tracking-tight",
                           headingsDM.className
                         )}
                       >
                         {item.title}
                       </p>
-                      <p className={clsx("text-small", paragraph.className)}>
+                      <p className={clsx("text-small", fontMono.className)}>
                         {item.time}
                       </p>
                     </div>
                   </CardHeader>
-                  <Divider className="bg-gray-300 opacity-50" />
-                  <CardBody className="mx-2 my-1 sm:text-sm text-xs px-1 break-words">
-                    <p className={clsx("p-1 px-3", fontMono.className)}>
+                  <Divider className="bg-purple-700/30" />
+                  <CardBody className="mx-2 my-1 sm:text-medium text-small px-1 break-words">
+                    <p className={clsx("p-1 px-3", paragraph.className)}>
                       {item.body}
                     </p>
                   </CardBody>
@@ -123,28 +123,28 @@ export const Protimeline: React.FC<props> = ({
               <Timeline.Content>
                 <Card
                   className={clsx(
-                    "max-w-[400px] text-black py-2 shadow-none border-1 border-gray-200 bg-transparent hover:bg-gray-900 hover:text-white ",
+                    "max-w-[450px] rounded-3xl py-5 px-1 shadow-none bg-blue-200/30 text-cyan-700 hover:bg-blue-900 hover:text-blue-300",
                     
                   )}
                 >
                   <CardHeader className="flex gap-3">
-                    <div className="flex flex-col p-3 text-left">
+                    <div className="flex flex-col p-3 text-left pb-7">
                       <p
                         className={clsx(
-                          "text-lg tracking-tight mb-2",
+                          "text-xl tracking-tight mb-2",
                           headingsDM.className
                         )}
                       >
                         {item.title}
                       </p>
-                      <p className={clsx("text-small", paragraph.className)}>
+                      <p className={clsx("text-small", fontMono.className)}>
                         {item.time}
                       </p>
                     </div>
                   </CardHeader>
-                  <Divider className="bg-gray-300 opacity-50" />
-                  <CardBody className="mx-2 my-1 sm:text-sm text-xs px-1">
-                    <p className={clsx("p-1 px-3", fontMono.className)}>
+                  <Divider className="bg-blue-700/30" />
+                  <CardBody className="mx-2 my-1 sm:text-medium text-small px-1">
+                    <p className={clsx("p-1 px-3", paragraph.className)}>
                       {item.body}
                     </p>
                   </CardBody>

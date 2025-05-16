@@ -78,7 +78,7 @@ export default function ProfessionalInfoPage() {
           variants={containerVariants}
         >
           {
-            "The blue timeline is regarding my education and the green one is professional."
+            "A summary of what I've been upto."
           }
         </motion.p>
       </Tooltip>

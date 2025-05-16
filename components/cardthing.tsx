@@ -18,7 +18,7 @@ export const CardThing: React.FC<CardThingProps> = ({ cardConfig }) => {
         <AccordionItem
           key={index}
           aria-label={accordion.heading}
-          className="mb-7 py-9 px-10 rounded-full dark:bg-slate-900 border-2 dark:border-2 dark:border-slate-900 border-slate-100 bg-blue-100 shadow-none"
+          className="mb-7 py-9 px-10 rounded-full bg-blue-200/30 shadow-none"
           subtitle={
             <div className={clsx("sm:pl-7 sm:text-xl text-blue-900 opacity-50", codestuff.className)}>
               {accordion.footerText.toUpperCase()}
