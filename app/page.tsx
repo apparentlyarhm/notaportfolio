@@ -65,7 +65,7 @@ export default function Home() {
               viewport={{ once: true, amount: 0.2 }}
               whileInView="visible"
             >
-              {"software @ "}
+              {"former sde @ "}
               <a
                 className="text-blue-500 underline"
                 href="https://randomwalk.ai"
@@ -74,16 +74,6 @@ export default function Home() {
               >
                 {"randomwalk.ai"}
               </a>
-              {" and building "}
-              <a
-                className="text-blue-500 underline"
-                href="https://chateleon.com"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                {"chateleon"}
-              </a>
-              {"."}
             </motion.h1>
             <div className="flex justify-center mt-6">
             <Image

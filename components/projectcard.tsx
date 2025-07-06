@@ -15,7 +15,8 @@ import { ExternalLink } from "react-feather";
 
 import {
   paragraph,
-  codestuff
+  codestuff,
+  headingsDM
   
 } from "@/config/fonts";
 
@@ -25,6 +26,7 @@ interface ProjectCardProps {
   projectLink: string;
   images: string[];
   category: string;
+  isMobile: boolean;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -32,6 +34,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   projectDesc,
   projectLink,
   images,
+  isMobile
  }) => {
   const isLinkEmpty = !projectLink || projectLink.trim() === "";
 
@@ -43,8 +46,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       >
         <CardHeader className="flex flex-col md:flex-row gap-2">
           {/* Images section */}
-          <div className="flex gap-3 sm:gap-2 p-2 sm:p-4 border-1 rounded-2xl dark:border-gray-500">
-            {images.map((img, index) => (
+            {!isMobile && (
+            <div className="flex gap-3 sm:gap-2 p-2 sm:p-4 border-1 rounded-2xl dark:border-gray-500">
+              {images.map((img, index) => (
               <Image
                 key={index}
                 alt={`Image ${index + 1}`}
@@ -53,21 +57,22 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 src={img}
                 width={35}
               />
-            ))}
-          </div>
+              ))}
+            </div>
+            )}
 
           {/* Title section */}
           <div
             className={clsx(
-              "flex flex-col mt-2 tracking-tight md:mt-0 sm:text-xl text-lg font-bold sm:font-bold",
+              "flex flex-col mt-2 tracking-tight md:mt-0 text-start px-2 py-4 sm:text-xl text-lg font-bold sm:font-bold",
               paragraph.className
             )}
           >
-            <p className="text-md">{title}</p>
+            <p className={clsx("text-lg tracking-tighter font-black", headingsDM.className)}>{title}</p>
           </div>
         </CardHeader>
         <Divider />
-        <CardBody className={clsx("p-6 sm:px-10 sm:py-12 sm:text-justify font-normal text-small",codestuff.className )}>
+        <CardBody className={clsx("p-6 sm:px-10 sm:py-12 sm:text-justify font-normal text-gray-500 text-xs",codestuff.className )}>
           <ul className="list-disc">
             {projectDesc.map((desc, index) => (
               <li key={index}>{desc}</li>
@@ -76,7 +81,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         </CardBody>
         <CardFooter className={clsx("p-6", codestuff.className)}>
           <Button
-            className="dark:bg-gray-800 border-1 bg-white"
+            className="bg-gray-900 text-white"
             endContent={<ExternalLink size={15} />}
             isDisabled={isLinkEmpty}
             size="lg"

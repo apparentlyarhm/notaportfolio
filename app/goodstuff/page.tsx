@@ -138,6 +138,7 @@ export default function ProfessionalInfoPage() {
                   projectDesc={config.projectDesc}
                   projectLink={config.projectLink}
                   title={config.title}
+                  isMobile={isMobile}
                 />
               </motion.div>
             ))
@@ -160,6 +161,7 @@ export default function ProfessionalInfoPage() {
                   projectDesc={config.projectDesc}
                   projectLink={config.projectLink}
                   title={config.title}
+                  isMobile={isMobile}
                 />
               </motion.div>
             ))}

@@ -23,8 +23,20 @@ export default function BlogPage() {
   const [limit, setLimit] = useState(3);
   const [timeRange, setTimeRange] = useState("short_term");
   const [error, setError] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []); // I am lazy so im copying this from the other page, ideally this should be in a custom hook and a shared state across the app...
 
   useEffect(() => {
     setApiLoading(true);
@@ -71,7 +83,7 @@ export default function BlogPage() {
 
       <motion.p
         className={clsx(
-          "text-md sm:text-xl md:text-lg lg:text-xl dark:text-gray-400 text-gray-600 px-3 text-left",
+          "text-sm sm:text-xl md:text-lg lg:text-xl dark:text-gray-400 text-gray-600 px-3 text-left",
           codestuff.className
         )}
       >
@@ -138,7 +150,7 @@ export default function BlogPage() {
       ) : error ? (
         <div
           className={clsx(
-            "text-center text-red-500 text-base sm:text-md md:text-lg",
+            "text-center text-red-500 text-xs sm:text-md md:text-lg",
             codestuff.className
           )}
         >
@@ -148,7 +160,7 @@ export default function BlogPage() {
         <div>
           <br />
 
-          <TopTracksList tracks={tracks} />
+          <TopTracksList tracks={tracks} isMobile={isMobile} />
         </div>
       )}
       <br />
