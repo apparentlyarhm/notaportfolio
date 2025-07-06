@@ -34,6 +34,18 @@ module.exports = {
   },
   darkMode: "class",
   plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.text-stroke-white': {
+          '-webkit-text-stroke': '1px white',
+          'color': 'transparent',
+        },
+        '.text-stroke-black': {
+          '-webkit-text-stroke': '1px black',
+          'color': 'transparent',
+        },
+      })
+    },
     heroui({
       themes: {
         light: {},

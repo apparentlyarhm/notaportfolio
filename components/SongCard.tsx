@@ -12,6 +12,7 @@ interface SongCardProps {
   albumName: string;
   imageUrl: string;
   isMobile?: boolean; // Optional prop to handle mobile-specific styles
+  index: number;
 }
 
 export default function SongCard({
@@ -20,6 +21,7 @@ export default function SongCard({
   albumName,
   imageUrl,
   isMobile = false, // Default to false
+  index,
 }: SongCardProps) {
   const [hovered, setHovered] = useState<"card" | "image" | null>(null);
 
@@ -29,11 +31,20 @@ export default function SongCard({
   if (isMobile) {
     return (
       <div className="flex flex-col items-center p-4 gap-4 w-full">
-        <img
-          src={imageUrl}
-          alt="Album art"
-          className="w-full max-w-[300px] rounded-3xl object-cover"
-        />
+        <div className="relative w-full max-w-[300px] rounded-3xl overflow-hidden">
+          <img
+            src={imageUrl}
+            alt="Album Art"
+            className="w-full h-auto object-cover rounded-3xl brightness-[0.6]"
+          />
+          <p className="
+    absolute inset-0 flex items-start justify-center
+    text-[200px] opacity-60  font-extrabold
+    text-white text-stroke-white select-none
+  ">
+            {index + 1}
+          </p>
+        </div>
         <div className="w-full text-center">
           <p className={clsx("text-2xl tracking-tighter font-bold", headingsDM.className)}>{songName}.</p>
           <p className={clsx("text-sm text-gray-600 mb-2", paragraph.className)}>{artists.join(", ")}</p>

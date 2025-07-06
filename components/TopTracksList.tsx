@@ -38,6 +38,7 @@ const TopTracksList: React.FC<TopTracksListProps> = ({ tracks, isMobile }) => {
               imageUrl={imageUrl}
               songName={track.name.toLowerCase()}
               isMobile={isMobile} 
+              index={index}
             />
           </div>
         );
