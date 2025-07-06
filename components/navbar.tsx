@@ -50,33 +50,42 @@ const NavItems = ({
   onWhoClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   onAnyClick?: () => void;
   mobile?: boolean;
-}) => {
-  return siteConfig.navItems.map((item) => {
-    const isWho = item.label === "Who?";
-    return (
-      <NavbarItem key={item.href}>
-        <NextLink
-          className={clsx(
-            linkStyles({ color: "foreground" }),
-            "data-[active=true]:text-primary data-[active=true]:font-medium",
-            mobile ? "text-xl py-3" : "text-gray-600 hover:bg-gray-100 px-1 py-3 rounded-2xl",
-            navbarList.className
-          )}
-          href={item.href}
-          onClick={(e) => {
-            if (isWho) {
-              onWhoClick(e);
-            } else {
-              onAnyClick?.();
-            }
-          }}
-        >
-          {item.label}
-        </NextLink>
-      </NavbarItem>
-    );
-  });
+}): JSX.Element => {
+  return (
+    <>
+      {siteConfig.navItems.map((item) => {
+        const isWho = item.label === "Who?";
+        return (
+          <NavbarItem key={item.href}>
+            <NextLink
+              className={clsx(
+                linkStyles({ color: "foreground" }),
+                "data-[active=true]:text-primary data-[active=true]:font-medium",
+                mobile
+                  ? "text-xl py-3"
+                  : "text-gray-600 hover:bg-gray-100 px-1 py-3 rounded-2xl",
+                navbarList.className
+              )}
+              href={item.href}
+              onClick={(e) => {
+                if (isWho) {
+                  onWhoClick(e);
+                } else {
+                  onAnyClick?.();
+                }
+              }}
+            >
+              {item.label}
+            </NextLink>
+          </NavbarItem>
+        );
+      })}
+    </>
+  );
 };
+
+export default NavItems;
+
 
 export const Navbar = () => {
   const { isOpen, onOpenChange, onOpen, onClose } = useDisclosure();
