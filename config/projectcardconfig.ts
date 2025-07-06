@@ -21,23 +21,18 @@ export interface ProjectCardConfig {
 
 export const ProjectCardConfig: ProjectCardConfig[] = [
   {
-    title:
-      "Spring based whitelisting tool for firewalls on Google Cloud Platform",
+    title: "Spring based whitelisting tool for firewalls on Google Cloud Platform",
     projectDesc: [
-      "Developed a website to add user IPs to GCP Firewall, granting access to a game server",
-      "Built with Spring Boot APIs, Next.js frontend, and CI/CD on Cloud Run via Powershell via Artifact registry",
+      "A Spring Boot and Next.js based IP whitelisting platform for managing GCP Firewall rules, deployed via Cloud Run with CI/CD using PowerShell and Artifact Registry."
     ],
-    projectLink:
-      "https://apparentlyarhm.github.io/minecraft-vm-management-console/",
+    projectLink: "https://apparentlyarhm.github.io/minecraft-vm-management-console/",
     images: [sprng.src, njs.src, gcp.src],
     category: "Personal",
   },
   {
     title: "Spoti-proxy",
     projectDesc: [
-      "Simple express JS app that  fetches my Spoti-stats, while abstracting out the token refresh process, also has rate limiting",
-      "Containerised application deployed on Cloud run, CD using Github Actions",
-      "You will see the APIs in action on the `favourites` section of this page.",
+      "An Express.js proxy for accessing Spotify statistics with built-in token refresh and rate limiting, containerized and deployed on Cloud Run via GitHub Actions."
     ],
     projectLink: "https://github.com/apparentlyarhm/spotify-proxy/",
     images: [ejs.src, ps.src],
@@ -46,18 +41,16 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
   {
     title: "This site lol :D",
     projectDesc: [
-      "Honestly, nothing much to say here. I was able to find some spare time while working here in Chennai (Aug '24) so thought its the best time to get my hands dirty on proper TypeScript/Next combo and NextUI on top of that made the process fun.",
+      "A TypeScript and Next.js based portfolio site styled with NextUI, created during a work stint in Chennai as an exploration into the modern React ecosystem."
     ],
     projectLink: "https://github.com/apparentlyarhm/notaportfolio",
     images: [ts.src, njs.src],
     category: "Personal",
   },
-
   {
     title: "Infra Code for Minecraft Server- GCP",
     projectDesc: [
-      "This is mostly an extension to the Game Server project I made for GCP",
-      "This infra code is mostly the entry point for anyone looking for an easy way to own a minecraft server on GCP",
+      "A Terraform-based infrastructure stack for provisioning Minecraft servers on GCP, intended as an easy entry point for hosting game servers in the cloud."
     ],
     projectLink: "https://github.com/apparentlyarhm/minecraft-terraform",
     images: [tf.src, linux.src],
@@ -66,17 +59,16 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
   {
     title: "Fully Randomized Examination system using Django",
     projectDesc: [
-      "Implemented a centralized database-driven approach to generate fully randomized question paper using attributes like difficulty levels, utlizing APIs built in Django that picks questions ensuring constraint requirements and updates the frontend.",
+      "A Django-based examination engine utilizing a centralized database and constraint-based logic to dynamically generate randomized question sets with difficulty levels."
     ],
     projectLink: "https://github.com/apparentlyarhm/randomexamapp",
     images: [django.src, gcp.src, js.src, mysql.src, py.src],
     category: "Personal",
   },
   {
-    title:
-      " Game Server using GCE with automatic backups and URL based Startup using Cloud Functions",
+    title: "Game Server using GCE with automatic backups and URL based Startup using Cloud Functions",
     projectDesc: [
-      " Used tools like Compute Engine, CRON, TMUX to host and maintain a game server with regular backups.",
+      "A GCE-hosted game server setup leveraging TMUX, CRON, and Cloud Functions for automated backups and URL-triggered startups."
     ],
     projectLink: "",
     images: [gcp.src, linux.src],

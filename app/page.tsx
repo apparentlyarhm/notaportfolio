@@ -85,12 +85,12 @@ export default function Home() {
         <Button
           as={"a"}
           className={clsx(
-            "mt-8 sm:p-10 p-8 rounded-full border-1 border-gray-600 dark:border-red-900 sm:text-2xl text-medium dark:text-gray-200 bg-transparent text-black tracking-tighter",
+            "mt-8 sm:p-10 p-8 rounded-full sm:text-2xl text-medium bg-transparent hover:bg-gray-200 border-1 border-gray-400 text-blue-600 tracking-tighter",
             headingsDM.className
           )}
           endContent={<ArrowUpRight />}
           href="./goodstuff"
-          variant="bordered"
+          variant="flat"
         >
           {"Next"}
         </Button>

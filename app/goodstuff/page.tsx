@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
-import { ArrowUpRight } from "react-feather";
+import { ArrowLeft, ArrowRight, ArrowUpLeft, ArrowUpRight } from "react-feather";
 import { Tooltip } from "flowbite-react";
 import { motion } from "framer-motion";
-import { Divider, Button } from "@heroui/react";
+import { Divider, Button, ButtonGroup } from "@heroui/react";
 import clsx from "clsx";
 
 import { ProjectCard } from "@/components/projectcard";
@@ -122,62 +122,74 @@ export default function ProfessionalInfoPage() {
       <div className="max-w-full md:grid md:grid-cols-2 md:gap-10">
         {isMobile
           ? ProjectCardConfig.map((config, index) => (
-              <motion.div
+            <motion.div
+              key={index}
+              className="py-4 px-3 h-full"
+              id="CARDDIV"
+              initial="hidden"
+              variants={cardVariants}
+              viewport={{ once: true, amount: 0.2 }}
+              whileInView="visible"
+            >
+              <ProjectCard
                 key={index}
-                className="py-4 px-3 h-full"
-                id="CARDDIV"
-                initial="hidden"
-                variants={cardVariants}
-                viewport={{ once: true, amount: 0.2 }}
-                whileInView="visible"
-              >
-                <ProjectCard
-                  key={index}
-                  category={config.category}
-                  images={config.images}
-                  projectDesc={config.projectDesc}
-                  projectLink={config.projectLink}
-                  title={config.title}
-                  isMobile={isMobile}
-                />
-              </motion.div>
-            ))
+                category={config.category}
+                images={config.images}
+                projectDesc={config.projectDesc}
+                projectLink={config.projectLink}
+                title={config.title}
+                isMobile={isMobile}
+              />
+            </motion.div>
+          ))
           : ProjectCardConfig.map((config, index) => (
-              <motion.div
+            <motion.div
+              key={index}
+              className="py-4 px-3"
+              id="CARDDIV"
+              initial="hidden"
+              variants={cardVariants}
+              viewport={{ once: true, amount: 0.2 }}
+              whileHover={{ translateY: -7 }}
+              whileInView="visible"
+              whileTap={{ scale: 0.96 }}
+            >
+              <ProjectCard
                 key={index}
-                className="py-4 px-3"
-                id="CARDDIV"
-                initial="hidden"
-                variants={cardVariants}
-                viewport={{ once: true, amount: 0.2 }}
-                whileHover={{ translateY: -7 }}
-                whileInView="visible"
-                whileTap={{ scale: 0.96 }}
-              >
-                <ProjectCard
-                  key={index}
-                  category={config.category}
-                  images={config.images}
-                  projectDesc={config.projectDesc}
-                  projectLink={config.projectLink}
-                  title={config.title}
-                  isMobile={isMobile}
-                />
-              </motion.div>
-            ))}
+                category={config.category}
+                images={config.images}
+                projectDesc={config.projectDesc}
+                projectLink={config.projectLink}
+                title={config.title}
+                isMobile={isMobile}
+              />
+            </motion.div>
+          ))}
       </div>
-      <Button
-        as={"a"}
-        className={clsx(
-          "mt-12 p-10 rounded-full text-white text-2xl bg-gray-900   tracking-tighter",
-          headingsDM.className
-        )}
-        endContent={<ArrowUpRight />}
-        href="./mehstuff"
-        variant="shadow"
-      >
-        {"Music and Stuff"}
-      </Button>
+        <Button
+          as={"a"}
+          className={clsx(
+            "mt-12 sm:p-12 p-9 text-white text-2xl bg-gray-900 tracking-tighter mr-2 rounded-l-full rounded-r-sm",
+            headingsDM.className
+          )}
+          startContent={<ArrowLeft size={isMobile ? 20 : 50}/>}
+          href="./"
+          variant="shadow"
+        >
+        </Button>
+
+        <Button
+          as={"a"}
+          className={clsx(
+            "mt-12 sm:p-12 p-9 text-white text-2xl bg-gray-900 tracking-tighter rounded-l-2xl rounded-r-full",
+            headingsDM.className
+          )}
+          endContent={<ArrowRight size={isMobile ? 20 : 50} />}
+          href="./mehstuff"
+          variant="shadow"
+        >
+
+        </Button>
     </div>
   );
 }

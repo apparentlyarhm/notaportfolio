@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import {
   Navbar as NextUINavbar,
@@ -16,14 +17,66 @@ import { useDisclosure } from "@heroui/react";
 import { Lato } from "next/font/google";
 
 import { AboutModal } from "./aboutmodal";
-
 import { siteConfig } from "@/config/site";
 import { TwitterIcon, GithubIcon, LinkedInIcon } from "@/components/icons";
 
-export const navbarList = Lato({
+// Font setup
+const navbarList = Lato({
   weight: ["400", "700"],
   preload: false,
 });
+
+// Extracted Social Links
+const SocialLinks = () => (
+  <>
+    <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
+      <TwitterIcon className="text-gray-500" />
+    </Link>
+    <Link isExternal aria-label="LinkedIn" href={siteConfig.links.linkedin}>
+      <LinkedInIcon className="text-gray-500" />
+    </Link>
+    <Link isExternal aria-label="Github" href={siteConfig.links.github}>
+      <GithubIcon className="text-gray-500 " />
+    </Link>
+  </>
+);
+
+// Extracted Nav Items
+const NavItems = ({
+  onWhoClick,
+  onAnyClick,
+  mobile = false,
+}: {
+  onWhoClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+  onAnyClick?: () => void;
+  mobile?: boolean;
+}) => {
+  return siteConfig.navItems.map((item) => {
+    const isWho = item.label === "Who?";
+    return (
+      <NavbarItem key={item.href}>
+        <NextLink
+          className={clsx(
+            linkStyles({ color: "foreground" }),
+            "data-[active=true]:text-primary data-[active=true]:font-medium",
+            mobile ? "text-xl py-3" : "text-gray-600 hover:bg-gray-100 px-1 py-3 rounded-2xl",
+            navbarList.className
+          )}
+          href={item.href}
+          onClick={(e) => {
+            if (isWho) {
+              onWhoClick(e);
+            } else {
+              onAnyClick?.();
+            }
+          }}
+        >
+          {item.label}
+        </NextLink>
+      </NavbarItem>
+    );
+  });
+};
 
 export const Navbar = () => {
   const { isOpen, onOpenChange, onOpen, onClose } = useDisclosure();
@@ -38,143 +91,46 @@ export const Navbar = () => {
     <>
       <NextUINavbar
         isBordered
-        className="dark:bg-white bg-slate-900 rounded-b-3xl"
         isBlurred={false}
         isMenuOpen={isMenuOpen}
+        onMenuOpenChange={setIsMenuOpen}
         maxWidth="xl"
         position="sticky"
-        onMenuOpenChange={setIsMenuOpen}
+        className="bg-white border border-gray-300 rounded-b-3xl"
       >
-        {/* Navbar content for desktop */}
-        <NavbarContent
-          className="basis-1/5 sm:basis-full bg-transparent"
-          justify="start"
-        >
+        <NavbarContent className="basis-1/3" justify="start">
           <NavbarBrand as="li" className="gap-3 max-w-fit">
             <NextLink
-              className="flex justify-start items-center gap-1"
+              className="flex items-center gap-1"
               href="/"
-             />
+            >
+            </NextLink>
           </NavbarBrand>
-          <ul className="hidden lg:flex gap-4 justify-start ml-2">
-            {siteConfig.navItems.map((item) =>
-              item.label === "Who?" ? (
-                <NavbarItem key={item.href}>
-                  <NextLink
-                    className={clsx(
-                      linkStyles({ color: "foreground" }),
-                      "data-[active=true]:text-primary dark:text-black text-white data-[active=true]:font-medium font-bold",
-                      navbarList.className
-                    )}
-                    color="foreground"
-                    href={item.href}
-                    onClick={handleWhoClick}
-                  >
-                    {item.label}
-                  </NextLink>
-                </NavbarItem>
-              ) : (
-                <NavbarItem key={item.href}>
-                  <NextLink
-                    className={clsx(
-                      linkStyles({ color: "foreground" }),
-                      "data-[active=true]:text-primary dark:text-black text-white data-[active=true]:font-medium font-bold",
-                      navbarList.className
-                    )}
-                    color="foreground"
-                    href={item.href}
-                  >
-                    {item.label}
-                  </NextLink>
-                </NavbarItem>
-              )
-            )}
+          <ul className="hidden lg:flex gap-4 ml-2">
+            <NavItems onWhoClick={handleWhoClick} />
           </ul>
         </NavbarContent>
 
-        <NavbarContent
-          className="hidden sm:flex basis-1/5 sm:basis-full"
-          justify="end"
-        >
+        <NavbarContent className="hidden sm:flex basis-1/3" justify="end">
           <NavbarItem className="hidden sm:flex gap-2">
-            <Link
-              isExternal
-              aria-label="Twitter"
-              href={siteConfig.links.twitter}
-            >
-              <TwitterIcon className="dark:text-slate-500 text-gray-300" />
-            </Link>
-            <Link
-              isExternal
-              aria-label="LinkedIn"
-              href={siteConfig.links.linkedin}
-            >
-              <LinkedInIcon className="dark:text-slate-500 text-gray-300" />
-            </Link>
-            <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-              <GithubIcon className="dark:text-slate-500 text-gray-300" />
-            </Link>
-            {/* <ThemeSwitch /> */}
+            <SocialLinks />
           </NavbarItem>
         </NavbarContent>
 
-        {/* Navbar toggle and menu for mobile */}
-        <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-          <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
-            <TwitterIcon className="dark:text-slate-500 text-gray-300" />
-          </Link>
-          <Link
-            isExternal
-            aria-label="LinkedIn"
-            href={siteConfig.links.linkedin}
-          >
-            <LinkedInIcon className="dark:text-slate-500 text-gray-300" />
-          </Link>
-          <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-            <GithubIcon className="dark:text-slate-500 text-gray-300" />
-          </Link>
-          {/* <ThemeSwitch /> */}
+        <NavbarContent className="sm:hidden basis-1/3 pl-4" justify="end">
+          <SocialLinks />
           <NavbarMenuToggle aria-label="Toggle menu" className="text-gray-300" />
         </NavbarContent>
 
         <NavbarMenu>
-          {siteConfig.navItems.map((item) =>
-            item.label === "Who?" ? (
-              <NavbarItem key={item.href}>
-                <NextLink
-                  className={clsx(
-                    linkStyles({ color: "foreground" }),
-                    "data-[active=true]:text-primary data-[active=true]:font-medium text-xl py-3 font-bold",
-                    navbarList.className
-                  )}
-                  color="foreground"
-                  href={item.href}
-                  onClick={handleWhoClick}
-                >
-                  {item.label}
-                </NextLink>
-              </NavbarItem>
-            ) : (
-              <NavbarItem key={item.href}>
-                <NextLink
-                  className={clsx(
-                    linkStyles({ color: "foreground" }),
-                    "data-[active=true]:text-primary data-[active=true]:font-medium text-xl py-3 font-bold",
-                    navbarList.className
-                  )}
-                  color="foreground"
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </NextLink>
-              </NavbarItem>
-            )
-          )}
+          <NavItems
+            mobile
+            onWhoClick={handleWhoClick}
+            onAnyClick={() => setIsMenuOpen(false)}
+          />
         </NavbarMenu>
       </NextUINavbar>
 
-      {/* Modal Component */}
       <AboutModal
         isOpen={isOpen}
         onClose={onClose}

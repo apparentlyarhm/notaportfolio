@@ -4,6 +4,7 @@ import React from "react";
 
 import controller from "../../assets/logos/controller.svg";
 import dj from "../../assets/logos/dj.svg";
+import clsx from "clsx";
 
 export default function DocsLayout({
   children,
@@ -12,8 +13,15 @@ export default function DocsLayout({
 }) {
   return (
     <>
-      <div className="bg-gradient-to-r from-emerald-300 to-blue-500 dark:from-stone-500 dark:to-stone-700 max-w-[100vw] text-center sm:h-[60vh] h-[40vh] rounded-b-3xl sm:gap-40 gap-16 flex items-center justify-center">
-        {" "}
+      <div
+      className={clsx(
+        "max-w-[100vw] text-center sm:h-[60vh] h-[40vh] rounded-b-3xl sm:gap-40 gap-16 flex items-center justify-center",
+        "animate-gradient-zoom bg-[length:200%_200%]"
+      )}
+      style={{
+        backgroundImage: "linear-gradient(to top, #ff0844 0%, #ffb199 100%)",
+      }}
+    >
         <Image
           isBlurred
           alt="Controller"

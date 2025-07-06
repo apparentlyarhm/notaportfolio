@@ -72,10 +72,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           </div>
         </CardHeader>
         <Divider />
-        <CardBody className={clsx("p-6 sm:px-10 sm:py-12 sm:text-justify font-normal text-gray-500 text-xs",codestuff.className )}>
+        <CardBody className={clsx("p-6 sm:px-10 sm:py-12 sm:text-justify font-normal sm:text-sm text-gray-500 text-xs",codestuff.className )}>
           <ul className="list-disc">
             {projectDesc.map((desc, index) => (
-              <li key={index}>{desc}</li>
+              <p key={index}>{desc}</p>
             ))}
           </ul>
         </CardBody>

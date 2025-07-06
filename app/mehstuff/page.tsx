@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@heroui/button";
-import { ArrowUpRight } from "react-feather";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "react-feather";
 import clsx from "clsx";
 
 import { cardConfig } from "@/config/CardConfig";
@@ -114,14 +114,24 @@ export default function StuffPage() {
       <Button
         as={"a"}
         className={clsx(
-          "mt-12 p-10 rounded-full text-2xl text-white bg-gray-900 tracking-tighter",
+          "mt-12 sm:p-12 p-9 text-white text-2xl bg-gray-900 tracking-tighter mr-2 rounded-l-full rounded-r-sm",
           headingsDM.className
         )}
-        endContent={<ArrowUpRight />}
-        href="./favourites"
-        variant="shadow"
+        startContent={<ArrowLeft size={isMobile ? 20 : 50} />}
+        href="./goodstuff"
       >
-        {"Favourites"}
+      </Button>
+
+      <Button
+        as={"a"}
+        className={clsx(
+          "mt-12 sm:p-12 p-9 text-white text-2xl bg-gray-900 tracking-tighter rounded-l-2xl rounded-r-full",
+          headingsDM.className
+        )}
+        endContent={<ArrowRight size={isMobile ? 20 : 50} />}
+        href="./favourites"
+      >
+
       </Button>
     </>
   );

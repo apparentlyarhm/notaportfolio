@@ -22,9 +22,27 @@ module.exports = {
           "0%": { "stroke-dasharray": "0, 100", "stroke-dashoffset": "100" },
           "100%": { "stroke-dasharray": "100, 0", "stroke-dashoffset": "0" },
         },
+        'gradient-zoom': {
+          '0%': {
+            backgroundPosition: '0% 0%',
+          },
+          '25%': {
+            backgroundPosition: '50% 30%',
+          },
+          '50%': {
+            backgroundPosition: '100% 100%',
+          },
+          '75%': {
+            backgroundPosition: '50% 70%',
+          },
+          '100%': {
+            backgroundPosition: '0% 0%',
+          },
+        }
       },
       animation: {
         draw: "draw 4s ease-in-out infinite",
+        'gradient-zoom': 'gradient-zoom 10s ease-in-out infinite',
       },
       colors: {
         "off-white": "#f5f5f5", // Example off-white color
