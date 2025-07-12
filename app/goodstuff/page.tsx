@@ -139,6 +139,7 @@ export default function ProfessionalInfoPage() {
                 projectLink={config.projectLink}
                 title={config.title}
                 isMobile={isMobile}
+                status={config.status}
               />
             </motion.div>
           ))
@@ -162,6 +163,7 @@ export default function ProfessionalInfoPage() {
                 projectLink={config.projectLink}
                 title={config.title}
                 isMobile={isMobile}
+                status={config.status}
               />
             </motion.div>
           ))}

@@ -64,8 +64,8 @@ const NavItems = ({
               linkStyles({ color: "foreground" }),
               "data-[active=true]:text-primary ",
               mobile
-                ? "text-xl py-3 border-1 border-gray-200 rounded-xl px-5 font-extrabold"
-                : "text-gray-600 hover:bg-gray-100 px-1 py-3 rounded-2xl font-bold",
+                ? "text-xl py-3 border-1 border-gray-200 active:bg-gray-900 active:text-white rounded-xl px-5 font-extrabold transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-emerald-300"
+                : "text-gray-600 hover:bg-gray-100 px-1 py-3 rounded-2xl font-bold transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-emerald-300",
               nunito.className
               )}
               href={item.href}
@@ -76,10 +76,14 @@ const NavItems = ({
                 onAnyClick?.();
               }
               }}
+              tabIndex={0}
+              aria-pressed={mobile ? undefined : undefined}
             >
               <span className="flex items-center gap-2">
               {item.label}
-              {mobile ? <ArrowRightCircle className="text-emerald-300" /> : null }
+              {mobile ? (
+                <ArrowRightCircle className="text-emerald-300 transition-transform duration-150 group-active:scale-110 group-focus:scale-110" />
+              ) : null}
               </span>
             </NextLink>
             </NavbarItem>

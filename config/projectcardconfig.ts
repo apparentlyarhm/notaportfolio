@@ -17,6 +17,7 @@ export interface ProjectCardConfig {
   projectLink: string;
   images: string[];
   category: string;
+  status: "live" | "partially-live" | "unreleased" | "deprecated";
 }
 
 export const ProjectCardConfig: ProjectCardConfig[] = [
@@ -28,6 +29,7 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
     projectLink: "https://apparentlyarhm.github.io/minecraft-vm-management-console/",
     images: [sprng.src, njs.src, gcp.src],
     category: "Personal",
+    status: "partially-live"
   },
   {
     title: "Spoti-proxy",
@@ -35,8 +37,9 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
       "An Express.js proxy for accessing Spotify statistics with built-in token refresh and rate limiting, containerized and deployed on Cloud Run via GitHub Actions."
     ],
     projectLink: "https://github.com/apparentlyarhm/spotify-proxy/",
-    images: [ejs.src, ps.src],
+    images: [ejs.src, ps.src, gcp.src],
     category: "Personal",
+    status: "live"
   },
   {
     title: "This site lol :D",
@@ -46,6 +49,7 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
     projectLink: "https://github.com/apparentlyarhm/notaportfolio",
     images: [ts.src, njs.src],
     category: "Personal",
+    status: "live"
   },
   {
     title: "Infra Code for Minecraft Server- GCP",
@@ -55,6 +59,7 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
     projectLink: "https://github.com/apparentlyarhm/minecraft-terraform",
     images: [tf.src, linux.src],
     category: "Personal",
+    status: "unreleased"
   },
   {
     title: "Fully Randomized Examination system using Django",
@@ -64,6 +69,7 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
     projectLink: "https://github.com/apparentlyarhm/randomexamapp",
     images: [django.src, gcp.src, js.src, mysql.src, py.src],
     category: "Personal",
+    status: "deprecated"
   },
   {
     title: "Game Server using GCE with automatic backups and URL based Startup using Cloud Functions",
@@ -73,5 +79,6 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
     projectLink: "",
     images: [gcp.src, linux.src],
     category: "Personal",
+    status: "deprecated"
   },
 ];
