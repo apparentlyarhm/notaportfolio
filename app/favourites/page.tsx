@@ -15,7 +15,6 @@ import clsx from "clsx";
 
 import { headingsDM, codestuff, nunito } from "@/config/fonts";
 import TopTracksList from "@/components/TopTracksList";
-import PlaylistView from "@/components/playlist-items";
 
 export default function BlogPage() {
   // API related states
