@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { CustomFlowbiteTheme } from "flowbite-react";
 
-import { paragraph, headingsDM, fontMono } from "@/config/fonts";
+import { paragraph, headingsDM, fontMono, nunito } from "@/config/fonts";
 import { timelineConfig, jobtimelineConfig } from "@/config/time";
 
 export interface props {
@@ -84,8 +84,8 @@ export const Protimeline: React.FC<props> = ({
                     <div className="flex flex-col p-3 text-left pb-7">
                       <p
                         className={clsx(
-                          "text-xl tracking-tight",
-                          headingsDM.className
+                          "text-xl tracking-tight font-black",
+                          nunito.className
                         )}
                       >
                         {item.title}
@@ -131,8 +131,8 @@ export const Protimeline: React.FC<props> = ({
                     <div className="flex flex-col p-3 text-left pb-7">
                       <p
                         className={clsx(
-                          "text-xl tracking-tight mb-2",
-                          headingsDM.className
+                          "text-xl tracking-tight font-black mb-2",
+                          nunito.className
                         )}
                       >
                         {item.title}

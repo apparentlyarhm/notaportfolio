@@ -13,8 +13,9 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 
-import { headingsDM, codestuff } from "@/config/fonts";
+import { headingsDM, codestuff, nunito } from "@/config/fonts";
 import TopTracksList from "@/components/TopTracksList";
+import PlaylistView from "@/components/playlist-items";
 
 export default function BlogPage() {
   // API related states
@@ -38,6 +39,7 @@ export default function BlogPage() {
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []); // I am lazy so im copying this from the other page, ideally this should be in a custom hook and a shared state across the app...
 
+  // Im too lazy to refactor this into a utils file.. I think its not even required.
   useEffect(() => {
     setApiLoading(true);
     setError(null);
@@ -62,7 +64,7 @@ export default function BlogPage() {
         setApiLoading(false);
       })
       .catch(() => {
-        
+
         setError(
           "Something went wrong. If you are Arhum, check the GCP logs or browser console whatever"
         );
@@ -72,14 +74,14 @@ export default function BlogPage() {
 
   return (
     <div className="justify-center">
-      <p
+      <motion.p
         className={clsx(
           "text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter break-words px-6  sm:mb-10",
-          headingsDM.className
+          nunito.className
         )}
       >
         {"My favourite everything"}
-      </p>
+      </motion.p>
 
       <motion.p
         className={clsx(

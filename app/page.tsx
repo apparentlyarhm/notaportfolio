@@ -9,7 +9,7 @@ import { Image } from "@heroui/react";
 
 import bg from "../assets/bg.png"
 
-import { headingsDM, fontMono } from "@/config/fonts";
+import { headingsDM, fontMono, nunito, codestuff } from "@/config/fonts";
 
 
 export default function Home() {
@@ -32,8 +32,8 @@ export default function Home() {
         {/* <Ghosts /> */}
             <motion.h1
               className={clsx(
-                "text-3xl md:text-4xl lg:text-5xl text-left font-semibold tracking-tight break-words px-6 sm:mb-10",
-                headingsDM.className
+                "text-3xl md:text-4xl lg:text-5xl text-left font-black tracking-tight break-words px-6 sm:mb-10",
+                nunito.className
               )}
               initial="hidden"
               viewport={{ once: true, amount: 0.2 }}
@@ -45,7 +45,7 @@ export default function Home() {
             <motion.h1
               className={clsx(
                 "text-medium md:text-large lg:text-xl text-left font-semibold tracking-tight break-words px-6 mt-10 sm:mb-10",
-                fontMono.className
+                codestuff.className
               )}
               initial="hidden"
               viewport={{ once: true, amount: 0.2 }}
@@ -59,7 +59,7 @@ export default function Home() {
             <motion.h1
               className={clsx(
                 "text-xs md:text-sm lg:text-md font-medium text-left tracking-tight break-words px-6 mt-6 sm:mb-8",
-                fontMono.className
+                codestuff.className
               )}
               initial="hidden"
               viewport={{ once: true, amount: 0.2 }}

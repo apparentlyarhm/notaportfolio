@@ -4,7 +4,7 @@ import { Divider } from "@heroui/react";
 import React from "react";
 
 import { CardConfig } from "@/config/CardConfig";
-import { codestuff, headingsDM } from "@/config/fonts";
+import { codestuff, headingsDM, nunito } from "@/config/fonts";
 
 
 interface CardThingProps {
@@ -27,8 +27,8 @@ export const CardThing: React.FC<CardThingProps> = ({ cardConfig }) => {
           title={
             <div
               className={clsx(
-                "sm:pl-7 sm:text-4xl text-blue-900  sm:mb-2 tracking-tighter",
-                headingsDM.className
+                "sm:pl-7 sm:text-4xl font-black text-blue-900  sm:mb-2 tracking-tighter",
+                nunito.className
               )}
             >
               {accordion.heading}

@@ -8,7 +8,7 @@ import clsx from "clsx";
 
 import { ProjectCard } from "@/components/projectcard";
 import { ProjectCardConfig } from "@/config/projectcardconfig"; // Import the config file
-import { headingsDM, codestuff } from "@/config/fonts";
+import { headingsDM, codestuff, nunito } from "@/config/fonts";
 import { Protimeline as ProTime } from "@/components/protimeline";
 import { jobtimelineConfig, timelineConfig } from "@/config/time";
 export default function ProfessionalInfoPage() {
@@ -54,7 +54,7 @@ export default function ProfessionalInfoPage() {
       <h1
         className={clsx(
           "text-3xl md:text-4xl lg:text-5xl font-black tracking-tight break-words sm:mb-10",
-          headingsDM.className
+          nunito.className
         )}
       >
         Timeline
@@ -93,7 +93,7 @@ export default function ProfessionalInfoPage() {
       <motion.h1
         className={clsx(
           "text-3xl md:text-4xl lg:text-5xl font-black tracking-tight break-words sm:mb-10",
-          headingsDM.className
+          nunito.className
         )}
         initial="hidden"
         variants={cardVariants}

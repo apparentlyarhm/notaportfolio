@@ -7,7 +7,7 @@ import clsx from "clsx";
 
 import { cardConfig } from "@/config/CardConfig";
 import { CardThing } from "@/components/cardthing";
-import { codestuff } from "@/config/fonts";
+import { codestuff, nunito } from "@/config/fonts";
 import { headingsDM } from "@/config/fonts";
 import { MusicAccordion } from "@/components/musicaccordion";
 import { MusicConfig } from "@/config/MusicConfig";
@@ -47,8 +47,8 @@ export default function StuffPage() {
       <div className="max-w-6xl">
         <motion.h1
           className={clsx(
-            "text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter break-words text-left px-6  sm:mb-10",
-            headingsDM.className
+            "text-3xl md:text-4xl font-black lg:text-5xl font-black tracking-tighter break-words text-left px-6  sm:mb-10",
+            nunito.className
           )}
           initial="hidden"
           variants={cardVariants}

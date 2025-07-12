@@ -3,7 +3,7 @@ import { Accordion, AccordionItem, Divider, Image } from "@heroui/react";
 import { motion } from "framer-motion";
 import clsx from "clsx";
 
-import { codestuff, headingsDM } from "@/config/fonts";
+import { codestuff, headingsDM, nunito } from "@/config/fonts";
 import { MusicConfig } from "@/config/MusicConfig";
 
 export interface props {
@@ -30,8 +30,8 @@ export const MusicAccordion: React.FC<props> = ({
           title={
             <div
               className={clsx(
-                "sm:pl-7 sm:text-4xl sm:mb-2 text-green-800 tracking-tighter",
-                headingsDM.className
+                "sm:pl-7 sm:text-4xl font-black sm:mb-2 text-green-800 tracking-tighter",
+                nunito.className
               )}
             >
               {entry.name}

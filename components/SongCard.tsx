@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-import { headingsDM, fontMono, paragraph } from "@/config/fonts";
+import { headingsDM, fontMono, paragraph, nunito } from "@/config/fonts";
 interface SongCardProps {
   songName: string;
   artists: string[];
@@ -46,7 +46,7 @@ export default function SongCard({
           </p>
         </div>
         <div className="w-full text-center">
-          <p className={clsx("text-2xl tracking-tighter font-bold", headingsDM.className)}>{songName}.</p>
+          <p className={clsx("text-2xl tracking-tighter font-bold", nunito.className)}>{songName}.</p>
           <p className={clsx("text-sm text-gray-600 mb-2", paragraph.className)}>{artists.join(", ")}</p>
           <p className={clsx("text-xs italic text-gray-400", paragraph.className)}>{`"${albumName}"`}</p>
         </div>
@@ -72,8 +72,8 @@ export default function SongCard({
             )}
           >
             <p className={clsx(
-              "text-2xl sm:text-3xl md:text-4xl tracking-tighter lg:text-5xl font-bold",
-              headingsDM.className
+              "text-2xl sm:text-3xl md:text-4xl tracking-tighter lg:text-5xl font-black",
+              nunito.className
             )}>
               {songName}.
             </p>
