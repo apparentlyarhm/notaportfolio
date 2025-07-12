@@ -19,6 +19,8 @@ import { Lato } from "next/font/google";
 import { AboutModal } from "./aboutmodal";
 import { siteConfig } from "@/config/site";
 import { TwitterIcon, GithubIcon, LinkedInIcon } from "@/components/icons";
+import { nunito } from "@/config/fonts";
+import { ArrowRightCircle } from "react-feather";
 
 // Font setup
 const navbarList = Lato({
@@ -54,30 +56,33 @@ const NavItems = ({
   return (
     <>
       {siteConfig.navItems.map((item) => {
-        const isWho = item.label === "Who?";
+        const isWho = item.label === "Who?"; // this is hacky
         return (
-          <NavbarItem key={item.href}>
+            <NavbarItem key={item.href}>
             <NextLink
               className={clsx(
-                linkStyles({ color: "foreground" }),
-                "data-[active=true]:text-primary data-[active=true]:font-medium",
-                mobile
-                  ? "text-xl py-3"
-                  : "text-gray-600 hover:bg-gray-100 px-1 py-3 rounded-2xl",
-                navbarList.className
+              linkStyles({ color: "foreground" }),
+              "data-[active=true]:text-primary ",
+              mobile
+                ? "text-xl py-3 border-1 border-gray-200 rounded-xl px-5 font-extrabold"
+                : "text-gray-600 hover:bg-gray-100 px-1 py-3 rounded-2xl font-bold",
+              nunito.className
               )}
               href={item.href}
               onClick={(e) => {
-                if (isWho) {
-                  onWhoClick(e);
-                } else {
-                  onAnyClick?.();
-                }
+              if (isWho) {
+                onWhoClick(e);
+              } else {
+                onAnyClick?.();
+              }
               }}
             >
+              <span className="flex items-center gap-2">
               {item.label}
+              {mobile ? <ArrowRightCircle className="text-emerald-300" /> : null }
+              </span>
             </NextLink>
-          </NavbarItem>
+            </NavbarItem>
         );
       })}
     </>
@@ -103,9 +108,9 @@ export const Navbar = () => {
         isBlurred={false}
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
-        maxWidth="xl"
+        maxWidth="2xl"
         position="sticky"
-        className="bg-white border border-gray-300 rounded-b-3xl"
+        className="bg-white border-1 border-gray-300 rounded-b-3xl"
       >
         <NavbarContent className="basis-1/3" justify="start">
           <NavbarBrand as="li" className="gap-3 max-w-fit">
@@ -126,12 +131,12 @@ export const Navbar = () => {
           </NavbarItem>
         </NavbarContent>
 
-        <NavbarContent className="sm:hidden basis-1/3 pl-4" justify="end">
+        <NavbarContent className="sm:hidden basis-1/3 pl-4 gap-6" justify="end">
           <SocialLinks />
           <NavbarMenuToggle aria-label="Toggle menu" className="text-gray-300" />
         </NavbarContent>
 
-        <NavbarMenu>
+        <NavbarMenu className="gap-5">
           <NavItems
             mobile
             onWhoClick={handleWhoClick}

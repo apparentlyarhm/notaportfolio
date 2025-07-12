@@ -4,6 +4,7 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
+  Code,
 } from "@heroui/react";
 import clsx from "clsx";
 import { Inter } from "next/font/google";
@@ -11,6 +12,7 @@ import { Image } from "@heroui/react";
 import React from "react";
 
 import arhm from "../assets/arhm.png";
+import { codestuff, crimsonserif, nunito, paragraph } from "@/config/fonts";
 
 
 
@@ -42,25 +44,18 @@ export const AboutModal: React.FC<AppProps> = ({
       >
         <ModalContent>
           <>
-            <ModalHeader
-              className={clsx(
-                "flex flex-col gap-1 text-3xl sm:text-4xl",
-                modalText.className
-              )}
-            >
-              Hi!
+            <ModalHeader>
+              <Code size="lg" className="max-w-xs" color="success">~$ man -F -M PATH arhm</Code>
             </ModalHeader>
             <ModalBody>
               <hr className="opacity-10" />
-              <br />
               <div
-                className="h-4/5 sm:h-auto sm:max-h-[75vh] overflow-y-auto"
+                className={clsx("h-4/5 sm:h-auto sm:max-h-[75vh] overflow-y-auto font-bold", nunito.className)}
                 id="ihavenoclue"
               >
                 <p
                   className={clsx(
-                    "font-medium text-m sm:text-lg  tracking-tight",
-                    modalText.className
+                    " text-m sm:text-lg  tracking-tight",
                   )}
                 >
                   {"Oh boy, time to get a little formal, isn't it? Well, okay."}
@@ -68,8 +63,7 @@ export const AboutModal: React.FC<AppProps> = ({
                 <br />
                 <p
                   className={clsx(
-                    "font-medium text-m sm:text-lg  tracking-tight",
-                    modalText.className
+                    "text-m sm:text-lg  tracking-tight",
                   )}
                 >
                   {
@@ -79,8 +73,7 @@ export const AboutModal: React.FC<AppProps> = ({
                 <br />
                 <p
                   className={clsx(
-                    "font-medium text-m sm:text-lg  tracking-tight",
-                    modalText.className
+                    "text-m sm:text-lg  tracking-tight",
                   )}
                 >
                   {
@@ -91,8 +84,7 @@ export const AboutModal: React.FC<AppProps> = ({
                 <br />
                 <p
                   className={clsx(
-                    "font-medium text-m sm:text-lg  tracking-tight",
-                    modalText.className
+                    "text-lg sm:text-xl tracking-tight", crimsonserif.className
                   )}
                 >
                   {"Shah Mohd. Arhum"}
