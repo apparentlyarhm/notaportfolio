@@ -15,6 +15,7 @@ import clsx from "clsx";
 
 import { headingsDM, codestuff, nunito } from "@/config/fonts";
 import TopTracksList from "@/components/TopTracksList";
+import PlaylistView from "@/components/playlist-items";
 
 export default function BlogPage() {
   // API related states
@@ -26,6 +27,21 @@ export default function BlogPage() {
   const [isMobile, setIsMobile] = useState(false);
 
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+  // Pretty sure we can refactor this.
+  const animationVars = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+        mass: 0.5,
+      },
+    },
+  };
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -74,6 +90,10 @@ export default function BlogPage() {
   return (
     <div className="justify-center">
       <motion.p
+        initial="hidden"
+        variants={animationVars}
+        viewport={{ once: true, amount: 0.2 }}
+        whileInView="visible"
         className={clsx(
           "text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter break-words px-6  sm:mb-10",
           nunito.className
@@ -83,6 +103,10 @@ export default function BlogPage() {
       </motion.p>
 
       <motion.p
+        initial="hidden"
+        variants={animationVars}
+        viewport={{ once: true, amount: 0.2 }}
+        whileInView="visible"
         className={clsx(
           "text-sm sm:text-xl md:text-lg lg:text-xl dark:text-gray-400 text-gray-600 px-3 text-left",
           codestuff.className
@@ -167,6 +191,21 @@ export default function BlogPage() {
       <br />
       <br />
       <br />
+
+      <motion.p
+        initial="hidden"
+        variants={animationVars}
+        viewport={{ once: true, amount: 0.2 }}
+        whileInView="visible"
+        className={clsx(
+          "text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter break-words px-6  sm:mb-10",
+          headingsDM.className
+        )}
+      >
+        {"My playlist on Spotify is interesting."}
+      </motion.p>
+
+      <PlaylistView />
 
       <Button
         as={"a"}
