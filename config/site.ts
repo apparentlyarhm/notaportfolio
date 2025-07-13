@@ -21,7 +21,7 @@ export const siteConfig = {
       href: "favourites",
     },
     {
-      label: "Who?",
+      label: "whoami",
       href: "/",
     },
   ],

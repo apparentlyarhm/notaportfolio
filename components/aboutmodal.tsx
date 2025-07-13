@@ -36,7 +36,10 @@ export const AboutModal: React.FC<AppProps> = ({
     <div className="flex flex-col gap-2 overflow-y-auto">
       <Modal
         backdrop="blur"
-        className="sm:max-w-7xl sm:max-h-5xl sm:py-8 sm:px-6 "
+        className="sm:max-w-7xl sm:max-h-5xl sm:py-8 sm:px-6 animate-gradient-zoom bg-[length:200%_200%]"
+        style={{
+    backgroundImage: "linear-gradient(to right, #e9defa 0%, #fbfcdb 100%)",
+  }}
         isOpen={isOpen}
         placement="auto"
         scrollBehavior="inside"
@@ -45,7 +48,7 @@ export const AboutModal: React.FC<AppProps> = ({
         <ModalContent>
           <>
             <ModalHeader>
-              <Code size="lg" className="max-w-xs" color="success">~$ man -F -M PATH arhm</Code>
+              <Code size="lg" className="max-w-xs" color="secondary">~$ man -F -M PATH arhm</Code>
             </ModalHeader>
             <ModalBody>
               <hr className="opacity-10" />
@@ -67,7 +70,7 @@ export const AboutModal: React.FC<AppProps> = ({
                   )}
                 >
                   {
-                    "I was brought up and raised in Uttar Pradesh, India. Did my schooling there in DPS (for those unaware, a rather famous public school 'chain' in the NCR region) and for my Bachelor's, flew all the way over to Chennai at SRM, Kattankulathur, to pursue Computer Science & Engineering. Currently working at a startup in Chennai."
+                    "I was brought up and raised in Uttar Pradesh, India. Did my schooling there in DPS (for those unaware, a rather famous public school 'chain' in the NCR region) and for my Bachelor's, flew all the way over to Chennai at SRM, Kattankulathur, to pursue Computer Science & Engineering. Currently seeking employement as a SDE :>"
                   }
                 </p>
                 <br />
@@ -77,7 +80,7 @@ export const AboutModal: React.FC<AppProps> = ({
                   )}
                 >
                   {
-                    "Huge fan of Linus Tech Tips and Micheal Reeves I'd say. Beyond tech, I love playing games and making music. (Once I build my own studio its basically over for the music industry /s) I built this site so that you can get to know me not only professioanlly but as a person as well. Do not hesitate to reach out!"
+                    "Huge fan of Linus Tech Tips and Micheal Reeves I'd say. Beyond tech, I love playing games and making music. (Once I build my own studio its basically over for the music industry /s) I built this site so that you can get to know me not only professionally but as a person as well. Do not hesitate to reach out!"
                   }
                 </p>
                 <br />
