@@ -56,7 +56,7 @@ const NavItems = ({
   return (
     <>
       {siteConfig.navItems.map((item) => {
-        const isWho = item.label === "Who?"; // this is hacky
+        const isWho = item.label === "whoami"; // this is hacky
         return (
             <NavbarItem key={item.href}>
             <NextLink
@@ -65,7 +65,7 @@ const NavItems = ({
               "data-[active=true]:text-primary ",
               mobile
                 ? "text-xl py-3 border-1 border-gray-200 active:bg-gray-900 active:text-white rounded-xl px-5 font-extrabold transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-emerald-300"
-                : "text-gray-600 hover:bg-gray-100 px-1 py-3 rounded-2xl font-bold transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-emerald-300",
+                : "text-gray-600 hover:bg-gray-100 px-1 py-3 rounded-2xl font-bold transition-colors duration-150 focus:text-emerald-600 focus:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-emerald-300",
               nunito.className
               )}
               href={item.href}
