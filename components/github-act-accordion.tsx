@@ -117,6 +117,9 @@ export default function RepoActivityAccordion({ isMobile }: RepoActivityAccordio
                                     className="flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-4 rounded-xl p-1 sm:p-3 transition-colors"
                                     style={{ '--hover-bg': bgColor } as React.CSSProperties}
                                     onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'var(--hover-bg)'}
+                                    onFocus={(e) => e.currentTarget.style.backgroundColor = 'var(--hover-bg)'}
+
+                                    onBlur={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                                     onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                                 >
                                     {!isMobile ? (
