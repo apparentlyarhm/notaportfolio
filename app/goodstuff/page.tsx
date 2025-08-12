@@ -11,6 +11,7 @@ import { ProjectCardConfig } from "@/config/projectcardconfig"; // Import the co
 import { headingsDM, codestuff, nunito } from "@/config/fonts";
 import { Protimeline as ProTime } from "@/components/protimeline";
 import { jobtimelineConfig, timelineConfig } from "@/config/time";
+import RepoActivityAccordion from "@/components/github-act-accordion";
 export default function ProfessionalInfoPage() {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -168,30 +169,75 @@ export default function ProfessionalInfoPage() {
             </motion.div>
           ))}
       </div>
-        <Button
-          as={"a"}
-          className={clsx(
-            "mt-12 sm:p-12 p-9 text-white text-2xl bg-gray-900 tracking-tighter mr-2 rounded-l-full rounded-r-sm",
-            headingsDM.className
-          )}
-          startContent={<ArrowLeft size={isMobile ? 20 : 50}/>}
-          href="./"
-          variant="shadow"
-        >
-        </Button>
 
-        <Button
-          as={"a"}
-          className={clsx(
-            "mt-12 sm:p-12 p-9 text-white text-2xl bg-gray-900 tracking-tighter rounded-l-2xl rounded-r-full",
-            headingsDM.className
-          )}
-          endContent={<ArrowRight size={isMobile ? 20 : 50} />}
-          href="./mehstuff"
-          variant="shadow"
-        >
+      <br />
 
-        </Button>
+      <motion.h1
+        className={clsx(
+          "text-3xl md:text-4xl lg:text-5xl font-black tracking-tight break-words sm:mb-10",
+          nunito.className
+        )}
+        initial="hidden"
+        variants={cardVariants}
+        viewport={{ once: true, amount: 0.2 }}
+        whileInView="visible"
+      >
+        Github
+      </motion.h1>
+
+      <br />
+
+      <motion.p
+        className={clsx(
+          "tracking-tight text-md sm:text-xl text-gray-400 text-left px-3",
+          codestuff.className
+        )}
+        initial="hidden"
+        variants={cardVariants}
+        viewport={{ once: true, amount: 0.2 }}
+        whileInView="visible"
+      >
+        {
+          "Why github? idk because I can I guess.. anyways, here's my recent activity, directly queried from GitHub"
+        }
+      </motion.p>
+
+      <br />
+
+      <motion.div
+        initial="hidden"
+        variants={cardVariants}
+        viewport={{ once: true, amount: 0.2 }}
+        whileInView="visible"
+      >
+        <RepoActivityAccordion isMobile={isMobile} />
+        <br />
+      </motion.div>
+
+      <Button
+        as={"a"}
+        className={clsx(
+          "mt-12 sm:p-12 p-9 text-white text-2xl bg-gray-900 tracking-tighter mr-2 rounded-l-full rounded-r-sm",
+          headingsDM.className
+        )}
+        startContent={<ArrowLeft size={isMobile ? 20 : 50} />}
+        href="./"
+        variant="shadow"
+      >
+      </Button>
+
+      <Button
+        as={"a"}
+        className={clsx(
+          "mt-12 sm:p-12 p-9 text-white text-2xl bg-gray-900 tracking-tighter rounded-l-2xl rounded-r-full",
+          headingsDM.className
+        )}
+        endContent={<ArrowRight size={isMobile ? 20 : 50} />}
+        href="./mehstuff"
+        variant="shadow"
+      >
+
+      </Button>
     </div>
   );
 }

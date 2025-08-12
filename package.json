@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
-    "export:static": "OUTPUT_EXPORT=1 next build", 
+    "export:static": "OUTPUT_EXPORT=1 next build",
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix"
   },
@@ -26,6 +26,7 @@
     "@react-aria/ssr": "3.9.4",
     "@react-aria/visually-hidden": "3.8.12",
     "clsx": "2.1.1",
+    "date-fns": "^4.1.0",
     "embla-carousel-autoplay": "^8.1.8",
     "embla-carousel-class-names": "^8.1.8",
     "embla-carousel-react": "^8.1.8",

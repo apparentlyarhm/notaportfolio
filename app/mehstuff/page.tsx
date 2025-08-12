@@ -47,7 +47,7 @@ export default function StuffPage() {
       <div className="max-w-6xl">
         <motion.h1
           className={clsx(
-            "text-3xl md:text-4xl font-black lg:text-5xl font-black tracking-tighter break-words text-left px-6  sm:mb-10",
+            "text-3xl md:text-4xl font-black lg:text-5xl tracking-tighter break-words text-left px-6  sm:mb-10",
             nunito.className
           )}
           initial="hidden"

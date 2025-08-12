@@ -71,14 +71,4 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
     category: "Personal",
     status: "deprecated"
   },
-  {
-    title: "Game Server using GCE with automatic backups and URL based Startup using Cloud Functions",
-    projectDesc: [
-      "A GCE-hosted game server setup leveraging TMUX, CRON, and Cloud Functions for automated backups and URL-triggered startups."
-    ],
-    projectLink: "",
-    images: [gcp.src, linux.src],
-    category: "Personal",
-    status: "deprecated"
-  },
 ];
