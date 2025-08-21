@@ -11,6 +11,7 @@ import { codestuff, nunito } from "@/config/fonts";
 import { headingsDM } from "@/config/fonts";
 import { MusicAccordion } from "@/components/musicaccordion";
 import { MusicConfig } from "@/config/MusicConfig";
+import { SteamComponent } from "@/components/steam-data";
 
 export default function StuffPage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -72,20 +73,22 @@ export default function StuffPage() {
           whileInView="visible"
         >
           {
-            "Lets talk games first. Below are some of the games ive played. click on them to get to know my thoughts on them. At times you might think that these just seem like steam reviews and you'd be right- they kinda are but with a bit more personal touch idk lol"
+            "Lets talk games first. Below is yet another API integration, I thought fetching data directly from steam would be cool as I can display real time stuff"
           }
         </motion.h1>
         <br />
         <br />
+        
         <motion.div
           initial="hidden"
           variants={cardVariants}
           viewport={{ once: true, amount: 0.2 }}
           whileInView="visible"
         >
-          <CardThing cardConfig={cardConfig} />
-          <br />
+
+          <SteamComponent isMobile={isMobile} />
         </motion.div>
+
         <motion.h1
           className={clsx(
             "sm:text-xl text-md tracking-tight text-justify px-6 dark:text-gray-400 text-gray-600",

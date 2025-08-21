@@ -171,10 +171,10 @@ export default function BlogPage() {
       <Button
         as={"a"}
         className={clsx(
-          "mt-12 sm:p-12 p-9 rounded-full text-2xl text-white bg-gray-900 tracking-tighter",
-          headingsDM.className
+          "mt-12 sm:p-12 p-9 rounded-full text-2xl font-black text-white bg-gray-900 tracking-tighter",
+          nunito.className
         )}
-        endContent={<ArrowUpRight />}
+        endContent={<ArrowUpRight size={40} />}
         href="./"
         variant="shadow"
       >

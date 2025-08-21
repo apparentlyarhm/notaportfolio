@@ -9,7 +9,7 @@ import { Image } from "@heroui/react";
 
 import bg from "../assets/bg.png"
 
-import { headingsDM, fontMono, nunito, codestuff } from "@/config/fonts";
+import { headingsDM, fontMono, nunito, codestuff, crimsonserif, fontSans } from "@/config/fonts";
 
 
 export default function Home() {
@@ -85,10 +85,10 @@ export default function Home() {
         <Button
           as={"a"}
           className={clsx(
-            "mt-8 sm:p-10 p-8 rounded-full sm:text-2xl text-medium bg-transparent hover:bg-gray-200 border-1 border-gray-400 text-blue-600 tracking-tighter",
-            headingsDM.className
+            "mt-8 sm:p-10 p-8 rounded-full sm:text-2xl font-black tracking-tighter text-white bg-gray-900",
+            nunito.className
           )}
-          endContent={<ArrowUpRight />}
+          endContent={<ArrowUpRight size={40} />}
           href="./goodstuff"
           variant="flat"
         >
