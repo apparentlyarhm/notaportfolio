@@ -342,8 +342,15 @@ const SteamProfile = ({ profile }: SteamProfileProps) => {
 
     return (
         <div
+            role="button"
+            tabIndex={0}
             onClick={() => window.open(profile.profileUrl, "_blank")}
-            className={`w-full max-w-2xl rounded-2xl border ${theme.borderColor} relative overflow-hidden hover:opacity-90 hover:cursor-pointer duration-500`}
+            onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    window.open(profile.profileUrl, "_blank");
+                }
+            }}
+            className={`w-full max-w-2xl rounded-2xl border ${theme.borderColor} relative overflow-hidden hover:opacity-90 cursor-pointer duration-500`}
         >
             {/* In-game background */}
             {profile.status.inGame && (
