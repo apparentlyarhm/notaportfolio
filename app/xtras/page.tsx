@@ -5,8 +5,6 @@ import { Button } from "@heroui/button";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "react-feather";
 import clsx from "clsx";
 
-import { cardConfig } from "@/config/CardConfig";
-import { CardThing } from "@/components/cardthing";
 import { codestuff, nunito } from "@/config/fonts";
 import { headingsDM } from "@/config/fonts";
 import { MusicAccordion } from "@/components/musicaccordion";

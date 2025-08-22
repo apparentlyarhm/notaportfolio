@@ -20,7 +20,7 @@ import { AboutModal } from "./aboutmodal";
 import { siteConfig } from "@/config/site";
 import { TwitterIcon, GithubIcon, LinkedInIcon } from "@/components/icons";
 import { nunito } from "@/config/fonts";
-import { ArrowRightCircle } from "react-feather";
+import { ArrowRightCircle, ArrowUpRight } from "react-feather";
 
 // Font setup
 const navbarList = Lato({
@@ -58,7 +58,7 @@ const NavItems = ({
       {siteConfig.navItems.map((item) => {
         const isWho = item.label === "whoami"; // this is hacky
         return (
-            <NavbarItem key={item.href}>
+            <NavbarItem key={item.label}>
             <NextLink
               className={clsx(
               linkStyles({ color: "foreground" }),
@@ -82,7 +82,7 @@ const NavItems = ({
               <span className="flex items-center gap-2">
               {item.label}
               {mobile ? (
-                <ArrowRightCircle className="text-emerald-300 transition-transform duration-150 group-active:scale-110 group-focus:scale-110" />
+                <ArrowUpRight size={40} className="text-emerald-300 transition-transform duration-150 group-active:scale-110 group-focus:scale-110" />
               ) : null}
               </span>
             </NextLink>

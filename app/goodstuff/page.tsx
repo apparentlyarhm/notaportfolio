@@ -233,7 +233,7 @@ export default function ProfessionalInfoPage() {
           headingsDM.className
         )}
         endContent={<ArrowRight size={isMobile ? 20 : 50} />}
-        href="./mehstuff"
+        href="./xtras"
         variant="shadow"
       >
 
