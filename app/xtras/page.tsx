@@ -73,7 +73,7 @@ export default function StuffPage() {
           whileInView="visible"
         >
           {
-            "Lets talk games first. Below is yet another API integration, I thought fetching data directly from steam would be cool as I can display real time stuff"
+            "Lets talk games first. Below is yet another API integration, I thought fetching data directly from steam would be cool as I can display real time stuff. Do note that this data is of absolutely no use."
           }
         </motion.h1>
         <br />

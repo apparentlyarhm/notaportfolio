@@ -2,19 +2,209 @@ import { codestuff, nunito } from "@/config/fonts";
 import { Spinner } from "@heroui/react";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
-import { AlertCircle, ArrowRight, ArrowRightCircle, ArrowUpRight } from "react-feather";
+import { AlertCircle } from "react-feather";
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
+    ChartData,
+    ChartOptions,
+} from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+import React from 'react';
+import { OwnedGame, SteamAllData, SteamOwnedResponse, SteamPlayer, SteamRecentResponse } from '../types/steam';
+
+// dont exactly know why this is needed
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+);
+
+const COLOR_PALETTE = [
+    '#38bdf8', // sky-400
+    '#4ade80', // green-400
+    '#facc15', // yellow-400
+    '#fb923c', // orange-400
+    '#f87171', // red-400
+    '#c084fc', // purple-400
+    '#f472b6', // pink-400
+    '#818cf8', // indigo-400
+    '#2dd4bf', // teal-400
+    '#a3e635', // lime-400
+];
+
+const formatHours = (minutes: number) => {
+    return parseFloat((minutes / 60).toFixed(1));
+}
+
+export const MobileTopGamesChart = ({ games, isMobile }: { isMobile: boolean, games: OwnedGame[] }) => {
+
+    const topGames = games
+        .sort((a: any, b: any) => b.playtime_forever - a.playtime_forever)
+        .slice(0, 10);
+
+    let datasets;
+    if (isMobile) {
+        datasets = [{
+            label: 'Hours Played',
+            data: topGames.map(game => formatHours(game.playtime_forever)),
+            backgroundColor: topGames.map((game, index) => COLOR_PALETTE[index % COLOR_PALETTE.length]),
+            borderRadius: 4,
+            borderWidth: 0
+        }];
+    } else {
+        // Desktop version keeps the single, uniform color
+        datasets = [{
+            label: 'Hours Played',
+            data: topGames.map(game => formatHours(game.playtime_forever)),
+            backgroundColor: 'rgba(30, 201, 87, 0.2)',
+            borderColor: 'rgba(30, 201, 87, 1)',
+            borderWidth: 1
+        }];
+    }
+
+    const chartData: ChartData<'bar'> = {
+        labels: topGames.map(game => game.name), // Game names on the Y-axis
+        datasets: datasets
+    };
+
+    const desktopOptions: ChartOptions<'bar'> = {
+        indexAxis: 'y', // Horizontal bar chart
+
+        elements: {
+            bar: {
+                borderRadius: Number.MAX_VALUE,
+                borderWidth: 1
+            },
+        },
+
+        responsive: true,
+        maintainAspectRatio: true,
+
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    label: (context) => ` ${context.parsed.x} hours`,
+                }
+            }
+        },
+
+        layout: {
+            padding: {
+                left: 40,
+                right: 40,
+                top: 20,
+                bottom: 20
+            }
+        },
+
+
+        scales: {
+            x: {
+                title: { display: true, text: 'Hours Played', color: '#94a3b8' },
+                ticks: { color: '#000000' },
+                grid: { display: false },
+
+            },
+            y: {
+                ticks: { color: '#000000' },
+                grid: { display: false },
+            }
+        }
+
+    };
+
+    const mobileOptions: ChartOptions<'bar'> = {
+        indexAxis: 'x', // Vertical bar chart
+
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                callbacks: {
+                    label: (context) => ` ${context.parsed.y} hours`,
+                }
+            }
+        },
+
+        layout: {
+            padding: {
+                top: 20,
+                right: 30,
+                left: 10,
+                bottom: 20
+            }
+        },
+
+        scales: {
+            x: {
+                // --- Labels on the game axis are hidden ---
+                ticks: { display: false },
+                grid: { display: false },
+            },
+            y: {
+                ticks: { color: '#000000' },
+                grid: { color: 'rgba(0, 0, 0, 0.1)', offset: true }
+            }
+        }
+
+    };
+
+    const options = isMobile ? mobileOptions : desktopOptions;
+
+    // Reverse the data back for the vertical chart and the legend
+    const displayGames = isMobile ? topGames.slice() : topGames;
+
+    return (
+        <>
+            <div className={clsx("hover:bg-gray-50 cursor-text border-1 py-3 rounded-2xl", isMobile ? "max-h-2xl" : "")}>
+                <Bar options={options} data={chartData} />
+            </div>
+
+            {isMobile && (
+                <div className="mt-6">
+                    {displayGames.map((game, index) => (
+
+                        <div key={game.appid} className="flex items-center justify-between text-sm p-2 rounded-md">
+                            <div className="flex items-center gap-3">
+
+                                <div
+                                    className="w-4 h-4 rounded-full flex-shrink-0"
+                                    style={{ backgroundColor: COLOR_PALETTE[index % COLOR_PALETTE.length] }}
+                                />
+
+                                <span className="text-black font-medium truncate text-xs">{game.name}</span>
+
+                            </div>
+                            <span className="font-semibold text-xs text-green-400">{formatHours(game.playtime_forever)} hrs</span>
+                        </div>
+                    ))}
+                </div>
+            )}
+        </>
+    );
+};
+
 
 const formatPlaytime = (minutes: number) => {
     if (minutes < 60) return `${minutes}m`;
     const hours = Math.floor(minutes / 60);
     const remainingMinutes = minutes % 60;
+
     return `${hours}h ${remainingMinutes}m`;
 };
 
 export const SteamComponent = ({ isMobile }: { isMobile: boolean }) => {
-    const [steamData, setSteamData] = useState(null);
+    const [steamData, setSteamData] = useState<SteamAllData | null>(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState<unknown | null>(null);
 
     const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -27,11 +217,17 @@ export const SteamComponent = ({ isMobile }: { isMobile: boolean }) => {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
 
-                const data = await response.json();
+                const data = await response.json() as SteamAllData;
                 setSteamData(data);
 
             } catch (err) {
-                setError(err.message);
+
+                if (err instanceof Error) {
+                    setError(err.message);
+
+                } else {
+                    setError("An unknown or unexpected error occurred.");
+                }
 
             } finally {
                 setIsLoading(false);
@@ -59,12 +255,12 @@ export const SteamComponent = ({ isMobile }: { isMobile: boolean }) => {
     if (error) {
         return (
             <>
-                <div className={clsx("px-2 text-center items-center text-xs text-red-400 min-h-[200px] flex flex-col gap-5 border-1 border-red-600 bg-red-100 rounded-xl justify-center", codestuff.className)}>
+                <div className={clsx("px-2 text-center items-center text-xs text-red-400 min-h-[200px] flex flex-col gap-5 border-1 border-red-600 rounded-xl justify-center", codestuff.className)}>
                     <AlertCircle className="text-red-500" size={20} />
-                    <p className="">Failed to load Steam data.</p>
+                    <p className="">{`Failed to load Steam data :: ${error}`}</p>
 
                 </div>
-                
+
                 <br /><br />
             </>
 
@@ -72,16 +268,20 @@ export const SteamComponent = ({ isMobile }: { isMobile: boolean }) => {
     }
 
     return (
-        <div className={clsx("max-w-4xl mx-auto p-4 md:p-8 space-y-12", nunito.className)}>
+        <div className={clsx("flex flex-col items-center mx-auto p-4 md:p-8 space-y-12", nunito.className)}>
             {steamData?.profile && <SteamProfile profile={steamData.profile} />}
             {steamData?.recent && <SteamRecentActivity data={steamData.recent} isMobile={isMobile} />}
-            {/* {steamData?.games && <SteamOwnedGames data={steamData.games} isMobile={isMobile} />} */}
+            {steamData?.games && <SteamOwnedGames data={steamData.games} isMobile={isMobile} />}
             <br />
         </div>
     );
 }
 
-const SteamProfile = ({ profile }) => {
+type SteamProfileProps = {
+    profile: SteamPlayer;
+};
+
+const SteamProfile = ({ profile }: SteamProfileProps) => {
     if (!profile) return null;
 
     const stateValue = profile.status.state ?? 0;
@@ -103,8 +303,8 @@ const SteamProfile = ({ profile }) => {
             return {
                 cardBg: "bg-gradient-to-r from-green-200 to-emerald-200",
                 borderColor: "border-green-400",
-                statusRing: "ring-emerald-700",
-                textColor: "text-emerald-700",
+                statusRing: "p-1 bg-gradient-to-r from-pink-500 via-yellow-400 via-blue-600 to-green-400",
+                textColor: "text-emerald-900",
             };
         }
 
@@ -138,61 +338,69 @@ const SteamProfile = ({ profile }) => {
     };
 
     const theme = getStatusTheme();
-    const memberSince = new Date(profile.timeCreated * 1000).toDateString();
+    const memberSince = new Date(profile.timeCreated * 1000).getFullYear();
 
     return (
         <div
             onClick={() => window.open(profile.profileUrl, "_blank")}
-            className={`w-full rounded-2xl border ${theme.borderColor} ${theme.cardBg} duration-500 hover:opacity-60 hover:cursor-pointer py-5`}
+            className={`w-full max-w-2xl rounded-2xl border ${theme.borderColor} relative overflow-hidden hover:opacity-90 hover:cursor-pointer duration-500`}
         >
-            <div
-                className={`w-full h-full p-6 rounded-xl flex items-center space-x-6 ${theme.overlay || ""} flex justify-around group`}
-            >
-                {/* Avatar with Status Ring */}
-                <div
-                    className={`relative flex-shrink-0 ring-4 ${theme.statusRing} rounded-full`}
-                >
+            {/* In-game background */}
+            {profile.status.inGame && (
+                <>
+                    <img
+                        src={`https://cdn.akamai.steamstatic.com/steam/apps/${profile.status.gameId}/header.jpg`}
+                        alt={profile.status.game ?? ""}
+                        className="absolute inset-0 w-full h-full object-cover opacity-40"
+                    />
+                </>
+            )}
+
+            <div className={`relative z-10 p-6 rounded-xl flex flex-col items-center justify-around`}>
+
+                <div className={`relative flex-shrink-0 ring-4 ${theme.statusRing} rounded-full`}>
+
                     <img
                         src={profile.avatarFull}
                         alt={profile.personaName}
                         className="w-24 h-24 rounded-full"
                     />
+
                 </div>
 
                 {/* User Info */}
-                <div className={`flex flex-col items-start ${theme.textColor}`}>
-                    <h2 className="text-4xl font-black">{profile.personaName}</h2>
+                <div className={`flex flex-col items-center gap-5`}>
 
-                    <p className="text-lg font-semibold mt-1">
+                    <span
+                        className={`px-4 py-2 text-lg sm:text-2xl font-black rounded-xl ${theme.cardBg} ${theme.textColor}`}>
+                        {profile.personaName}
+                    </span>
+
+                    <span
+                        className={`px-3 py-1 text-xs md:text-sm rounded-xl ${theme.cardBg} ${theme.textColor} opacity-90`}>
+                        Member since {memberSince}
+                    </span>
+
+                    <span
+                        className={`px-3 py-1 text-sm md:text-base rounded-xl ${theme.cardBg} ${theme.textColor}`}>
                         {profile.status.inGame
                             ? `Playing: ${profile.status.game}`
                             : statusText}
-                    </p>
-                    
-                    <p className={clsx("text-xs opacity-80", codestuff.className)}>member since {memberSince}</p>
+                    </span>
+
                 </div>
 
-                {/* Game Preview (if in-game) */}
-                {profile.status.inGame && (
-                    <div className="hidden md:block w-64">
-                        <img
-                            src={`https://cdn.akamai.steamstatic.com/steam/apps/${profile.status.gameId}/header.jpg`}
-                            alt={profile.status.game}
-                            className="rounded-lg"
-                        />
-                    </div>
-                )}
-                
             </div>
         </div>
     );
+
 };
 
 
-const SteamRecentActivity = ({ isMobile, data }: { isMobile: boolean, data: any }) => {
+const SteamRecentActivity = ({ isMobile, data }: { isMobile: boolean, data: SteamRecentResponse }) => {
     if (!data) return null;
 
-    if (data.totalCount === 0) {
+    if (data.total_count === 0) {
         return (
             <div>
                 <h2 className="text-2xl font-bold text-slate-900 mb-4">Recent Activity</h2>
@@ -203,7 +411,7 @@ const SteamRecentActivity = ({ isMobile, data }: { isMobile: boolean, data: any 
     }
 
     return (
-        <div>
+        <div className="w-full max-w-2xl">
             <h2 className="text-lg sm:text-3xl font-black text-black mb-4">Recent Activity</h2>
 
             <div className="flex justify-around py-5 px-5 border-1 rounded-2xl space-x-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-800">
@@ -235,24 +443,15 @@ const SteamRecentActivity = ({ isMobile, data }: { isMobile: boolean, data: any 
 
 }
 
-const SteamOwnedGames = ({ isMobile, data }: { isMobile: boolean, data: any }) => {
+const SteamOwnedGames = ({ isMobile, data }: { isMobile: boolean, data: SteamOwnedResponse }) => {
     if (!data) return null;
 
-    // Placeholder Logic
-    const placeholderMessage = isMobile
-        ? "A simplified, searchable list of games will be displayed here."
-        : "An interactive Treemap visualization of the entire game library will be displayed here.";
-
     return (
-        <div>
-            <h2 className="text-2xl font-bold text-slate-200 mb-4">
-                Full Library ({data.gameCount} Games)
+        <div className="w-full max-w-full max-h-2xl">
+            <h2 className="text-lg sm:text-3xl font-black text-black mb-4">
+                {`measure of unemployment: ${data.gameCount} games owned`}
             </h2>
-
-            <div className="p-8 bg-slate-800 rounded-lg border-2 border-dashed border-slate-600 text-center">
-                <p className="text-slate-400">{placeholderMessage}</p>
-                <p className="text-sm text-slate-500 mt-2">(Development in progress)</p>
-            </div>
+            <MobileTopGamesChart games={data.games} isMobile={isMobile} />
 
         </div>
     );
