@@ -69,7 +69,7 @@ export default function RepoActivityAccordion({ isMobile }: RepoActivityAccordio
     }
 
     return (
-        <Accordion selectionMode="multiple" className={clsx("w-full shadow-none", codestuff.className)} variant="splitted">
+        <Accordion selectionMode="multiple" className={clsx("shadow-none", codestuff.className)} variant="splitted">
             {data.data.user.repositories.nodes.map((repo) => {
                 if (!repo.defaultBranchRef?.target.history.edges.length) {
                     return null;
@@ -100,7 +100,7 @@ export default function RepoActivityAccordion({ isMobile }: RepoActivityAccordio
                         }
                         subtitle={
                             // Use truncate to prevent long subtitles from breaking layout
-                            <p className="truncate text-xs sm:text-medium">
+                            <p className="text-[10px] sm:text-medium">
                                 {repo.primaryLanguage.name}, Last commit {formatDistanceToNow(
                                     new Date(latestCommit.committedDate),
                                     { addSuffix: true }
@@ -151,7 +151,7 @@ export default function RepoActivityAccordion({ isMobile }: RepoActivityAccordio
                                                 href={commit.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="font-medium text-xs truncate max-w-[300px] text-blue-700 dark:text-gray-200 hover:underline"
+                                                className="font-medium text-xs truncate max-w-[200px] text-blue-700 dark:text-gray-200 hover:underline"
                                             >
                                                 {commit.messageHeadline}
                                             </a>

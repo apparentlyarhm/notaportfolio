@@ -168,9 +168,8 @@ export default function ProfessionalInfoPage() {
               />
             </motion.div>
           ))}
+        <br />
       </div>
-
-      <br />
 
       <motion.h1
         className={clsx(
@@ -186,7 +185,6 @@ export default function ProfessionalInfoPage() {
       </motion.h1>
 
       <br />
-
       <motion.p
         className={clsx(
           "tracking-tight text-md sm:text-xl text-gray-400 text-left px-3",
@@ -200,19 +198,12 @@ export default function ProfessionalInfoPage() {
         {
           "Why github? idk because I can I guess.. anyways, here's my recent activity, directly queried from GitHub"
         }
-      </motion.p>
-
+      </motion.p>      
       <br />
 
-      <motion.div
-        initial="hidden"
-        variants={cardVariants}
-        viewport={{ once: true, amount: 0.2 }}
-        whileInView="visible"
-      >
-        <RepoActivityAccordion isMobile={isMobile} />
-        <br />
-      </motion.div>
+      <RepoActivityAccordion isMobile={isMobile} />
+
+      <br />
 
       <Button
         as={"a"}
