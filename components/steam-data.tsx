@@ -305,6 +305,7 @@ const SteamProfile = ({ profile }: SteamProfileProps) => {
                 borderColor: "border-green-400",
                 statusRing: "p-1 bg-gradient-to-r from-pink-500 via-yellow-400 via-blue-600 to-green-400",
                 textColor: "text-emerald-900",
+                bg: "bg-emerald-100"
             };
         }
 
@@ -315,6 +316,8 @@ const SteamProfile = ({ profile }: SteamProfileProps) => {
                     borderColor: "border-sky-400",
                     statusRing: "ring-sky-700",
                     textColor: "text-sky-700",
+                    bg: "bg-sky-100"
+                    
                 };
 
             case "away":
@@ -323,7 +326,8 @@ const SteamProfile = ({ profile }: SteamProfileProps) => {
                     cardBg: "bg-gradient-to-r from-slate-200 to-amber-200",
                     borderColor: "border-amber-400",
                     statusRing: "ring-amber-400",
-                    textColor: "text-slate-200",
+                    textColor: "text-yellow-700",
+                    bg: "bg-yellow-100"
                 };
 
             case "offline":
@@ -333,6 +337,7 @@ const SteamProfile = ({ profile }: SteamProfileProps) => {
                     borderColor: "border-slate-500",
                     statusRing: "ring-slate-500",
                     textColor: "text-slate-700",
+                    bg: "bg-slate-100"
                 };
         }
     };
@@ -363,7 +368,7 @@ const SteamProfile = ({ profile }: SteamProfileProps) => {
                 </>
             )}
 
-            <div className={`relative z-10 p-6 rounded-xl flex flex-col items-center justify-around`}>
+            <div className={`relative z-10 p-6 rounded-xl flex flex-col items-center ${theme.bg} justify-around`}>
 
                 <div className={`relative flex-shrink-0 ring-4 ${theme.statusRing} rounded-full`}>
 
@@ -376,20 +381,20 @@ const SteamProfile = ({ profile }: SteamProfileProps) => {
                 </div>
 
                 {/* User Info */}
-                <div className={`flex flex-col items-center gap-5`}>
+                <div className={`flex flex-col items-center gap-5 `}>
 
                     <span
-                        className={`px-4 py-2 text-lg sm:text-2xl font-black rounded-xl ${theme.cardBg} ${theme.textColor}`}>
+                        className={`px-4 py-2 text-lg sm:text-2xl font-black border-1 ${theme.borderColor} rounded-xl ${theme.cardBg} ${theme.textColor}`}>
                         {profile.personaName}
                     </span>
 
                     <span
-                        className={`px-3 py-1 text-xs md:text-sm rounded-xl ${theme.cardBg} ${theme.textColor} opacity-90`}>
+                        className={`px-3 py-1 text-xs md:text-sm rounded-xl border-1 ${theme.borderColor} ${theme.cardBg} ${theme.textColor} opacity-90`}>
                         Member since {memberSince}
                     </span>
 
                     <span
-                        className={`px-3 py-1 text-sm md:text-base rounded-xl ${theme.cardBg} ${theme.textColor}`}>
+                        className={`px-3 py-1 text-sm md:text-base rounded-xl border-1 ${theme.borderColor} ${theme.cardBg} ${theme.textColor}`}>
                         {profile.status.inGame
                             ? `Playing: ${profile.status.game}`
                             : statusText}
