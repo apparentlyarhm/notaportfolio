@@ -305,7 +305,6 @@ const SteamProfile = ({ profile }: SteamProfileProps) => {
                 borderColor: "border-green-400",
                 statusRing: "p-1 bg-gradient-to-r from-pink-500 via-yellow-400 via-blue-600 to-green-400",
                 textColor: "text-emerald-900",
-                bg: "bg-emerald-100"
             };
         }
 
@@ -316,7 +315,6 @@ const SteamProfile = ({ profile }: SteamProfileProps) => {
                     borderColor: "border-sky-400",
                     statusRing: "ring-sky-700",
                     textColor: "text-sky-700",
-                    bg: "bg-sky-100"
                     
                 };
 
@@ -327,7 +325,6 @@ const SteamProfile = ({ profile }: SteamProfileProps) => {
                     borderColor: "border-amber-400",
                     statusRing: "ring-amber-400",
                     textColor: "text-yellow-700",
-                    bg: "bg-yellow-100"
                 };
 
             case "offline":
@@ -337,7 +334,6 @@ const SteamProfile = ({ profile }: SteamProfileProps) => {
                     borderColor: "border-slate-500",
                     statusRing: "ring-slate-500",
                     textColor: "text-slate-700",
-                    bg: "bg-slate-100"
                 };
         }
     };
@@ -368,7 +364,7 @@ const SteamProfile = ({ profile }: SteamProfileProps) => {
                 </>
             )}
 
-            <div className={`relative z-10 p-6 rounded-xl flex flex-col items-center ${theme.bg} justify-around`}>
+            <div className={`relative z-10 p-6 rounded-xl flex flex-col items-center justify-around`}>
 
                 <div className={`relative flex-shrink-0 ring-4 ${theme.statusRing} rounded-full`}>
 
