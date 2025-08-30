@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 
 import { codestuff } from "@/config/fonts";
+import { Chip } from "@heroui/react";
+import { Info } from "react-feather";
 
 export default function Footer() {
   function formatTime(ms: number) {
@@ -76,8 +78,20 @@ export default function Footer() {
 
     loadData();
   }, []);
+  
 
-  if (!data?.item) return null; // We will silently not show anything if the api fails or no listening activity is detected.
+  if (!data?.item) return (
+     <footer
+      className={clsx(
+        "text-center flex flex-col gap-1 sm:gap-6 sm:flex-row justify-center border-t rounded-t-3xl border-gray-300 dark:border-gray-900 sm:py-6 py-3 px-4",
+        codestuff.className
+      )} 
+    > 
+    <Chip variant="flat" startContent={<Info size={16} />} className="py-6 px-5 text-xs">
+      {`Diagnostic: ${callDuration}ms latency via "${agentString}" `}
+    </Chip>
+    </footer>
+  );
 
   const track = data.item;
   const artistLinks = track.artists?.map((artist: any, i: number) => (
@@ -101,7 +115,9 @@ export default function Footer() {
         "text-center flex flex-col gap-1 sm:gap-6 sm:flex-row justify-center border-t rounded-t-3xl border-gray-300 dark:border-gray-900 sm:py-6 py-3 px-4",
         codestuff.className
       )}
+      
     >
+    
       <div className="justify-start rounded-2xl  border-1 dark:border-gray-500 hover:border-gray-400 dark:hover:border-orange-400 max-w-[500px]">
         <div className="flex items-center justify-center sm:justify-start gap-4 overflow-x-auto p-5">
           {albumImage && (
@@ -137,9 +153,9 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <span className="p-6 rounded-xl bg-green-100 text-green-600 text-[10px] sm:text-xs justify-center">
-        {`Diagnostic: ${callDuration}ms latency via "${agentString}" `}
-      </span>
+      <Chip variant="flat" startContent={<Info size={16} />} className="py-6 px-5 text-xs">
+      {`Diagnostic: ${callDuration}ms latency via "${agentString}" `}
+    </Chip>
     </footer>
   );
 }
