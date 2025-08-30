@@ -81,16 +81,16 @@ export default function Footer() {
   
 
   if (!data?.item) return (
-     <footer
+     <div
       className={clsx(
-        "text-center flex flex-col gap-1 sm:gap-6 sm:flex-row justify-center border-t rounded-t-3xl border-gray-300 dark:border-gray-900 sm:py-6 py-3 px-4",
+        "text-center items-center flex flex-col gap-1 sm:gap-6 sm:flex-row justify-center sm:py-6 py-3 px-4",
         codestuff.className
       )} 
     > 
-    <Chip variant="flat" startContent={<Info size={16} />} className="py-6 px-5 text-xs">
+    <div className="py-8 px-6 sm:text-xs text-blue-600 text-[10px] border-1 border-blue-600 rounded-3xl">
       {`Diagnostic: ${callDuration}ms latency via "${agentString}" `}
-    </Chip>
-    </footer>
+    </div>
+    </div>
   );
 
   const track = data.item;
@@ -112,7 +112,7 @@ export default function Footer() {
   return (
     <footer
       className={clsx(
-        "text-center flex flex-col gap-1 sm:gap-6 sm:flex-row justify-center border-t rounded-t-3xl border-gray-300 dark:border-gray-900 sm:py-6 py-3 px-4",
+        "text-center flex flex-col gap-3 sm:gap-6 sm:flex-row justify-center border-t rounded-t-3xl border-gray-300 dark:border-gray-900 sm:py-6 py-3 px-4",
         codestuff.className
       )}
       
@@ -153,9 +153,9 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <Chip variant="flat" startContent={<Info size={16} />} className="py-6 px-5 text-xs">
+    <div className="flex items-center text-center justify-center py-8 px-6 sm:text-[12px] text-blue-600 text-[10px] border-1 border-blue-600 rounded-3xl">
       {`Diagnostic: ${callDuration}ms latency via "${agentString}" `}
-    </Chip>
+    </div>
     </footer>
   );
 }
