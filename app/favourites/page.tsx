@@ -119,11 +119,11 @@ export default function BlogPage() {
           <DropdownMenu
             aria-label="Time Range"
             selectedKeys={[timeRange]}
-            classNames={{ list:clsx("gap-2", nunito.className)}}
+            classNames={{ list: clsx("gap-2", nunito.className) }}
             onAction={(key) => setTimeRange(String(key))}
           >
             <DropdownItem key="short_term" description="Short term interests">{"Last 4 Weeks"}</DropdownItem>
-            <DropdownItem key="medium_term"description="Relatively longer duration" >{"Last 6 Months"}</DropdownItem>
+            <DropdownItem key="medium_term" description="Relatively longer duration" >{"Last 6 Months"}</DropdownItem>
             <DropdownItem key="long_term" description="Not sure how its calculated">{"All Time"}</DropdownItem>
           </DropdownMenu>
         </Dropdown>
@@ -138,11 +138,11 @@ export default function BlogPage() {
           <DropdownMenu
             aria-label="Track Count"
             selectedKeys={[String(limit)]}
-                        classNames={{ list:clsx("gap-1", nunito.className)}}
+            classNames={{ list: clsx("gap-1 max-h-[200px] px-1 overflow-y-auto", nunito.className) }}
             onAction={(key) => setLimit(Number(key))}
           >
             {Array.from({ length: 11 }, (_, i) => (
-              <DropdownItem description="please help me" key={i}>{`${i} Track(s)` }</DropdownItem>
+              <DropdownItem description="please help me" key={i}>{`${i} Track(s)`}</DropdownItem>
             ))}
           </DropdownMenu>
         </Dropdown>
