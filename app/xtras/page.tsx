@@ -5,7 +5,7 @@ import { Button } from "@heroui/button";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "react-feather";
 import clsx from "clsx";
 
-import { codestuff, nunito } from "@/config/fonts";
+import { bitter, codestuff, nunito } from "@/config/fonts";
 import { headingsDM } from "@/config/fonts";
 import { MusicAccordion } from "@/components/musicaccordion";
 import { MusicConfig } from "@/config/MusicConfig";
@@ -46,7 +46,7 @@ export default function StuffPage() {
       <div className="max-w-6xl">
         <motion.h1
           className={clsx(
-            "text-3xl md:text-4xl font-black lg:text-5xl tracking-tighter break-words text-left px-6  sm:mb-10",
+            "text-4xl md:text-4xl font-black lg:text-5xl tracking-tighter break-words text-left px-6 sm:mb-10",
             nunito.className
           )}
           initial="hidden"
@@ -62,8 +62,8 @@ export default function StuffPage() {
         <br />
         <motion.h1
           className={clsx(
-            "sm:text-xl text-md text-justify px-6 dark:text-gray-400 text-gray-600",
-            codestuff.className
+            "sm:text-xl text-md text-justify px-6 tracking-wide sm:tracking-wider dark:text-gray-400 text-gray-600",
+            bitter.className
           )}
           initial="hidden"
           variants={cardVariants}
@@ -89,8 +89,8 @@ export default function StuffPage() {
 
         <motion.h1
           className={clsx(
-            "sm:text-xl text-md tracking-tight text-justify px-6 dark:text-gray-400 text-gray-600",
-            codestuff.className
+            "sm:text-xl text-md text-justify px-6 tracking-wide sm:tracking-wider dark:text-gray-400 text-gray-600",
+            bitter.className
           )}
           initial="hidden"
           variants={cardVariants}

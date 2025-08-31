@@ -9,7 +9,8 @@ import { Image } from "@heroui/react";
 
 import bg from "../assets/bg.png"
 
-import { headingsDM, fontMono, nunito, codestuff, crimsonserif, fontSans } from "@/config/fonts";
+import { headingsDM, fontMono, nunito, codestuff, crimsonserif, fontSans, bitter } from "@/config/fonts";
+import { Ghosts } from "@/components/ghosts";
 
 
 export default function Home() {
@@ -29,7 +30,7 @@ export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center">
       <div className="max-w-7xl w-full text-center px-4 py-8 md:px-10 md:py-16 lg:px-20 lg:py-24">
-        {/* <Ghosts /> */}
+        <Ghosts />
             <motion.h1
               className={clsx(
                 "text-3xl md:text-4xl lg:text-5xl text-left font-black tracking-tight break-words px-6 sm:mb-10",
@@ -44,8 +45,8 @@ export default function Home() {
 
             <motion.h1
               className={clsx(
-                "text-medium md:text-large lg:text-xl text-left font-semibold tracking-tight break-words px-6 mt-10 sm:mb-10",
-                codestuff.className
+                "text-medium md:text-large lg:text-xl text-left font-semibold break-words px-6 mt-10 sm:mb-10",
+                bitter.className
               )}
               initial="hidden"
               viewport={{ once: true, amount: 0.2 }}
@@ -58,8 +59,8 @@ export default function Home() {
 
             <motion.h1
               className={clsx(
-                "text-xs md:text-sm lg:text-md font-medium text-left tracking-tight break-words px-6 mt-6 sm:mb-8",
-                codestuff.className
+                "text-xs md:text-sm lg:text-md font-medium text-left break-words px-6 mt-6 sm:mb-8",
+                bitter.className
               )}
               initial="hidden"
               viewport={{ once: true, amount: 0.2 }}

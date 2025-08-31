@@ -8,7 +8,7 @@ import clsx from "clsx";
 
 import { ProjectCard } from "@/components/projectcard";
 import { ProjectCardConfig } from "@/config/projectcardconfig"; // Import the config file
-import { headingsDM, codestuff, nunito } from "@/config/fonts";
+import { headingsDM, codestuff, nunito, bitter } from "@/config/fonts";
 import { Protimeline as ProTime } from "@/components/protimeline";
 import { jobtimelineConfig, timelineConfig } from "@/config/time";
 import RepoActivityAccordion from "@/components/github-act-accordion";
@@ -54,7 +54,7 @@ export default function ProfessionalInfoPage() {
     <div>
       <h1
         className={clsx(
-          "text-3xl md:text-4xl lg:text-5xl font-black tracking-tight break-words sm:mb-10",
+          "text-4xl md:text-4xl text-start sm:text-center px-3 lg:text-5xl font-black tracking-tight break-words sm:mb-10",
           nunito.className
         )}
       >
@@ -73,8 +73,8 @@ export default function ProfessionalInfoPage() {
       >
         <motion.p
           className={clsx(
-            "tracking-tight text-md sm:text-xl text-gray-400 px-3 text-left",
-            codestuff.className
+            "tracking-wider text-md sm:text-xl text-gray-400 px-3 text-left",
+            bitter.className
           )}
           variants={containerVariants}
         >
@@ -93,7 +93,7 @@ export default function ProfessionalInfoPage() {
       <br />
       <motion.h1
         className={clsx(
-          "text-3xl md:text-4xl lg:text-5xl font-black tracking-tight break-words sm:mb-10",
+          "text-4xl md:text-4xl text-start sm:text-center px-3 lg:text-5xl font-black tracking-tight break-words sm:mb-10",
           nunito.className
         )}
         initial="hidden"
@@ -106,8 +106,8 @@ export default function ProfessionalInfoPage() {
       <br />
       <motion.p
         className={clsx(
-          "tracking-tight text-md sm:text-xl text-gray-400 text-left px-3",
-          codestuff.className
+          "tracking-wide text-md sm:text-xl text-gray-400 text-left px-3",
+          bitter.className
         )}
         initial="hidden"
         variants={cardVariants}
@@ -173,7 +173,7 @@ export default function ProfessionalInfoPage() {
 
       <motion.h1
         className={clsx(
-          "text-3xl md:text-4xl lg:text-5xl font-black tracking-tight break-words sm:mb-10",
+          "text-4xl md:text-4xl text-start sm:text-center px-3 lg:text-5xl font-black tracking-tight break-words sm:mb-10",
           nunito.className
         )}
         initial="hidden"
@@ -187,8 +187,8 @@ export default function ProfessionalInfoPage() {
       <br />
       <motion.p
         className={clsx(
-          "tracking-tight text-md sm:text-xl text-gray-400 text-left px-3",
-          codestuff.className
+          "tracking-wider text-md sm:text-xl text-gray-400 text-left px-3",
+          bitter.className
         )}
         initial="hidden"
         variants={cardVariants}

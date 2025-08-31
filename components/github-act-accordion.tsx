@@ -58,7 +58,7 @@ export default function RepoActivityAccordion({ isMobile }: RepoActivityAccordio
 
     if (error || !data) {
         return (
-            <div className={clsx("text-red-500 flex-row flex gap-5 justify-center items-center text-[10px] sm:text-sm", codestuff.className)}>
+            <div className={clsx("text-red-500 flex-col  sm:flex-row flex gap-5 justify-center items-center text-[10px] sm:text-sm", codestuff.className)}>
                 <AlertTriangle className="h-4 w-4"/>
                 <p>
 
@@ -89,7 +89,7 @@ export default function RepoActivityAccordion({ isMobile }: RepoActivityAccordio
                         style={{ backgroundColor: bgColor, borderColor: borderColor }}
                         title={
                             <div className="flex items-center gap-2">
-                                <span className="font-bold text-sm sm:text-lg">{repo.name}</span>
+                                <span className="font-bold text-sm sm:text-xl">{repo.name}</span>
                             </div>
                         }
                         startContent={

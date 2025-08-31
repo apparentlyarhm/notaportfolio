@@ -18,7 +18,8 @@ import {
   paragraph,
   codestuff,
   headingsDM,
-  nunito
+  nunito,
+  bitter
 
 } from "@/config/fonts";
 
@@ -85,14 +86,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           <div
             className={clsx(
               "flex flex-col mt-2 tracking-tight md:mt-0 text-start px-2 py-4 sm:text-xl text-lg font-bold sm:font-bold",
-              paragraph.className
+              nunito.className
             )}
           >
-            <p className={clsx("text-lg tracking-tighter font-black", headingsDM.className)}>{title}</p>
+            <p className={clsx("text-xl tracking-tight font-black", nunito.className)}>{title}</p>
           </div>
         </CardHeader>
         <Divider />
-        <CardBody className={clsx("p-6 sm:px-10 sm:py-12 sm:text-justify font-normal sm:text-sm text-gray-500 text-xs", codestuff.className)}>
+        <CardBody className={clsx("p-6 sm:px-10 sm:py-12 sm:text-justify font-normal tracking-wider text-gray-500 sm:text-medium text-small", bitter.className)}>
           <ul className="list-disc">
             {projectDesc.map((desc, index) => (
               <p key={index}>{desc}</p>

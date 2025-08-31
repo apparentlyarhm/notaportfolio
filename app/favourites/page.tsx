@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 
-import { headingsDM, codestuff, nunito } from "@/config/fonts";
+import { headingsDM, codestuff, nunito, bitter } from "@/config/fonts";
 import TopTracksList from "@/components/TopTracksList";
 
 export default function BlogPage() {
@@ -77,7 +77,7 @@ export default function BlogPage() {
     <div className="justify-center">
       <motion.p
         className={clsx(
-          "text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter break-words px-6  sm:mb-10",
+          "text-4xl md:text-4xl text-start sm:text-center lg:text-5xl font-black tracking-tighter break-words px-3  sm:mb-10",
           nunito.className
         )}
       >
@@ -86,13 +86,13 @@ export default function BlogPage() {
 
       <motion.p
         className={clsx(
-          "text-sm sm:text-xl md:text-lg lg:text-xl dark:text-gray-400 text-gray-600 px-3 text-left",
-          codestuff.className
+          "text-sm sm:text-xl tracking-wider md:text-lg lg:text-xl dark:text-gray-400 text-gray-600 px-3 text-left",
+          bitter.className
         )}
       >
         <br />
         {
-          "TBH I couldn't think of anything else apart from songs/artists at this moment lol and spotify conveniently provides APIs for that. I will keep time_range as short as it might get changed frequently based on what I like at the moment. Also, theres this cool animation thing that i configured only for desktop. You can play around with the time range and count to change the data. I am planning to add artists next."
+          "Try playing around with the options below, but there is no reason for this page to exist but I wanted to make it anyway"
         }
       </motion.p>
       <br />
@@ -104,7 +104,7 @@ export default function BlogPage() {
             <Button
               className={clsx(
                 "max-w-[70vw] sm:max-w-none overflow-hidden",
-                codestuff.className
+                bitter.className
               )}
               variant="light"
             >
@@ -130,7 +130,7 @@ export default function BlogPage() {
 
         <Dropdown size="lg">
           <DropdownTrigger className="mt-10 mb-10 py-9 px-14 border-1 ">
-            <Button className={clsx("", codestuff.className)} variant="light">
+            <Button className={clsx("", bitter.className)} variant="light">
               {`Count: ${limit}`}
               <ArrowDown className="ml-4" />
             </Button>
