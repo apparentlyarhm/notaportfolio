@@ -457,7 +457,7 @@ const SteamOwnedGames = ({ isMobile, data }: { isMobile: boolean, data: SteamOwn
     return (
         <div className="w-full max-w-full max-h-2xl">
             <h2 className="text-lg sm:text-3xl font-black text-black mb-4">
-                {`measure of unemployment: ${data.gameCount} games owned`}
+                {`${data.gameCount} games.`}
             </h2>
             <MobileTopGamesChart games={data.games} isMobile={isMobile} />
 

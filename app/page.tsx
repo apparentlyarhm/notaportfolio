@@ -7,7 +7,7 @@ import { Button } from "@heroui/react";
 import { ArrowUpRight } from "react-feather";
 import { Image } from "@heroui/react";
 
-import bg from "../assets/bg.png"
+import bg from "../assets/bgate.jpeg"
 
 import { headingsDM, fontMono, nunito, codestuff, crimsonserif, fontSans, bitter } from "@/config/fonts";
 import { Ghosts } from "@/components/ghosts";
@@ -33,7 +33,7 @@ export default function Home() {
         <Ghosts />
             <motion.h1
               className={clsx(
-                "text-3xl md:text-4xl lg:text-5xl text-left font-black tracking-tight break-words px-6 sm:mb-10",
+                "text-4xl md:text-4xl lg:text-5xl text-left font-black tracking-tight break-words px-6 sm:mb-10",
                 nunito.className
               )}
               initial="hidden"
@@ -45,7 +45,7 @@ export default function Home() {
 
             <motion.h1
               className={clsx(
-                "text-medium md:text-large lg:text-xl text-left font-semibold break-words px-6 mt-10 sm:mb-10",
+                "text-large md:text-large tracking-wide lg:text-xl text-left font-semibold break-words px-6 mt-10 sm:mb-10",
                 bitter.className
               )}
               initial="hidden"
@@ -59,22 +59,14 @@ export default function Home() {
 
             <motion.h1
               className={clsx(
-                "text-xs md:text-sm lg:text-md font-medium text-left break-words px-6 mt-6 sm:mb-8",
+                "text-small md:text-sm lg:text-md tracking-wide font-medium text-left break-words px-6 mt-6 sm:mb-8",
                 bitter.className
               )}
               initial="hidden"
               viewport={{ once: true, amount: 0.2 }}
               whileInView="visible"
             >
-              {"former sde @ "}
-              <a
-                className="text-blue-500 underline"
-                href="https://randomwalk.ai"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                {"randomwalk.ai"}
-              </a>
+              {"incredibly mid at everything"}
             </motion.h1>
             <div className="flex justify-center mt-6">
             <Image
@@ -86,12 +78,12 @@ export default function Home() {
         <Button
           as={"a"}
           className={clsx(
-            "mt-8 sm:p-10 p-8 rounded-full sm:text-2xl font-black tracking-tighter text-white bg-gray-900",
+            "mt-8 sm:p-10 p-8 rounded-full text-2xl font-black tracking-tighter text-white bg-gray-900",
             nunito.className
           )}
           endContent={<ArrowUpRight size={40} />}
           href="./goodstuff"
-          variant="flat"
+          variant="shadow"
         >
           {"Next"}
         </Button>
