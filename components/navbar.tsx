@@ -14,19 +14,12 @@ import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
 import { useDisclosure } from "@heroui/react";
-import { Lato } from "next/font/google";
 
 import { AboutModal } from "./aboutmodal";
 import { siteConfig } from "@/config/site";
 import { TwitterIcon, GithubIcon, LinkedInIcon } from "@/components/icons";
 import { nunito } from "@/config/fonts";
 import { ArrowRightCircle, ArrowUpRight } from "react-feather";
-
-// Font setup
-const navbarList = Lato({
-  weight: ["400", "700"],
-  preload: false,
-});
 
 // Extracted Social Links
 const SocialLinks = () => (
@@ -58,35 +51,35 @@ const NavItems = ({
       {siteConfig.navItems.map((item) => {
         const isWho = item.label === "whoami"; // this is hacky
         return (
-            <NavbarItem key={item.label}>
+          <NavbarItem key={item.label}>
             <NextLink
               className={clsx(
-              linkStyles({ color: "foreground" }),
-              "data-[active=true]:text-primary ",
-              mobile
-                ? "text-xl py-3 border-1 border-gray-200 active:bg-gray-900 active:text-white rounded-xl px-5 font-extrabold transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-emerald-300"
-                : "text-gray-600 hover:bg-gray-100 px-1 py-3 rounded-2xl font-bold transition-colors duration-150 focus:text-emerald-600 focus:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-emerald-300",
-              nunito.className
+                linkStyles({ color: "foreground" }),
+                "data-[active=true]:text-primary ",
+                mobile
+                  ? "text-xl py-4 border-1 border-gray-200 active:bg-gray-900 active:text-white rounded-xl px-5 font-extrabold transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-emerald-300"
+                  : "text-gray-600 hover:bg-gray-100 px-1 py-3 rounded-2xl font-bold transition-colors duration-150 focus:text-emerald-600 focus:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-emerald-300",
+                nunito.className
               )}
               href={item.href}
               onClick={(e) => {
-              if (isWho) {
-                onWhoClick(e);
-              } else {
-                onAnyClick?.();
-              }
+                if (isWho) {
+                  onWhoClick(e);
+                } else {
+                  onAnyClick?.();
+                }
               }}
               tabIndex={0}
               aria-pressed={mobile ? undefined : undefined}
             >
-              <span className="flex items-center gap-2">
-              {item.label}
-              {mobile ? (
-                <ArrowUpRight size={40} className="text-emerald-300 transition-transform duration-150 group-active:scale-110 group-focus:scale-110" />
-              ) : null}
+              <span className="flex items-end gap-1">
+                {item.label}
+                {mobile ? (
+                  <ArrowUpRight size={30} className="text-emerald-300 transition-transform duration-150 group-active:scale-110 group-focus:scale-110" />
+                ) : null}
               </span>
             </NextLink>
-            </NavbarItem>
+          </NavbarItem>
         );
       })}
     </>
@@ -135,12 +128,12 @@ export const Navbar = () => {
           </NavbarItem>
         </NavbarContent>
 
-        <NavbarContent className="sm:hidden basis-1/3 pl-4 gap-6" justify="end">
+        <NavbarContent className="sm:hidden basis-1/3 pl-4 gap-4" justify="end">
           <SocialLinks />
           <NavbarMenuToggle aria-label="Toggle menu" className="text-gray-300" />
         </NavbarContent>
 
-        <NavbarMenu className="gap-5">
+        <NavbarMenu className="gap-3">
           <NavItems
             mobile
             onWhoClick={handleWhoClick}

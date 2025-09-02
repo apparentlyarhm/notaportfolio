@@ -38,11 +38,16 @@ module.exports = {
           '100%': {
             backgroundPosition: '0% 0%',
           },
-        }
+        },
+        'blink': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
       },
       animation: {
         draw: "draw 4s ease-in-out infinite",
         'gradient-zoom': 'gradient-zoom 10s ease-in-out infinite',
+        'blink': 'blink 0.8s infinite steps(1, start)',
       },
       colors: {
         "off-white": "#f5f5f5", // Example off-white color

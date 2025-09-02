@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-import { headingsDM, fontMono, paragraph, nunito } from "@/config/fonts";
+import { headingsDM, fontMono, paragraph, nunito, bitter } from "@/config/fonts";
 interface SongCardProps {
   songName: string;
   artists: string[];
@@ -68,7 +68,7 @@ export default function SongCard({
           <CardBody
             className={clsx(
               "relative z-10 flex-col gap-6 p-4 sm:p-6 md:px-10 items-left sm:py-12 font-normal text-sm",
-              paragraph.className
+              bitter.className
             )}
           >
             <p className={clsx(
@@ -85,10 +85,10 @@ export default function SongCard({
           <CardFooter
             className={clsx(
               "relative z-10 p-4 sm:p-6 flex justify-between items-center ",
-              paragraph.className
+              nunito.className
             )}
           >
-            <p className="text-xs sm:text-lg md:text-xl truncate max-w-[80%]">
+            <p className="text-xs sm:text-lg md:text-lg font-bold truncate max-w-[80%]">
               {`"${albumName}"`}
             </p>
           </CardFooter>

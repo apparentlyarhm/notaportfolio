@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { CustomFlowbiteTheme } from "flowbite-react";
 
-import { paragraph, headingsDM, fontMono, nunito } from "@/config/fonts";
+import { paragraph, headingsDM, fontMono, nunito, bitter } from "@/config/fonts";
 import { timelineConfig, jobtimelineConfig } from "@/config/time";
 
 export interface props {
@@ -36,7 +36,7 @@ export const Protimeline: React.FC<props> = ({
     },
   };
 
-  const iwillkillmyself: CustomFlowbiteTheme["timeline"] = {
+  const timelinetheme: CustomFlowbiteTheme["timeline"] = {
     item: {
       point: {
         line: isDarkMode
@@ -62,7 +62,7 @@ export const Protimeline: React.FC<props> = ({
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl px-6 sm:px-2 mx-auto">
       {/* Educational Journey Timeline */}
-      <Timeline className="max-w-2xl" theme={iwillkillmyself}>
+      <Timeline className="max-w-2xl" theme={timelinetheme}>
         {timelineConfig.map((item, index) => (
           <Timeline.Item key={index}>
             <Timeline.Point icon={item.icon} />
@@ -90,14 +90,17 @@ export const Protimeline: React.FC<props> = ({
                       >
                         {item.title}
                       </p>
-                      <p className={clsx("text-small", fontMono.className)}>
-                        {item.time}
-                      </p>
+                      {Array.isArray(item.metadata) &&
+                        item.metadata.map((meta, idx) => (
+                          <p key={idx} className={clsx("text-xs mb-1", fontMono.className)}>
+                            {meta}
+                          </p>
+                        ))}
                     </div>
                   </CardHeader>
                   <Divider className="bg-purple-700/30" />
-                  <CardBody className="mx-2 my-1 sm:text-medium text-small px-1 break-words">
-                    <p className={clsx("p-1 px-3", paragraph.className)}>
+                  <CardBody className="mx-2 my-1 text-small tracking-wide px-1 break-words">
+                    <p className={clsx("p-1 px-3", bitter.className)}>
                       {item.body}
                     </p>
                   </CardBody>
@@ -137,14 +140,17 @@ export const Protimeline: React.FC<props> = ({
                       >
                         {item.title}
                       </p>
-                      <p className={clsx("text-small", fontMono.className)}>
-                        {item.time}
-                      </p>
+                      {Array.isArray(item.metadata) &&
+                        item.metadata.map((meta, idx) => (
+                          <p key={idx} className={clsx("text-xs mb-1", fontMono.className)}>
+                            {meta}
+                          </p>
+                        ))}
                     </div>
                   </CardHeader>
                   <Divider className="bg-blue-700/30" />
-                  <CardBody className="mx-2 my-1 sm:text-medium text-small px-1">
-                    <p className={clsx("p-1 px-3", paragraph.className)}>
+                  <CardBody className="mx-2 my-1 tracking-wide text-small px-1">
+                    <p className={clsx("p-1 px-3", bitter.className)}>
                       {item.body}
                     </p>
                   </CardBody>
