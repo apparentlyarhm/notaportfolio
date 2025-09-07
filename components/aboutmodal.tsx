@@ -36,10 +36,7 @@ export const AboutModal: React.FC<AppProps> = ({
     <div className="flex flex-col gap-2 overflow-y-auto">
       <Modal
         backdrop="blur"
-        className="sm:max-w-7xl sm:max-h-5xl sm:py-8 sm:px-6 animate-gradient-zoom bg-[length:200%_200%]"
-        style={{
-    backgroundImage: "linear-gradient(to right, #e9defa 0%, #fbfcdb 100%)",
-  }}
+        className="sm:max-w-7xl sm:max-h-5xl sm:py-8 sm:px-6 bg-white"
         isOpen={isOpen}
         placement="auto"
         scrollBehavior="inside"
@@ -84,10 +81,18 @@ export const AboutModal: React.FC<AppProps> = ({
                   }
                 </p>
                 <br />
+                <div className="flex flex-col items-center sm:flex-row text-xs sm:text-medium  justify-start">
+                  <a
+                  className="tracking-tight py-3 px-1 rounded-xl hover:bg-blue-50 text-blue-500 transition-colors duration-150"
+                  href="mailto:mohd.arhum28@gmail.com"
+                  >
+                  {"mohd.arhum28@gmail.com"}
+                  </a>
+                </div>
                 <br />
                 <p
                   className={clsx(
-                    "text-lg sm:text-xl tracking-tight", crimsonserif.className
+                    "text-small tracking-tight", nunito.className
                   )}
                 >
                   {"Shah Mohd. Arhum"}

@@ -16,6 +16,7 @@ module.exports = {
       },
       backgroundImage: {
         scribble: "url('/scribble.svg')",
+        'sunny-sky': "linear-gradient(109.6deg, rgba(254,253,205,0.4) 11.2%, rgba(163,230,255,0.4) 91.1%)",
       },
       keyframes: {
         draw: {
@@ -24,18 +25,23 @@ module.exports = {
         },
         'gradient-zoom': {
           '0%': {
+            backgroundSize: '200% 200%',
             backgroundPosition: '0% 0%',
           },
           '25%': {
+            backgroundSize: '250% 250%',
             backgroundPosition: '50% 30%',
           },
           '50%': {
+            backgroundSize: '300% 300%',
             backgroundPosition: '100% 100%',
           },
           '75%': {
+            backgroundSize: '250% 250%',
             backgroundPosition: '50% 70%',
           },
           '100%': {
+            backgroundSize: '200% 200%',
             backgroundPosition: '0% 0%',
           },
         },

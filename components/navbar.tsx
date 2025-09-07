@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -101,13 +101,12 @@ export const Navbar = () => {
   return (
     <>
       <NextUINavbar
-        isBordered
         isBlurred={false}
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
         maxWidth="2xl"
         position="sticky"
-        className="bg-white border-1 border-gray-300 rounded-b-3xl"
+        className="bg-white border-1 border-gray-300"
       >
         <NavbarContent className="basis-1/3" justify="start">
           <NavbarBrand as="li" className="gap-3 max-w-fit">

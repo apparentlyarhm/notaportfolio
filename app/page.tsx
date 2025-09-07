@@ -7,7 +7,7 @@ import { Button } from "@heroui/react";
 import { ArrowUpRight } from "react-feather";
 import { Image } from "@heroui/react";
 
-import bg from "../assets/bgate.jpeg"
+import bg from "../assets/pon.jpg"
 
 import { nunito, bitter } from "@/config/fonts";
 
@@ -27,8 +27,12 @@ export default function Home() {
   }, []);
 
   return (
-    <section className="flex flex-col items-center justify-center">
-      <div className="max-w-7xl w-full text-center px-4 py-8 md:px-10 md:py-16 lg:px-20 lg:py-24">
+    <section className="relative flex flex-col items-center bg-sunny-sky bg-[length:300%_300%] animate-gradient-zoom justify-center">
+  {/* <div className="absolute inset-0 bg-gradient-to-b from-slate-200 to-transparent to-10%" /> */}
+
+  {/* BOTTOM: Transparent to White Gradient (Smooth) */}
+  <div className="absolute inset-0 bg-gradient-to-b from-transparent from-70% to-white" />      
+  <div className="max-w-7xl w-full text-center px-4 py-8 md:px-10 md:py-16 lg:px-20 lg:py-24">
         <motion.h1
           className={clsx(
             "text-4xl md:text-4xl lg:text-5xl text-left font-black tracking-tight break-words px-6 sm:mb-10",
@@ -38,7 +42,7 @@ export default function Home() {
           viewport={{ once: true, amount: 0.2 }}
           whileInView="visible"
         >
-          {"I think I know what I'm doing but I really don't."}
+          {`The right man in the wrong place can make all the difference in the world.`}
         </motion.h1>
 
         <motion.h1
@@ -64,7 +68,7 @@ export default function Home() {
           viewport={{ once: true, amount: 0.2 }}
           whileInView="visible"
         >
-          {"incredibly mid at everything"}
+          {"sometimes i dream of cheese"}
         </motion.h1>
         <div className="flex justify-center mt-6">
           <Image
