@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -19,7 +19,7 @@ import { AboutModal } from "./aboutmodal";
 import { siteConfig } from "@/config/site";
 import { TwitterIcon, GithubIcon, LinkedInIcon } from "@/components/icons";
 import { nunito } from "@/config/fonts";
-import { ArrowRightCircle, ArrowUpRight } from "react-feather";
+import { ArrowUpRight } from "react-feather";
 
 // Extracted Social Links
 const SocialLinks = () => (

@@ -12,7 +12,7 @@ import { Image } from "@heroui/react";
 import React from "react";
 
 import arhm from "../assets/arhm.png";
-import { codestuff, crimsonserif, nunito, paragraph } from "@/config/fonts";
+import { nunito } from "@/config/fonts";
 
 
 

@@ -3,7 +3,7 @@ import { Accordion, AccordionItem, Divider, Image } from "@heroui/react";
 import { motion } from "framer-motion";
 import clsx from "clsx";
 
-import { bitter, codestuff, headingsDM, nunito } from "@/config/fonts";
+import { bitter, codestuff, nunito } from "@/config/fonts";
 import { MusicConfig } from "@/config/MusicConfig";
 
 export interface props {
