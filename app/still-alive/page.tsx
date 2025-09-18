@@ -6,15 +6,18 @@ import { LyricLine, timelineEvents } from "@/config/portal/lyrics";
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 
+import AudioMotionAnalyzer from "audiomotion-analyzer";
+
 import { motion, AnimatePresence } from "framer-motion";
-import { Play } from "react-feather";
+import { ArrowRight, Play } from "react-feather";
 import { Image } from "@heroui/react";
+import { visOptions } from "@/config/portal/visualizer";
 
 const DRAW_INTERVAL_MS = 5;
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms)); // helper
 
 export default function Portal() {
-    const [showContent, setShowContent] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
   const [displayedLyrics, setDisplayedLyrics] = useState("");
   const [currentAsciiArt, setCurrentAsciiArt] = useState("");
@@ -27,7 +30,10 @@ export default function Portal() {
   const animationFrameId = useRef<number>();
   const startTime = useRef<number>(0);
   const eventIndex = useRef<number>(0);
+
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const audioMotionRef = useRef<AudioMotionAnalyzer | null>(null);
 
   const [isProcessing, setIsProcessing] = useState(false);
   const [isProcessingArt, setIsProcessingArt] = useState(false);
@@ -59,7 +65,7 @@ export default function Portal() {
         } else {
           // Instant tasks that don't need a queue
           if (event.mode === 'CLEAR_LYRICS') setDisplayedLyrics("");
-          if (event.mode === 'START_MUSIC') audioRef.current?.play();
+          if (event.mode === 'START_MUSIC') startVisualizer();
         }
 
         eventIndex.current++;
@@ -96,7 +102,7 @@ export default function Portal() {
 
         if (task.interval < 0) {
           const nextEvent = timelineEvents[timelineEvents.indexOf(task) + 1];
-          
+
           if (nextEvent) {
             const duration = nextEvent.time - task.time;
             perCharacterIntervalMs = (duration * 10) / charCount; // same cs factor
@@ -153,6 +159,20 @@ export default function Portal() {
     }
   }
 
+  const startVisualizer = async () => {
+    if (!containerRef.current || audioMotionRef.current) return;
+
+    const audioMotion = new AudioMotionAnalyzer(containerRef.current, visOptions);
+
+    const audioEl = document.getElementById("audio") as HTMLAudioElement;
+    if (audioEl) {
+      audioMotion.connectInput(audioEl);
+      await audioEl.play();
+    }
+
+    audioMotionRef.current = audioMotion;
+  };
+
   const handleStart = () => {
     // Reset state for a fresh start
     setShowContent(true);
@@ -179,67 +199,112 @@ export default function Portal() {
   return (
     <div className="flex flex-col items-center min-w-full gap-6">
 
-      <Image height={300} width={200} isBlurred src="/portal/glados.png" className="rounded-3xl" />
-
+      {/* Stage 1 - Intro */}
       <AnimatePresence>
         {!showContent && (
           <motion.div
             key="intro"
-            className="flex flex-col items-center justify-center h-[400px] gap-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            className="flex flex-col items-center justify-center gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.6 }}
           >
-            <p className={clsx("text-stone-600 text-lg italic", nunito.className)}>
-              {"YOU MADE IT TILL HERE! as a token of my appreciation, here's a little something"}
-            </p>
-
-            <button
-              onClick={handleStart}
-              className="flex flex-col gap-2 items-center justify-center w-48 h-36 rounded-3xl bg-gray-800 text-white hover:bg-gray-700"
+               {/* Intro text */}
+            <pre className={clsx("text-4xl md:text-4xl font-black lg:text-5xl tracking-tighter break-words text-left px-6 sm:mb-10", nunito.className)}>
+              {"YOU MADE IT TILL HERE!\n\nas a token of my appreciation, here's a little something"}
+            </pre>
+            {/* GLaDOS image */}
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Play className="w-8 h-8 mb-1" />
-              <span className="text-sm">{"Press here for cake"}</span>
-            </button>
+              
+              <Image
+                height={300}
+                width={200}
+                isBlurred
+                src="/portal/glados.png"
+                className="rounded-3xl"
+              />
+            </motion.div>
+
+         
+
+            {/* Button */}
+            <motion.button
+              onClick={handleStart}
+              className="flex flex-row gap-5 items-center justify-center w-48 h-36 rounded-3xl bg-gray-800 text-white hover:bg-gray-700"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="text-2xl font-extrabold">{"Cake"}</span>
+              <ArrowRight className="w-8 h-8 mb-1" />
+              
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
 
+      {/* Stage 2 - Content */}
       <AnimatePresence>
         {showContent && (
           <motion.div
             key="content"
-            className="flex flex-row gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            className="flex flex-col items-center gap-6 w-full"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div
-              className={clsx(
-                "min-w-full md:min-w-[600px] h-[400px] border-stone-200 flex rounded-xl border p-4 overflow-y-auto",
-                codestuff.className
-              )}
-            >
-              <pre className="text-stone-600 text-start text-sm tracking-wider">
-                {displayedLyrics}
-              </pre>
-            </div>
+            {/* 1. Audio visualizer */}
+            <motion.div
+              ref={containerRef}
+              className="w-full max-w-full h-[200px] border-1 border-gray-200 rounded-3xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            />
 
-            <div
-              className={clsx(
-                "min-w-full md:min-w-[600px] h-[400px] rounded-xl border border-sky-200 p-4 overflow-y-auto flex items-center justify-center",
-                codestuff.className
-              )}
+            {/* 2. Lyrics + ASCII Art side by side */}
+            <motion.div
+              className="flex flex-row gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <pre className="text-sky-500 text-sm leading-tight">
-                {currentAsciiArt}
-              </pre>
-            </div>
+              <div
+                className={clsx(
+                  "min-w-full md:min-w-[600px] h-[400px] border-stone-200 flex rounded-xl border p-4 overflow-y-auto",
+                  codestuff.className
+                )}
+              >
+                <pre className="text-stone-600 text-start text-sm tracking-wider">
+                  {displayedLyrics}
+                </pre>
+              </div>
 
-            <audio ref={audioRef} src="/portal/song.mp3" preload="auto" />
+              <div
+                className={clsx(
+                  "min-w-full md:min-w-[600px] h-[400px] rounded-xl border border-sky-200 p-4 overflow-y-auto flex items-center justify-center",
+                  codestuff.className
+                )}
+              >
+                <pre className="text-sky-500 text-sm leading-tight">
+                  {currentAsciiArt}
+                </pre>
+              </div>
+
+              <audio id="audio" ref={audioRef} src="/portal/song.mp3" preload="auto" />
+            </motion.div>
+            <p className={clsx("tracking-tight text-xl text-slate-600", nunito.className)}>{"Goddamn i love portal so much"}</p>
+
           </motion.div>
         )}
       </AnimatePresence>
     </div>
   );
-}
+
+
+} 
