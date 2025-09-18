@@ -15,6 +15,7 @@ export default function Portal() {
   const [currentAsciiArt, setCurrentAsciiArt] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
 
+  // this is the best i could come up with
   const [taskQueue, setTaskQueue] = useState<LyricLine[]>([]);
   const [artTaskQueue, setArtTaskQueue] = useState<LyricLine[]>([]);
 
@@ -48,8 +49,10 @@ export default function Portal() {
         // Route the task to the correct queue or execute immediately
         if (event.mode === 'LYRIC_NEWLINE' || event.mode === 'LYRIC_NONEWLINE') {
           setTaskQueue(prev => [...prev, event]);
+
         } else if (event.mode === 'DRAW_ART') {
           setArtTaskQueue(prev => [...prev, event]);
+
         } else {
           // Instant tasks that don't need a queue
           if (event.mode === 'CLEAR_LYRICS') setDisplayedLyrics("");
@@ -81,27 +84,31 @@ export default function Portal() {
 
       (async () => {
         setIsProcessing(true);
-        // The lyric processing logic from your previous version
+
         const text = task.words as string;
         const charCount = text.length > 0 ? text.length : 1;
+
         let perCharacterIntervalMs = 50;
+
         if (task.interval < 0) {
           const nextEvent = timelineEvents[timelineEvents.indexOf(task) + 1];
+          
           if (nextEvent) {
             const duration = nextEvent.time - task.time;
-            perCharacterIntervalMs = (duration * 10) / charCount;
+            perCharacterIntervalMs = (duration * 10) / charCount; // same cs factor
           }
+
         } else {
           perCharacterIntervalMs = (task.interval * 1000) / charCount;
         }
+
         await typeLyrics(text, perCharacterIntervalMs, task.mode === 'LYRIC_NEWLINE');
 
         setTaskQueue(currentQueue => currentQueue.slice(1));
         setIsProcessing(false);
       })();
     }
-  }
-    , [taskQueue, isProcessing]);
+  }, [taskQueue, isProcessing]);
 
 
   useEffect(() => {
