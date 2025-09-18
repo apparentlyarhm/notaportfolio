@@ -9,8 +9,8 @@ import { useEffect, useRef, useState } from "react";
 import AudioMotionAnalyzer from "audiomotion-analyzer";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Play } from "react-feather";
-import { Image } from "@heroui/react";
+import { ArrowRight, ArrowUpRight, Play } from "react-feather";
+import { Button, Image } from "@heroui/react";
 import { visOptions } from "@/config/portal/visualizer";
 
 const DRAW_INTERVAL_MS = 5;
@@ -209,35 +209,31 @@ export default function Portal() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
           >
-            <pre className={clsx("text-4xl md:text-4xl font-black lg:text-5xl tracking-tighter break-words text-left px-6 sm:mb-10", nunito.className)}>
-              {"YOU MADE IT TILL HERE!\n\nas a token of my appreciation, here's a little something"}
-            </pre>
+            <p className={clsx("text-4xl md:text-4xl font-black lg:text-5xl tracking-tighter break-words text-left px-6 sm:mb-10", nunito.className)}>
+              {"YOU MADE IT TILL HERE! as a token of my appreciation, here's a little something"}
+            </p>
 
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-
-              <Image
-                height={300}
-                width={200}
-                isBlurred
-                src="/portal/glados.png"
-                className="rounded-3xl"
-              />
-            </motion.div>
-
-            <motion.button
-              onClick={handleStart}
-              className="flex flex-row gap-5 items-center justify-center w-48 h-36 rounded-3xl bg-gray-800 text-white hover:bg-gray-700"
+              <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-            >
-              <span className="text-2xl font-extrabold">{"Cake"}</span>
-              <ArrowRight className="w-8 h-8 mb-1" />
+              >
+                <Image
+                  height={400}
+                  width={250}
+                  onClick={handleStart}
+                  src="/portal/glados.png"
+                  className="rounded-3xl hover:cursor-pointer"
+                />
 
-            </motion.button>
+              </motion.div>
+
+            </motion.div>
+
           </motion.div>
         )}
       </AnimatePresence>
@@ -290,11 +286,24 @@ export default function Portal() {
 
               <audio id="audio" ref={audioRef} src="/portal/song.mp3" preload="auto" />
             </motion.div>
-            <p className={clsx("tracking-tight text-xl text-slate-600", nunito.className)}>{"Goddamn i love portal so much"}</p>
 
           </motion.div>
         )}
       </AnimatePresence>
+
+
+      <Button
+        as={"a"}
+        className={clsx(
+          "mt-12 sm:p-12 p-9 rounded-full text-2xl font-black text-white bg-gray-900 tracking-tighter",
+          nunito.className
+        )}
+        endContent={<ArrowUpRight size={40} />}
+        href="./"
+        variant="shadow"
+      >
+        {"Back to home"}
+      </Button>
     </div>
   );
 

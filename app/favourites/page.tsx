@@ -8,7 +8,7 @@ import {
   DropdownItem,
   Button,
 } from "@heroui/react";
-import { ArrowDown, ArrowUpRight } from "react-feather";
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight } from "react-feather";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
@@ -175,15 +175,28 @@ export default function BlogPage() {
       <Button
         as={"a"}
         className={clsx(
-          "mt-12 sm:p-12 p-9 rounded-full text-2xl font-black text-white bg-gray-900 tracking-tighter",
-          nunito.className
+          "mt-12 sm:p-12 p-9 text-white text-2xl bg-gray-900 tracking-tighter mr-2 rounded-l-full rounded-r-sm",
+          headingsDM.className
         )}
-        endContent={<ArrowUpRight size={40} />}
-        href="./"
+        startContent={<ArrowLeft size={isMobile ? 20 : 50} />}
+        href="./xtras"
         variant="shadow"
       >
-        {"Back to home"}
       </Button>
+
+      <Button
+        as={"a"}
+        className={clsx(
+          "mt-12 sm:p-12 p-9 text-white text-2xl bg-gray-900 tracking-tighter rounded-l-2xl rounded-r-full",
+          headingsDM.className
+        )}
+        endContent={<ArrowRight size={isMobile ? 20 : 50} />}
+        href="./still-alive"
+        variant="shadow"
+      >
+
+      </Button>
+
     </div>
   );
 }
