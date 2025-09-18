@@ -199,7 +199,6 @@ export default function Portal() {
   return (
     <div className="flex flex-col items-center min-w-full gap-6">
 
-      {/* Stage 1 - Intro */}
       <AnimatePresence>
         {!showContent && (
           <motion.div
@@ -210,17 +209,16 @@ export default function Portal() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
           >
-               {/* Intro text */}
             <pre className={clsx("text-4xl md:text-4xl font-black lg:text-5xl tracking-tighter break-words text-left px-6 sm:mb-10", nunito.className)}>
               {"YOU MADE IT TILL HERE!\n\nas a token of my appreciation, here's a little something"}
             </pre>
-            {/* GLaDOS image */}
+
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              
+
               <Image
                 height={300}
                 width={200}
@@ -230,9 +228,6 @@ export default function Portal() {
               />
             </motion.div>
 
-         
-
-            {/* Button */}
             <motion.button
               onClick={handleStart}
               className="flex flex-row gap-5 items-center justify-center w-48 h-36 rounded-3xl bg-gray-800 text-white hover:bg-gray-700"
@@ -241,13 +236,12 @@ export default function Portal() {
             >
               <span className="text-2xl font-extrabold">{"Cake"}</span>
               <ArrowRight className="w-8 h-8 mb-1" />
-              
+
             </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Stage 2 - Content */}
       <AnimatePresence>
         {showContent && (
           <motion.div
@@ -258,7 +252,6 @@ export default function Portal() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
           >
-            {/* 1. Audio visualizer */}
             <motion.div
               ref={containerRef}
               className="w-full max-w-full h-[200px] border-1 border-gray-200 rounded-3xl"
@@ -267,7 +260,6 @@ export default function Portal() {
               transition={{ duration: 0.6 }}
             />
 
-            {/* 2. Lyrics + ASCII Art side by side */}
             <motion.div
               className="flex flex-row gap-4"
               initial={{ opacity: 0, y: 20 }}
