@@ -6,7 +6,7 @@ import { LyricLine, timelineEvents } from "@/config/portal/lyrics";
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 
-const DRAW_INTERVAL_MS = 5; // 30ms delay between each line
+const DRAW_INTERVAL_MS = 5;
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms)); // helper
 
 export default function Portal() {
@@ -19,8 +19,6 @@ export default function Portal() {
   const [taskQueue, setTaskQueue] = useState<LyricLine[]>([]);
   const [artTaskQueue, setArtTaskQueue] = useState<LyricLine[]>([]);
 
-
-  // Refs to manage the animation state WITHOUT causing re-renders
   const animationFrameId = useRef<number>();
   const startTime = useRef<number>(0);
   const eventIndex = useRef<number>(0);
@@ -65,6 +63,7 @@ export default function Portal() {
           return;
         }
       }
+
       animationFrameId.current = requestAnimationFrame(loop);
     };
 
@@ -126,7 +125,6 @@ export default function Portal() {
 
   const typeLyrics = async (text: string, intervalMs: number, addNewline: boolean) => {
 
-    console.log("Typing lyrics:", { text, intervalMs, addNewline });
     for (const char of text) {
       setDisplayedLyrics(prev => prev + char);
       await sleep(intervalMs);
@@ -146,7 +144,7 @@ export default function Portal() {
     for (const line of artToDraw) {
       drawnArt += line + '\n';
       setCurrentAsciiArt(drawnArt);
-      await sleep(intervalMs);
+      await sleep(intervalMs); // this interval looks good, but it isnt present in the original song
     }
   }
 
@@ -191,22 +189,24 @@ export default function Portal() {
       <div className="flex flex-row gap-2">
 
         <div className={clsx(
-          "min-w-full md:min-w-[600px] h-[400px] rounded-xl border-1 p-4 overflow-y-auto",
+          "min-w-full md:min-w-[600px] h-[400px] border-stone-200 flex rounded-xl border-1 p-4 overflow-y-auto",
           codestuff.className
         )}>
-
-          <pre className="text-slate-400 text-sm leading-tight">
+          <div className="">
+            <pre className="text-stone-600 text-start text-sm tracking-wider">
             {displayedLyrics}
           </pre>
+          </div>
+          
 
         </div>
 
         <div className={clsx(
-          "min-w-full md:min-w-[600px] h-[400px] rounded-xl border-1 p-4 overflow-y-auto items-center justify-center",
+          "min-w-full md:min-w-[600px] h-[400px] rounded-xl border-1 border-sky-200 p-4 overflow-y-auto items-center justify-center",
           codestuff.className
         )}>
 
-          <pre className="text-slate-400 text-sm leading-tight">
+          <pre className="text-sky-500 text-sm leading-tight">
             {currentAsciiArt}
           </pre>
         </div>
