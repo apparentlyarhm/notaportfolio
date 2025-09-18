@@ -6,10 +6,15 @@ import { LyricLine, timelineEvents } from "@/config/portal/lyrics";
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 
+import { motion, AnimatePresence } from "framer-motion";
+import { Play } from "react-feather";
+import { Image } from "@heroui/react";
+
 const DRAW_INTERVAL_MS = 5;
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms)); // helper
 
 export default function Portal() {
+    const [showContent, setShowContent] = useState(false);
 
   const [displayedLyrics, setDisplayedLyrics] = useState("");
   const [currentAsciiArt, setCurrentAsciiArt] = useState("");
@@ -150,6 +155,8 @@ export default function Portal() {
 
   const handleStart = () => {
     // Reset state for a fresh start
+    setShowContent(true);
+
     setDisplayedLyrics("");
     setCurrentAsciiArt("");
 
@@ -170,52 +177,69 @@ export default function Portal() {
   };
 
   return (
-    <div className="flex flex-col gap-3 min-w-full items-center">
-      <h1 className={clsx("font-black align-middle", nunito.className)}> She sings!</h1>
+    <div className="flex flex-col items-center min-w-full gap-6">
 
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Aperture_Science.svg" className=" h-10 w-10" />
+      <Image height={300} width={200} isBlurred src="/portal/glados.png" className="rounded-3xl" />
 
-      <div className="flex gap-4 my-4">
+      <AnimatePresence>
+        {!showContent && (
+          <motion.div
+            key="intro"
+            className="flex flex-col items-center justify-center h-[400px] gap-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <p className={clsx("text-stone-600 text-lg italic", nunito.className)}>
+              {"YOU MADE IT TILL HERE! as a token of my appreciation, here's a little something"}
+            </p>
 
-        <button
-          onClick={handleStart}
-          className="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600"
-        >
-          Start
-        </button>
+            <button
+              onClick={handleStart}
+              className="flex flex-col gap-2 items-center justify-center w-48 h-36 rounded-3xl bg-gray-800 text-white hover:bg-gray-700"
+            >
+              <Play className="w-8 h-8 mb-1" />
+              <span className="text-sm">{"Press here for cake"}</span>
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      </div>
+      <AnimatePresence>
+        {showContent && (
+          <motion.div
+            key="content"
+            className="flex flex-row gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div
+              className={clsx(
+                "min-w-full md:min-w-[600px] h-[400px] border-stone-200 flex rounded-xl border p-4 overflow-y-auto",
+                codestuff.className
+              )}
+            >
+              <pre className="text-stone-600 text-start text-sm tracking-wider">
+                {displayedLyrics}
+              </pre>
+            </div>
 
-      <div className="flex flex-row gap-2">
+            <div
+              className={clsx(
+                "min-w-full md:min-w-[600px] h-[400px] rounded-xl border border-sky-200 p-4 overflow-y-auto flex items-center justify-center",
+                codestuff.className
+              )}
+            >
+              <pre className="text-sky-500 text-sm leading-tight">
+                {currentAsciiArt}
+              </pre>
+            </div>
 
-        <div className={clsx(
-          "min-w-full md:min-w-[600px] h-[400px] border-stone-200 flex rounded-xl border-1 p-4 overflow-y-auto",
-          codestuff.className
-        )}>
-          <div className="">
-            <pre className="text-stone-600 text-start text-sm tracking-wider">
-            {displayedLyrics}
-          </pre>
-          </div>
-          
-
-        </div>
-
-        <div className={clsx(
-          "min-w-full md:min-w-[600px] h-[400px] rounded-xl border-1 border-sky-200 p-4 overflow-y-auto items-center justify-center",
-          codestuff.className
-        )}>
-
-          <pre className="text-sky-500 text-sm leading-tight">
-            {currentAsciiArt}
-          </pre>
-        </div>
-
-        <audio ref={audioRef} src="/portal/song.mp3" preload="auto" />
-
-      </div>
-
-
+            <audio ref={audioRef} src="/portal/song.mp3" preload="auto" />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
