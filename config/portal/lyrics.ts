@@ -30,5 +30,18 @@ export const timelineEvents: LyricLine[] = [
     { words: "For the good of all of us.", time: 3237, interval: -1, mode: 'LYRIC_NEWLINE' },
     { words: 1, time: 3500, interval: 0, mode: 'DRAW_ART' }, // ASCII art index 1
     { words: "Except the ones who are dead.", time: 3567, interval: -1, mode: 'LYRIC_NEWLINE' },
+    { words: "", time: 3717, interval: 0.05, mode: 'LYRIC_NEWLINE'},
+    { words: 0, time: 3717, interval: 0, mode: 'DRAW_ART'},
+    { words: "But there's no sense crying", time: 3787, interval: -1, mode: 'LYRIC_NEWLINE' },
+    { words: "over every mistake.", time: 3973, interval: 1.77, mode: 'LYRIC_NEWLINE' },
+    { words: "You just keep on trying", time: 4170, interval: -1, mode: 'LYRIC_NEWLINE' },
+    { words: "till you run out of cake.", time: 4370, interval: -1, mode: 'LYRIC_NEWLINE' },
+    { words: 2, time: 4500, interval: 0, mode: 'DRAW_ART' }, // ASCII art index 2
+    { words: "And the science gets done.", time: 4570, interval: 1.8, mode: 'LYRIC_NEWLINE' },
+    { words: "And you make a neat gun.", time: 4767, interval: 1.7, mode: 'LYRIC_NEWLINE' },
+    { words: 0, time: 4903, interval: 0, mode: 'DRAW_ART' }, // ASCII art index 0
+    { words: "For the people who are", time: 4973, interval: -1, mode: 'LYRIC_NEWLINE' },
+    { words: "still alive.", time: 5110, interval: 1.6, mode: 'LYRIC_NONEWLINE' },
+    { words: 0, time: 5353, interval: 0, mode: 'CLEAR_LYRICS'},
     { words: "ENDENDENDENDENDENDENDEND", time: 4000, interval: 1, mode: 'END' },
 ];
