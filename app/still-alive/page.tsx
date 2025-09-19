@@ -13,7 +13,6 @@ import { ArrowUpRight, CloudLightning, VolumeX } from "react-feather";
 import { Button, Image } from "@heroui/react"
 import { visOptions } from "@/config/portal/visualizer";
 
-const DRAW_INTERVAL_MS = 5;
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms)); // helper
 
 export default function Portal() {
@@ -24,7 +23,6 @@ export default function Portal() {
 
   const [displayedLyrics, setDisplayedLyrics] = useState("");
   const [currentAsciiArt, setCurrentAsciiArt] = useState("");
-  const [currentProcessingString, setCurrentProcessingString] = useState("INIT ANIM-ENGINEv0.5");
   const [isPlaying, setIsPlaying] = useState(false);
 
   // this is the best i could come up with
@@ -123,7 +121,6 @@ export default function Portal() {
           perCharacterIntervalMs = (task.interval * 1000) / charCount;
         }
 
-        setCurrentProcessingString(`ANIM-ENGINEv0.5 :: processing "${task.words}" @ ${perCharacterIntervalMs.toFixed(2)}ms/char`);
         await typeLyrics(text, perCharacterIntervalMs, task.mode === 'LYRIC_NEWLINE');
 
         setTaskQueue(currentQueue => currentQueue.slice(1));
@@ -140,8 +137,7 @@ export default function Portal() {
       (async () => {
         setIsProcessingArt(true);
 
-        setCurrentProcessingString(`ANIM-ENGINEv0.5 :: drawing ascii art #${task.words} ...`);
-        await drawAsciiArt(task.words as number, DRAW_INTERVAL_MS);
+        await drawAsciiArt(task.words as number);
 
         setArtTaskQueue(currentQueue => currentQueue.slice(1));
         setIsProcessingArt(false);
@@ -161,7 +157,7 @@ export default function Portal() {
     }
   }
 
-  const drawAsciiArt = async (artIndex: number, intervalMs: number) => {
+  const drawAsciiArt = async (artIndex: number) => {
     setCurrentAsciiArt("");
     const artToDraw = arts[artIndex];
     if (!artToDraw) return;
@@ -170,7 +166,6 @@ export default function Portal() {
     for (const line of artToDraw) {
       drawnArt += line + '\n';
       setCurrentAsciiArt(drawnArt);
-      await sleep(intervalMs); // this interval looks good, but it isnt present in the original song
     }
   }
 
@@ -295,7 +290,7 @@ export default function Portal() {
 
 
             <motion.div
-              className="flex w-full flex-col gap-4 px-4 sm:flex-row"
+              className="flex w-full flex-col gap-4 px-4 sm:px-0 sm:flex-row"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -306,7 +301,7 @@ export default function Portal() {
                   codestuff.className
                 )}
               >
-                <pre className="text-stone-500 text-start text-sm tracking-wider">
+                <pre className="text-stone-500 text-start text-xs sm:text-sm tracking-wider">
                   {displayedLyrics}
                 </pre>
               </div>
@@ -317,7 +312,7 @@ export default function Portal() {
                   codestuff.className
                 )}
               >
-                <pre className="text-sky-500 text-sm leading-tight">
+                <pre className="text-sky-500 text-xs  leading-tight">
                   {currentAsciiArt}
                 </pre>
               </div>
@@ -343,17 +338,6 @@ export default function Portal() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             />
-            {/* <motion.div
-              className="w-full max-w-full align-middle"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <pre className="text-stone-500 text-center align-middle text-sm tracking-wider">
-                {currentProcessingString}
-              </pre>
-
-            </motion.div> */}
           </motion.div>
         )}
       </AnimatePresence>
