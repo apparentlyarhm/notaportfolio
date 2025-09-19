@@ -12,6 +12,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, CloudLightning, VolumeX } from "react-feather";
 import { Button, Image } from "@heroui/react"
 import { visOptions } from "@/config/portal/visualizer";
+import { set } from "date-fns";
 
 const DRAW_INTERVAL_MS = 5;
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms)); // helper
@@ -24,6 +25,7 @@ export default function Portal() {
 
   const [displayedLyrics, setDisplayedLyrics] = useState("");
   const [currentAsciiArt, setCurrentAsciiArt] = useState("");
+  const [currentProcessingString, setCurrentProcessingString] = useState("INIT ANIM-ENGINEv0.5");
   const [isPlaying, setIsPlaying] = useState(false);
 
   // this is the best i could come up with
@@ -122,6 +124,7 @@ export default function Portal() {
           perCharacterIntervalMs = (task.interval * 1000) / charCount;
         }
 
+        setCurrentProcessingString(`ANIM-ENGINEv0.5 :: processing "${task.words}" @ ${perCharacterIntervalMs.toFixed(2)}ms/char`);
         await typeLyrics(text, perCharacterIntervalMs, task.mode === 'LYRIC_NEWLINE');
 
         setTaskQueue(currentQueue => currentQueue.slice(1));
@@ -137,7 +140,10 @@ export default function Portal() {
 
       (async () => {
         setIsProcessingArt(true);
+
+        setCurrentProcessingString(`ANIM-ENGINEv0.5 :: drawing ascii art #${task.words} ...`);
         await drawAsciiArt(task.words as number, DRAW_INTERVAL_MS);
+
         setArtTaskQueue(currentQueue => currentQueue.slice(1));
         setIsProcessingArt(false);
       })();
@@ -207,7 +213,7 @@ export default function Portal() {
   };
 
   if (!hasAudio) {
-    return (  
+    return (
       <div className="flex flex-col items-center min-w-full gap-6">
 
         <AnimatePresence>
@@ -323,6 +329,8 @@ export default function Portal() {
                 </pre>
               </div>
 
+
+
               {/* TODO: investigate better ways to load audio and not load if not found and also avoid redundant requests */}
               {/* we are kind of relying on default cache control measures. */}
               {/* disabling the lint because the UI literally displays the lyrics */}
@@ -336,6 +344,17 @@ export default function Portal() {
 
             </motion.div>
 
+              <motion.div
+                className="w-full max-w-full align-middle"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <pre className="text-stone-500 text-center align-middle text-sm tracking-wider">
+                  {currentProcessingString}
+                </pre>
+
+              </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
