@@ -9,14 +9,17 @@ import { useEffect, useRef, useState } from "react";
 import AudioMotionAnalyzer from "audiomotion-analyzer";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Play } from "react-feather";
-import { Button, Image } from "@heroui/react";
+import { ArrowUpRight, CloudLightning, VolumeX } from "react-feather";
+import { Button, Image } from "@heroui/react"
 import { visOptions } from "@/config/portal/visualizer";
 
 const DRAW_INTERVAL_MS = 5;
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms)); // helper
 
 export default function Portal() {
+
+  const [hasAudio, setHasAudio] = useState(true); // this is just for rendering an alternate ui
+
   const [showContent, setShowContent] = useState(false);
 
   const [displayedLyrics, setDisplayedLyrics] = useState("");
@@ -37,6 +40,13 @@ export default function Portal() {
 
   const [isProcessing, setIsProcessing] = useState(false);
   const [isProcessingArt, setIsProcessingArt] = useState(false);
+
+  useEffect(() => {
+    fetch("/portal/song.mp3", { method: "HEAD" })
+      .then((res) => setHasAudio(res.ok))
+      .catch(() => setHasAudio(false));
+  }, []);
+
 
   // the task router
   useEffect(() => {
@@ -196,10 +206,39 @@ export default function Portal() {
     setIsPlaying(true);
   };
 
+  if (!hasAudio) {
+    return (  
+      <div className="flex flex-col items-center min-w-full gap-6">
+
+        <AnimatePresence>
+          {!showContent && (
+            <motion.div
+              key="intro"
+              className="flex flex-col items-center justify-center gap-10"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6 }}
+            >
+
+              <p className={clsx("text-4xl md:text-4xl font-black lg:text-5xl tracking-tighter break-words text-left px-6 sm:mb-10", nunito.className)}>
+                {"YOU MADE IT TILL HERE! I planned something cool but it seems its is broken right now :("}
+              </p>
+
+              <CloudLightning size={120} className="text-gray-300" />
+
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+      </div>
+    )
+  }
+
   return (
     <div className="flex flex-col items-center min-w-full gap-6">
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {!showContent && (
           <motion.div
             key="intro"
@@ -219,8 +258,8 @@ export default function Portal() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 <Image
                   height={400}
@@ -250,32 +289,32 @@ export default function Portal() {
           >
             <motion.div
               ref={containerRef}
-              className="w-full max-w-full h-[200px] border-1 border-gray-200 rounded-3xl"
+              className="w-full max-w-full h-[200px] border-1 border-gray-200 hover:border-gray-400 rounded-3xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             />
 
             <motion.div
-              className="flex flex-row gap-4"
+              className="flex sm:flex-row flex-col gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div
                 className={clsx(
-                  "min-w-full md:min-w-[600px] h-[400px] border-stone-200 flex rounded-xl border p-4 overflow-y-auto",
+                  "min-w-full md:min-w-[600px] h-[400px] border-stone-200 hover:border-stone-400 flex rounded-xl border p-4 overflow-y-auto",
                   codestuff.className
                 )}
               >
-                <pre className="text-stone-600 text-start text-sm tracking-wider">
+                <pre className="text-stone-500 text-start text-sm tracking-wider">
                   {displayedLyrics}
                 </pre>
               </div>
 
               <div
                 className={clsx(
-                  "min-w-full md:min-w-[600px] h-[400px] rounded-xl border border-sky-200 p-4 overflow-y-auto flex items-center justify-center",
+                  "min-w-full md:min-w-[600px] h-[400px] rounded-xl border border-sky-200 hover:border-sky-400 p-4 overflow-y-auto flex items-center justify-center",
                   codestuff.className
                 )}
               >
@@ -284,7 +323,17 @@ export default function Portal() {
                 </pre>
               </div>
 
-              <audio id="audio" ref={audioRef} src="/portal/song.mp3" preload="auto" />
+              {/* TODO: investigate better ways to load audio and not load if not found and also avoid redundant requests */}
+              {/* we are kind of relying on default cache control measures. */}
+              {/* disabling the lint because the UI literally displays the lyrics */}
+              {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+              <audio
+                id="audio"
+                ref={audioRef}
+                src="/portal/song.mp3"
+                preload="auto"
+              />
+
             </motion.div>
 
           </motion.div>
