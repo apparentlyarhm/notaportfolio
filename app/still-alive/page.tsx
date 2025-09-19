@@ -12,7 +12,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, CloudLightning, VolumeX } from "react-feather";
 import { Button, Image } from "@heroui/react"
 import { visOptions } from "@/config/portal/visualizer";
-import { set } from "date-fns";
 
 const DRAW_INTERVAL_MS = 5;
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms)); // helper
@@ -293,16 +292,10 @@ export default function Portal() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <motion.div
-              ref={containerRef}
-              className="w-full max-w-full h-[200px] border-1 border-gray-200 hover:border-gray-400 rounded-3xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            />
+
 
             <motion.div
-              className="flex sm:flex-row flex-col gap-4"
+              className="flex w-full flex-col gap-4 px-4 sm:flex-row"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -343,18 +336,24 @@ export default function Portal() {
               />
 
             </motion.div>
+            <motion.div
+              ref={containerRef}
+              className="w-full max-w-full h-[200px] rounded-3xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            />
+            {/* <motion.div
+              className="w-full max-w-full align-middle"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <pre className="text-stone-500 text-center align-middle text-sm tracking-wider">
+                {currentProcessingString}
+              </pre>
 
-              <motion.div
-                className="w-full max-w-full align-middle"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <pre className="text-stone-500 text-center align-middle text-sm tracking-wider">
-                  {currentProcessingString}
-                </pre>
-
-              </motion.div>
+            </motion.div> */}
           </motion.div>
         )}
       </AnimatePresence>
@@ -374,6 +373,4 @@ export default function Portal() {
       </Button>
     </div>
   );
-
-
 } 
