@@ -11,11 +11,12 @@ import AudioMotionAnalyzer from "audiomotion-analyzer";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, CloudLightning, VolumeX } from "react-feather";
 import { Button, Image } from "@heroui/react"
-import { visOptions } from "@/config/portal/visualizer";
+import { mobileVisOptions, visOptions } from "@/config/portal/visualizer";
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms)); // helper
 
 export default function Portal() {
+  const [isMobile, setIsMobile] = useState(false);
 
   const [hasAudio, setHasAudio] = useState(true); // this is just for rendering an alternate ui
 
@@ -40,10 +41,23 @@ export default function Portal() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [isProcessingArt, setIsProcessingArt] = useState(false);
 
+  const [animationEnded, setAnimationEnded] = useState(false)
+
   useEffect(() => {
     fetch("/portal/song.mp3", { method: "HEAD" })
       .then((res) => setHasAudio(res.ok))
       .catch(() => setHasAudio(false));
+  }, []);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
 
@@ -79,6 +93,7 @@ export default function Portal() {
 
         eventIndex.current++;
         if (event.mode === 'END') {
+          setAnimationEnded(true);
           setIsPlaying(false);
           return;
         }
@@ -172,7 +187,7 @@ export default function Portal() {
   const startVisualizer = async () => {
     if (!containerRef.current || audioMotionRef.current) return;
 
-    const audioMotion = new AudioMotionAnalyzer(containerRef.current, visOptions);
+    const audioMotion = new AudioMotionAnalyzer(containerRef.current, isMobile ? mobileVisOptions : visOptions);
 
     const audioEl = document.getElementById("audio") as HTMLAudioElement;
     if (audioEl) {
@@ -235,6 +250,39 @@ export default function Portal() {
     )
   }
 
+  if (animationEnded) {
+    return (
+      <div className="flex flex-col items-center min-w-full gap-6">
+        <AnimatePresence>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className={clsx("text-3xl md:text-3xl font-black lg:text-4xl tracking-tighter break-words text-left px-3", nunito.className)}>
+              {"That was GLaDOS singing 'Still Alive' from Portal, highly recommend playing the game if you haven't already!"}
+            </p>
+          </motion.p>
+
+          <Button
+            as={"a"}
+            className={clsx(
+              "mt-12 sm:p-12 p-9 rounded-full text-2xl font-black text-blue-400 border-1 border-blue-200 shadow-none bg-transparent tracking-tighter",
+              nunito.className
+            )}
+            endContent={<ArrowUpRight size={40} className="text-blue-400" />}
+            href="./"
+            variant="shadow"
+          >
+            {"Home"}
+          </Button>
+
+        </AnimatePresence>
+      </div>
+    )
+  }
+
   return (
     <div className="flex flex-col items-center min-w-full gap-6">
 
@@ -248,7 +296,7 @@ export default function Portal() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
           >
-            <p className={clsx("text-4xl md:text-4xl font-black lg:text-5xl tracking-tighter break-words text-left px-6 sm:mb-10", nunito.className)}>
+            <p className={clsx("text-3xl md:text-3xl font-black lg:text-4xl tracking-tighter break-words text-left px-3", nunito.className)}>
               {"YOU MADE IT TILL HERE! as a token of my appreciation, here's a little something"}
             </p>
 
@@ -333,7 +381,7 @@ export default function Portal() {
             </motion.div>
             <motion.div
               ref={containerRef}
-              className="w-full max-w-full h-[200px] rounded-3xl"
+              className="w-full max-w-full h-[200px] rounded-3xl sm:px-0 px-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -344,17 +392,17 @@ export default function Portal() {
 
 
       <Button
-        as={"a"}
-        className={clsx(
-          "mt-12 sm:p-12 p-9 rounded-full text-2xl font-black text-white bg-gray-900 tracking-tighter",
-          nunito.className
-        )}
-        endContent={<ArrowUpRight size={40} />}
-        href="./"
-        variant="shadow"
-      >
-        {"Back to home"}
-      </Button>
+            as={"a"}
+            className={clsx(
+              "mt-12 sm:p-12 p-9 rounded-full text-2xl font-black text-blue-400 border-1 border-blue-200 shadow-none bg-transparent tracking-tighter",
+              nunito.className
+            )}
+            endContent={<ArrowUpRight size={40} className="text-blue-400" />}
+            href="./"
+            variant="shadow"
+          >
+            {"Home"}
+          </Button>
     </div>
   );
 } 
