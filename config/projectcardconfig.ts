@@ -10,6 +10,7 @@ import tf from "../assets/logos/terraform.png";
 import sprng from "../assets/logos/sprng.svg";
 import ejs from "../assets/logos/ejs.svg";
 import ps from "../assets/logos/ps.svg";
+import go from "../assets/logos/go.svg"
 
 export interface ProjectCardConfig {
   title: string;
@@ -34,10 +35,10 @@ export const ProjectCardConfig: ProjectCardConfig[] = [
   {
     title: "Spoti-proxy",
     projectDesc: [
-      "An Express.js proxy for accessing Spotify statistics with built-in token refresh and rate limiting, containerized and deployed on Cloud Run via GitHub Actions."
+      "An Go proxy for accessing Spotify, Steam and Github statistics with built-in token refresh and rate limiting, containerized and deployed on Cloud Run via GitHub Actions (originally written in Express)",
     ],
-    projectLink: "https://github.com/apparentlyarhm/spotify-proxy/",
-    images: [ejs.src, ps.src, gcp.src],
+    projectLink: "https://github.com/apparentlyarhm/app-proxy-go/",
+    images: [go.src, ps.src, gcp.src],
     category: "Personal",
     status: "live"
   },

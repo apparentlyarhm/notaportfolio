@@ -27,14 +27,9 @@ export const siteConfig = {
     },
   ],
 
-  navMenuItems: [
-  ],
-
-
   links: {
     github: "https://github.com/apparentlyarhm",
     twitter: "https://x.com/MohammedArhum",
-    linkedin: "https://www.linkedin.com/in/shah-mohd-arhum-57862b286/",
-    sc: "https://soundcloud.com/mohammed-arhum",
+    linkedin: "https://www.linkedin.com/in/shaharhum",
   },
 };
