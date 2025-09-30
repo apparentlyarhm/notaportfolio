@@ -31,3 +31,164 @@ export const PortfolioIcon: React.FC<IconSvgProps> = ({
   );
 };
 
+export const GpuIcon: React.FC<IconSvgProps> = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => {
+  return (
+    <svg
+      viewBox="0 0 512 512"
+      fill="currentColor"
+      height={size || height}
+      width={size || width}
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_iconCarrier"> <g>
+        <path d="M480.003,128H48c0-22.056-17.944-40-40-40c-4.418,0-8,3.582-8,8s3.582,8,8,8c13.234,0,24,10.766,24,24v288 c0,4.418,3.582,8,8,8s8-3.582,8-8v-8h16.01C77.238,408,88,397.238,88,384.01V384h392.003C497.646,384,512,369.646,512,352.003 V159.997C512,142.354,497.646,128,480.003,128z M496,352.003c0,8.821-7.176,15.997-15.997,15.997H80c-4.418,0-8,3.582-8,8v8.01 c0,4.406-3.584,7.99-7.99,7.99H48V144h432.003c8.821,0,15.997,7.176,15.997,15.997V352.003z"></path>
+        <path d="M240,192c-22.922,0-43.057,12.12-54.363,30.28c-0.784,0.849-1.379,1.856-1.737,2.954c-5.03,9.136-7.9,19.621-7.9,30.766 c0,11.406,3.013,22.115,8.264,31.399c0.187,0.398,0.407,0.778,0.656,1.14C196.078,307.354,216.586,320,240,320 c35.29,0,64-28.71,64-64c0-11.406-3.013-22.115-8.264-31.399c-0.187-0.398-0.407-0.778-0.656-1.14 C283.922,204.646,263.414,192,240,192z M192,256c0-4.395,0.605-8.648,1.717-12.695c3.596,3.178,8.453,6.73,15.035,10.53 c6.376,3.681,11.742,6.078,16.208,7.612c-2.622,2.061-5.987,4.385-10.208,6.821c-8.449,4.878-14.816,7.039-18.36,7.752 C193.58,269.922,192,263.144,192,256z M288,256c0,4.103-0.52,8.087-1.493,11.891c-3.617-3.227-8.542-6.848-15.259-10.726 c-5.96-3.441-11.036-5.758-15.321-7.298c2.483-1.885,5.564-3.966,9.321-6.135c8.447-4.876,14.816-7.039,18.36-7.752 C286.42,242.078,288,248.856,288,256z M273.948,222.099c-4.562,1.524-10.087,3.96-16.699,7.777 c-6.252,3.61-10.952,6.997-14.49,10.051C242.31,236.682,242,232.717,242,228c0-9.763,1.314-16.361,2.469-19.785 C255.934,209.279,266.244,214.384,273.948,222.099z M227.619,209.627C226.655,214.344,226,220.354,226,228 c0,7.056,0.557,12.721,1.401,17.26c-3.022-1.232-6.59-2.938-10.65-5.282c-8.302-4.793-13.33-9.159-15.769-11.883 C207.376,219.18,216.739,212.535,227.619,209.627z M206.049,289.898c4.564-1.524,10.086-3.954,16.702-7.774 c6.252-3.61,10.952-6.997,14.49-10.051C237.69,275.318,238,279.283,238,284c0,9.763-1.314,16.361-2.469,19.785 C224.065,302.721,213.753,297.615,206.049,289.898z M252.381,302.373C253.345,297.656,254,291.646,254,284 c0-7.633-0.653-13.635-1.614-18.347c3.066,1.237,6.708,2.97,10.863,5.368c8.764,5.06,13.892,9.652,16.163,12.33 C273.012,292.546,263.486,299.405,252.381,302.373z"></path>
+        <path d="M440,168c-4.418,0-8,3.582-8,8s3.582,8,8,8c8.822,0,16,7.178,16,16v112c0,8.822-7.178,16-16,16H240 c-39.701,0-72-32.299-72-72s32.299-72,72-72h168c4.418,0,8-3.582,8-8s-3.582-8-8-8H240c-48.523,0-88,39.477-88,88s39.477,88,88,88 h200c17.645,0,32-14.355,32-32V200C472,182.355,457.645,168,440,168z"></path>
+        <path d="M112,232H88c-8.822,0-16,7.178-16,16v16c0,8.822,7.178,16,16,16h24c8.822,0,16-7.178,16-16v-16 C128,239.178,120.822,232,112,232z M88,264v-16h24l0.001,16H88z"></path>
+        <path d="M112,176H88c-8.822,0-16,7.178-16,16v16c0,8.822,7.178,16,16,16h24c8.822,0,16-7.178,16-16v-16 C128,183.178,120.822,176,112,176z M88,208v-16h24l0.001,16H88z"></path>
+        <path d="M112,288H88c-8.822,0-16,7.178-16,16v16c0,8.822,7.178,16,16,16h24c8.822,0,16-7.178,16-16v-16 C128,295.178,120.822,288,112,288z M88,320v-16h24l0.001,16H88z"></path>
+        <path d="M432,200h-24c-4.418,0-8,3.582-8,8s3.582,8,8,8h24c4.418,0,8-3.582,8-8S436.418,200,432,200z"></path>
+        <path d="M432,296h-24c-4.418,0-8,3.582-8,8s3.582,8,8,8h24c4.418,0,8-3.582,8-8S436.418,296,432,296z"></path>
+        <path d="M432,224h-24c-4.418,0-8,3.582-8,8s3.582,8,8,8h24c4.418,0,8-3.582,8-8S436.418,224,432,224z"></path>
+        <path d="M432,248h-24c-4.418,0-8,3.582-8,8s3.582,8,8,8h24c4.418,0,8-3.582,8-8S436.418,248,432,248z"></path>
+        <path d="M432,272h-24c-4.418,0-8,3.582-8,8s3.582,8,8,8h24c4.418,0,8-3.582,8-8S436.418,272,432,272z"></path>
+      </g>
+      </g>
+    </svg>
+  );
+};
+
+export const OSIcon: React.FC<IconSvgProps> = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      height={size || height}
+      width={size || width}
+      {...props}
+      xmlns="http://www.w3.org/2000/svg">
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_iconCarrier">
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M2 6C2 4.34315 3.34315 3 5 3H19C20.6569 3 22 4.34315 22 6V15C22 16.6569 20.6569 18 19 18H13V19H15C15.5523 19 16 19.4477 16 20C16 20.5523 15.5523 21 15 21H9C8.44772 21 8 20.5523 8 20C8 19.4477 8.44772 19 9 19H11V18H5C3.34315 18 2 16.6569 2 15V6ZM5 5C4.44772 5 4 5.44772 4 6V15C4 15.5523 4.44772 16 5 16H19C19.5523 16 20 15.5523 20 15V6C20 5.44772 19.5523 5 19 5H5Z"
+          fill="currentColor"></path>
+      </g>
+    </svg>
+
+  );
+};
+
+
+export const CpuIcon: React.FC<IconSvgProps> = ({
+  size = 22,
+  width,
+  height,
+  ...props
+}) => {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      height={size || height}
+      width={size || width}
+      {...props}
+      xmlns="http://www.w3.org/2000/svg">
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_iconCarrier">
+        <path d="M17 14C17 15.4142 17 16.1213 16.5607 16.5607C16.1213 17 15.4142 17 14 17H10C8.58579 17 7.87868 17 7.43934 16.5607C7 16.1213 7 15.4142 7 14V10C7 8.58579 7 7.87868 7.43934 7.43934C7.87868 7 8.58579 7 10 7H14C15.4142 7 16.1213 7 16.5607 7.43934C17 7.87868 17 8.58579 17 10"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round">
+        </path>
+        <path d="M4 12C4 8.22876 4 6.34315 5.17157 5.17157C6.34315 4 8.22876 4 12 4C15.7712 4 17.6569 4 18.8284 5.17157C20 6.34315 20 8.22876 20 12C20 15.7712 20 17.6569 18.8284 18.8284C17.6569 20 15.7712 20 12 20C8.22876 20 6.34315 20 5.17157 18.8284C4 17.6569 4 15.7712 4 12Z" stroke="currentColor" stroke-width="1.5">
+        </path>
+        <path d="M4 12H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        </path>
+        <path d="M22 12H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M4 9H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M22 9H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M4 15H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M22 15H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M12 20L12 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M12 2L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M9 20L9 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M9 2L9 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M15 20L15 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M15 2L15 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+      </g>
+    </svg>
+  );
+};
+
+
+export const MemoryIcon: React.FC<IconSvgProps> = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => {
+  return (
+    <svg fill="currentColor"
+      height={size || height}
+      width={size || width}
+      viewBox="0 0 32 32"
+      {...props}
+      xmlns="http://www.w3.org/2000/svg">
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_iconCarrier">
+        <path d="M 2 7 L 2 25 L 15 25 L 15 24 C 15 23.445313 15.445313 23 16 23 C 16.554688 23 17 23.445313 17 24 L 17 25 L 30 25 L 30 7 Z M 4 9 L 28 9 L 28 18 L 4 18 Z M 6 11 L 6 16 L 12 16 L 12 11 Z M 13 11 L 13 16 L 19 16 L 19 11 Z M 20 11 L 20 16 L 26 16 L 26 11 Z M 8 13 L 10 13 L 10 14 L 8 14 Z M 15 13 L 17 13 L 17 14 L 15 14 Z M 22 13 L 24 13 L 24 14 L 22 14 Z M 4 20 L 28 20 L 28 23 L 18.59375 23 C 18.152344 21.890625 17.257813 21 16 21 C 14.742188 21 13.847656 21.890625 13.40625 23 L 4 23 Z">
+        </path>
+      </g>
+    </svg>
+  );
+};
+
+export const ArchitectureIcon: React.FC<IconSvgProps> = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      height={size || height}
+      width={size || width}
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_iconCarrier">
+        <path d="M13.7919,3.2619c0,0-1.676,1.675-2.1163,2.1208c-0.085,0.0861-0.1688,0.1135-0.282,0.0961
+              c-0.1481-0.0226-0.2974-0.038-0.4462-0.0558c-0.4072-0.0485-0.8145-0.0966-1.2292-0.1458C9.649,4.6852,9.5787,4.1049,9.5177,3.5236
+              C9.512,3.4689,9.5509,3.3943,9.5925,3.3522c0.5071-0.5134,1.9261-1.9287,2.134-2.136c-0.4508-0.2129-1.2243-0.2968-1.8007-0.2031
+              c-2.1801,0.3543-3.5112,2.534-2.8206,4.625C7.1432,5.753,7.1194,5.8201,7.0374,5.902C5.1891,7.7454,3.3436,9.5914,1.498,11.4374
+              c-0.0616,0.0616-0.1231,0.124-0.1779,0.1913c-0.5264,0.6473-0.3873,1.6264,0.2974,2.102c0.6044,0.4197,1.3658,0.3442,1.9053-0.1948
+              c1.8534-1.8519,3.7059-3.7047,5.556-5.5598C9.1707,7.884,9.2437,7.8526,9.3779,7.8983c0.6189,0.2109,1.2524,0.2354,1.8884,0.0884
+              c1.9386-0.4478,3.1251-2.3732,2.6549-4.3034C13.8895,3.5532,13.843,3.4244,13.7919,3.2619z">
+        </path>
+      </g>
+    </svg>
+  );
+};
+
