@@ -1,16 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpLeft, ArrowUpRight } from "react-feather";
-import { Tooltip } from "flowbite-react";
 import { motion } from "framer-motion";
 import { Divider, Button, ButtonGroup } from "@heroui/react";
 import clsx from "clsx";
 
-import { ProjectCard } from "@/components/projectcard";
-import { ProjectCardConfig } from "@/config/projectcardconfig"; // Import the config file
 import { headingsDM, codestuff, nunito, bitter } from "@/config/fonts";
-import { Protimeline as ProTime } from "@/components/protimeline";
-import { jobtimelineConfig, timelineConfig } from "@/config/time";
 import RepoActivityAccordion from "@/components/github-act-accordion";
 export default function ProfessionalInfoPage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -25,16 +20,6 @@ export default function ProfessionalInfoPage() {
         stiffness: 100,
         damping: 10,
         mass: 0.5,
-      },
-    },
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2, // Delay between each card animation
       },
     },
   };
