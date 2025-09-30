@@ -17,21 +17,15 @@ import { useDisclosure } from "@heroui/react";
 
 import { AboutModal } from "./aboutmodal";
 import { siteConfig } from "@/config/site";
-import { TwitterIcon, GithubIcon, LinkedInIcon } from "@/components/icons";
+import { PortfolioIcon } from "@/components/icons";
 import { nunito } from "@/config/fonts";
 import { ArrowUpRight } from "react-feather";
 
 // Extracted Social Links
 const SocialLinks = () => (
   <>
-    <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
-      <TwitterIcon className="text-gray-500" />
-    </Link>
-    <Link isExternal aria-label="LinkedIn" href={siteConfig.links.linkedin}>
-      <LinkedInIcon className="text-gray-500" />
-    </Link>
-    <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-      <GithubIcon className="text-gray-500 " />
+    <Link isExternal aria-label="Twitter" href={siteConfig.links.portfolio}>
+      <PortfolioIcon className="text-stone-700" size={32}   />
     </Link>
   </>
 );

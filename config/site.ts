@@ -10,7 +10,7 @@ export const siteConfig = {
       href: "/",
     },
     {
-      label: "Professional",
+      label: "Good stuff",
       href: "/goodstuff",
     },
     {
@@ -28,8 +28,6 @@ export const siteConfig = {
   ],
 
   links: {
-    github: "https://github.com/apparentlyarhm",
-    twitter: "https://x.com/MohammedArhum",
-    linkedin: "https://www.linkedin.com/in/shaharhum",
+    portfolio: "https://arhm.dev/",
   },
 };
