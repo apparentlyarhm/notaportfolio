@@ -18,23 +18,11 @@ export default function Footer() {
 
   const [data, setData] = useState<any>(null);
 
-  const [callDuration, setCallDuration] = useState<string>("none");
-  const [agentString, setAgentString] = useState<string>("unknown");
 
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
   useEffect(() => {
     const loadData = async () => {
-      const cachedRT = sessionStorage.getItem("lastRT");
-      const cachedAgent = sessionStorage.getItem("lastAgent");
-
-      if (cachedRT) {
-        setCallDuration(cachedRT);
-      }
-      if (cachedAgent) {
-        setAgentString(cachedAgent);
-      }
-
       const cachedData = sessionStorage.getItem("spotifyData");
       const cachedTimestamp = sessionStorage.getItem("spotifyDataTimestamp");
 
@@ -51,25 +39,12 @@ export default function Footer() {
       }
 
       try {
-        const startTime = performance.now();
-        const diaRes = await fetch(`${BASE_URL}/ping`);
-        const endTime = performance.now();
-
-        const duration = Math.round(endTime - startTime).toString();
-        const diaJson = await diaRes.json();
-        const newAgentString = diaJson.agentString || "unknown";
-
-        setCallDuration(duration);
-        setAgentString(newAgentString);
-
         const res = await fetch(`${BASE_URL}/now`);
         const json = await res.json();
         setData(json);
 
         sessionStorage.setItem("spotifyData", JSON.stringify(json));
         sessionStorage.setItem("spotifyDataTimestamp", Date.now().toString());
-        sessionStorage.setItem("lastRT", duration);
-        sessionStorage.setItem("lastAgent", newAgentString);
 
       } catch (err) {
 
@@ -78,18 +53,15 @@ export default function Footer() {
 
     loadData();
   }, []);
-  
+
 
   if (!data?.item) return (
-     <div
+    <div
       className={clsx(
         "text-center items-center flex flex-col gap-1 sm:gap-6 sm:flex-row justify-center sm:py-6 py-3 px-4",
         codestuff.className
-      )} 
-    > 
-    <div className="py-8 px-6 sm:text-xs text-blue-600 text-[10px] border-1 border-blue-600 rounded-3xl">
-      {`Diagnostic: ${callDuration}ms latency via "${agentString}" `}
-    </div>
+      )}
+    >
     </div>
   );
 
@@ -115,9 +87,9 @@ export default function Footer() {
         "text-center flex flex-col gap-3 sm:gap-6 sm:flex-row justify-center border-t rounded-t-3xl border-gray-300 dark:border-gray-900 sm:py-6 py-3 px-4",
         codestuff.className
       )}
-      
+
     >
-    
+
       <div className="justify-start rounded-2xl  border-1 dark:border-gray-500 hover:border-gray-400 dark:hover:border-orange-400 max-w-[500px]">
         <div className="flex items-center justify-center sm:justify-start gap-4 overflow-x-auto p-5">
           {albumImage && (
@@ -153,9 +125,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    <div className="flex items-center text-center justify-center py-8 px-6 sm:text-[12px] text-blue-600 text-[10px] border-1 border-blue-600 rounded-3xl">
-      {`Diagnostic: ${callDuration}ms latency via "${agentString}" `}
-    </div>
     </footer>
   );
 }
