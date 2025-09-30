@@ -6,8 +6,7 @@ import { SwitchProps, useSwitch } from "@heroui/switch";
 import { useTheme } from "next-themes";
 import { useIsSSR } from "@react-aria/ssr";
 import clsx from "clsx";
-
-import { SunFilledIcon, MoonFilledIcon } from "@/components/icons";
+import { GpuIcon, PortfolioIcon } from "./icons";
 
 export interface ThemeSwitchProps {
   className?: string;
@@ -70,10 +69,11 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
           ),
         })}
       >
+        {/* just in case i bring themes back -- filling with random icons */}
         {!isSelected || isSSR ? (
-          <SunFilledIcon size={22} />
+          <PortfolioIcon size={22} />
         ) : (
-          <MoonFilledIcon size={22} />
+          <GpuIcon size={22} />
         )}
       </div>
     </Component>
