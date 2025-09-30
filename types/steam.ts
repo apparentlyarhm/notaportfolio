@@ -1,3 +1,6 @@
+// NOTE: these are ai generated, i was too lazy
+
+
 // --- Profile Data Types ---
 
 // The shape of the 'status' object within a player's profile
