@@ -237,7 +237,7 @@ export default function Portal() {
             >
 
               <p className={clsx("text-4xl md:text-4xl font-black lg:text-5xl tracking-tighter break-words text-left px-6 sm:mb-10", nunito.className)}>
-                {"YOU MADE IT TILL HERE! I planned something cool but it seems its is broken right now :("}
+                {"I planned something cool but it seems its is broken right now :("}
               </p>
 
               <CloudLightning size={120} className="text-gray-300" />
@@ -297,7 +297,7 @@ export default function Portal() {
             transition={{ duration: 0.6 }}
           >
             <p className={clsx("text-3xl md:text-3xl font-black lg:text-4xl tracking-tighter break-words text-left px-3", nunito.className)}>
-              {"YOU MADE IT TILL HERE! as a token of my appreciation, here's a little something"}
+              {"a lil surprise!"}
             </p>
 
             <motion.div
