@@ -7,6 +7,7 @@ import clsx from "clsx";
 
 import { headingsDM, codestuff, nunito, bitter } from "@/config/fonts";
 import RepoActivityAccordion from "@/components/github-act-accordion";
+import SystemInfo from "@/components/specs-ui";
 export default function ProfessionalInfoPage() {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -37,7 +38,13 @@ export default function ProfessionalInfoPage() {
 
   return (
     <div>
-      
+      <div className="sm:p-0 p-2">
+      <SystemInfo isMobile={isMobile} />
+
+      </div>
+      <br />
+      <br />
+
       <motion.h1
         className={clsx(
           "text-4xl md:text-4xl text-start sm:text-center px-3 lg:text-5xl font-black tracking-tight break-words sm:mb-10",
