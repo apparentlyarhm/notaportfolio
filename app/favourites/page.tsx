@@ -25,8 +25,6 @@ export default function BlogPage() {
   const [error, setError] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
-  const [isTimeMenuOpen, setIsTimeMenuOpen] = useState(false);
-
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
   useEffect(() => {
@@ -52,7 +50,7 @@ export default function BlogPage() {
       offset: "0",
     });
 
-    fetch(`${BASE_URL}/top?${params.toString()}`)
+    fetch(`${BASE_URL}/spotify/top?${params.toString()}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch top tracks");

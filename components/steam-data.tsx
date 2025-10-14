@@ -211,7 +211,7 @@ export const SteamComponent = ({ isMobile }: { isMobile: boolean }) => {
     useEffect(() => {
         const fetchSteamData = async () => {
             try {
-                const response = await fetch(`${BASE_URL}/steam?type=all`);
+                const response = await fetch(`${BASE_URL}/steam/summary?type=all`);
 
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);

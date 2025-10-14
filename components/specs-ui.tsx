@@ -33,7 +33,7 @@ export default function SystemInfo({ isMobile }: Props) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch(`${BASE_URL}/report`);
+                const res = await fetch(`${BASE_URL}/misc/report`);
 
                 if (!res.ok) {
                     throw new Error("Failed to fetch system info");

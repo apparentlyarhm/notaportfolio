@@ -4,9 +4,6 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 
 import { codestuff } from "@/config/fonts";
-import { Chip } from "@heroui/react";
-import { Info } from "react-feather";
-
 export default function Footer() {
   function formatTime(ms: number) {
     const totalSeconds = Math.floor(ms / 1000);
@@ -39,7 +36,7 @@ export default function Footer() {
       }
 
       try {
-        const res = await fetch(`${BASE_URL}/now`);
+        const res = await fetch(`${BASE_URL}/spotify/now`);
         const json = await res.json();
         setData(json);
 
