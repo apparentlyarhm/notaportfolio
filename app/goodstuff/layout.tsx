@@ -13,14 +13,14 @@ export default function BlogLayout({
     <>
       <div
         className={clsx(
-          "max-w-[100vw] sm:h-[60vh] h-[40vh] flex items-center justify-center",
+          "max-w-[100vw] sm:h-[60vh] h-[40vh] md:h-[50vh] flex items-center justify-center",
           "bg-[#05061c] rounded-b-3xl" // A classic editor dark color
         )}
       >
 
         <div
           className={clsx(
-            "flex flex-col text-2xl sm:text-6xl font-extrabold gap-2",
+            "flex flex-col text-xl py-5 sm:text-6xl font-extrabold gap-0 sm:gap-2",
             codestuff.className
           )}
         >
@@ -39,7 +39,7 @@ export default function BlogLayout({
               <span className="text-[#c678dd]">&lt;</span>
               <span className="text-[#e06c75]">the</span>{" "}
               <span className="text-[#61afef]">good</span>{" "}
-              <span className="text-[#e06c75]">stuff.</span>{" "}
+              <span className="text-[#e06c75]">stuff</span>{" "}
               <span className="text-[#c678dd]">/&gt;</span>
 
               <span className="inline-block align-middle h-[0.95em] w-1 sm:w-2 ml-2 bg-emerald-400 animate-blink" />
