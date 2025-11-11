@@ -73,7 +73,6 @@ export default function SystemInfo({ isMobile }: Props) {
 
     const specItems = [
         { Icon: ArchitectureIcon, label: "Architecture", value: data.arch },
-        { Icon: OSIcon, label: "OS", value: `${data.os_name} (${data.os_version})` },
         { Icon: CpuIcon, label: "CPU", value: data.cpu },
         { Icon: MemoryIcon, label: "Memory", value: `${data.memory_gb} GB` },
         { Icon: GpuIcon, label: "GPU(s)", value: data.gpus.length > 0 ? data.gpus.join(", ") : "N/A" },
@@ -87,13 +86,14 @@ export default function SystemInfo({ isMobile }: Props) {
                 codestuff.className
             )}
         >
+
             <h1
                 className={clsx(
                     "font-semibold text-gray-800 p-5",
                     isMobile ? "text-md mb-5" : "text-2xl mb-6"
                 )}
             >
-                {`The system Arhum rocks (I checked ${relativeTime})`}
+                {`Currently on ${data.os_name}`}
             </h1>
 
             <div className="overflow-x-auto">
@@ -123,6 +123,9 @@ export default function SystemInfo({ isMobile }: Props) {
                     </tbody>
                 </table>
             </div>
+            <p className={clsx("mt-4 text-gray-400 text-center text-xs")}>
+                {`updated ${relativeTime}`}
+            </p>    
         </div>
     );
 
