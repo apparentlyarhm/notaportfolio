@@ -27,6 +27,8 @@ export default function SystemInfo({ isMobile }: Props) {
     const [data, setData] = useState<SystemInfo | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(true);
+    const [isOffline, setIsOffline] = useState(false);
+
 
     const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -36,6 +38,12 @@ export default function SystemInfo({ isMobile }: Props) {
                 const res = await fetch(`${BASE_URL}/misc/report`);
 
                 if (!res.ok) {
+                    
+                    if (res.status == 404){
+                        setIsOffline(true)
+                        return
+                    }
+
                     throw new Error("Failed to fetch system info");
                 }
 
@@ -65,6 +73,28 @@ export default function SystemInfo({ isMobile }: Props) {
             <></> // not show anything. why show error for a dumbass thing like tis LMOA
         );
 
+    if (isOffline) {
+        return(
+            <div
+            className={clsx(
+                "max-w-xl mx-auto mt-10 border-1 border-gray-300 rounded-3xl bg-gray-50",
+                isMobile ? "py-4" : "p-8",
+                codestuff.className
+            )}
+        >
+            <h1
+                className={clsx(
+                    "font-semibold text-gray-500 p-5",
+                    isMobile ? "text-md" : "text-2xl"
+                )}
+            >
+                {`i'm offline rn`}
+            </h1>
+
+        </div>
+        )
+    }
+
     if (!data) return null;
 
     const relativeTime = formatDistanceToNow(new Date(data.timestamp * 1000), {
@@ -81,7 +111,7 @@ export default function SystemInfo({ isMobile }: Props) {
     return (
         <div
             className={clsx(
-                "max-w-4xl mx-auto mt-10 border-1 border-gray-200 rounded-3xl bg-white",
+                "max-w-4xl mx-auto mt-10 border-1 border-green-500 rounded-3xl bg-green-50",
                 isMobile ? "py-4" : "p-8",
                 codestuff.className
             )}
@@ -89,11 +119,11 @@ export default function SystemInfo({ isMobile }: Props) {
 
             <h1
                 className={clsx(
-                    "font-semibold text-gray-800 p-5",
+                    "font-bold text-green-800 p-5",
                     isMobile ? "text-md mb-5" : "text-2xl mb-6"
                 )}
             >
-                {`Currently on ${data.os_name}`}
+                {`Online, ${data.os_name}`}
             </h1>
 
             <div className="overflow-x-auto">
@@ -103,19 +133,19 @@ export default function SystemInfo({ isMobile }: Props) {
                             <tr
                                 key={label}
                                 className={clsx(
-                                    "border-t border-gray-100 transition-colors hover:bg-gray-50",
+                                    "border-t border-green-100",
                                     index === specItems.length - 1 && "rounded-b-xl"
                                 )}
                             >
                                 <td className="px-4 py-3 flex items-center space-x-3">
                                     <div className="flex-shrink-0 p-2 rounded-full">
-                                        <Icon className="h-5 w-5 text-gray-600" />
+                                        <Icon className="h-5 w-5 text-green-500" />
                                     </div>
-                                    <span className="font-medium sm:text-medium text-xs text-gray-700">
+                                    <span className="font-medium sm:text-medium text-xs text-green-500">
                                         {label}
                                     </span>
                                 </td>
-                                <td className={clsx("px-4 py-3 font-mono sm:text-medium text-xs text-gray-800 tracking-tight text-right")}>
+                                <td className={clsx("px-4 py-3 font-mono sm:text-medium text-xs text-green-800 tracking-tight text-right")}>
                                     {value}
                                 </td>
                             </tr>
@@ -123,7 +153,7 @@ export default function SystemInfo({ isMobile }: Props) {
                     </tbody>
                 </table>
             </div>
-            <p className={clsx("mt-4 text-gray-400 text-center text-xs")}>
+            <p className={clsx("mt-4 text-green-800 text-center text-xs")}>
                 {`updated ${relativeTime}`}
             </p>    
         </div>
